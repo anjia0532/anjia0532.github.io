@@ -14,6 +14,7 @@ script:
 
 after_script:
   - cd ./public
+  - if [ $MY_DOMAIN ]; then echo ${MY_DOMAIN} > CNAME; fi
   - git init
   - git config user.name "anjia0532"
   - git config user.email "anjia0532@gmail.com"
@@ -27,3 +28,4 @@ branches:
 env:
  global:
    - GH_REF: github.com/anjia0532/anjia0532.github.io.git
+   - MY_DOMAIN: anjia.ml
