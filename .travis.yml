@@ -22,7 +22,7 @@ after_script:
   - git add .
   - git commit -m "Update docs"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
-
+  - for i in $(seq 1 $LAST_BUILD_NUMBER ); do  travis logs $i --delete --force ; done
 branches:
   only:
     - blog-source
@@ -30,3 +30,4 @@ env:
  global:
    - GH_REF: github.com/anjia0532/anjia0532.github.io.git
    - MY_DOMAIN: anjia.ml
+   - LAST_BUILD_NUMBER: 1000
