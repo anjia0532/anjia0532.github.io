@@ -7,7 +7,7 @@ title: 家的博客
 subtitle: 心安既吾乡
 description:
 author: 安家
-language: zh-Hans
+language: zh-CN
 timezone:
 email: anjia0532@gmail.com
 keywords: "jhipster,顺能网络,山东顺能网络科技有限公司,开发者,程序员,编程,代码,"
@@ -41,7 +41,7 @@ relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: true
+  line_number: false
   auto_detect: false
   tab_replace:
 
