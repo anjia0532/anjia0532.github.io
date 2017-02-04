@@ -14,7 +14,7 @@ keywords: "jhipster,顺能网络,山东顺能网络科技有限公司,开发者,
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: //anjia.ml
+url: https://anjia.ml
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
