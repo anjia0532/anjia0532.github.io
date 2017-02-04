@@ -1,7 +1,7 @@
 title: hexo搭建博客
 date: 2017-02-03 16:07:16
 tags: [blog,hexo]
-categories: [programming]
+categories: [编程]
 ---
 本文主要讲解如何通过github pages功能从零开始搭建一个炫酷的个人技术博客
 
