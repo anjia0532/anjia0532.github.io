@@ -174,7 +174,7 @@ script:
 after_script:
   - cd ./public
   # 如果设置自定义域名,则自动生成CNAME文件
-  - if [ $MY_DOMAIN ]; then echo ${MY_DOMAIN} > CNAME; fi 
+  - if [ $MY_DOMAIN ]; then echo ${MY_DOMAIN} > CNAME; fi
   - git init
   - git config user.name "${userName}"
   - git config user.email "${email}"
