@@ -4,8 +4,11 @@ date: 2017-02-08 17:44:28
 tags: [synergy]
 categories: [工具]
 ---
+Synergy 可以在多台电脑之间共享鼠标、键盘、剪贴板。开源，跨 Win、Linux、Mac。
 
-具体关于synergy的介绍可以看 [Synergy 一套键鼠同时控制多台电脑的神器！超级方便！开源免费，支持\(Win/Mac/Linux\)](http://www.iplaysoft.com/synergy.html)
+<!-- more -->
+
+具体关于synergy的介绍可以看 [Synergy 一套键鼠同时控制多台电脑的神器！超级方便！开源免费，支持\(Win/Mac/Linux\)](http://www.iplaysoft.com/synergy.html) [Synergy – 教你在局域网中用一套键盘/鼠标控制多台电脑](http://www.appinn.com/synergy/)
 
 >想必很多人都拥有多台电脑，譬如台式机+笔记本，很多时候我们都会同时打开它们工作。可是你有没发现，如果桌子上摆放着多台电脑多套键盘鼠标，不停来回切换使用是否很累呢？如果说现在可以只用一套键鼠，就能同时控制你全部的电脑，你会否兴奋？
 
