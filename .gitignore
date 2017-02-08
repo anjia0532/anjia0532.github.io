@@ -49,3 +49,5 @@ jspm_packages
 hexo_config.yml
 install.md
 next_config.yml
+
+public
