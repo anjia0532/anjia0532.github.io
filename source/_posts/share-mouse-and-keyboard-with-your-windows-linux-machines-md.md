@@ -8,6 +8,8 @@ Synergy 可以在多台电脑之间共享鼠标、键盘、剪贴板。开源，
 
 <!-- more -->
 
+Synergy 需要注意不是远控软件，类似双屏或者KVM切换器，只是共享鼠标和键盘
+
 具体关于synergy的介绍可以看 [Synergy 一套键鼠同时控制多台电脑的神器！超级方便！开源免费，支持\(Win/Mac/Linux\)](http://www.iplaysoft.com/synergy.html) [Synergy – 教你在局域网中用一套键盘/鼠标控制多台电脑](http://www.appinn.com/synergy/)
 
 >想必很多人都拥有多台电脑，譬如台式机+笔记本，很多时候我们都会同时打开它们工作。可是你有没发现，如果桌子上摆放着多台电脑多套键盘鼠标，不停来回切换使用是否很累呢？如果说现在可以只用一套键鼠，就能同时控制你全部的电脑，你会否兴奋？
@@ -37,7 +39,7 @@ Synergy 可以在多台电脑之间共享鼠标、键盘、剪贴板。开源，
 
 **千万注意安装和运行时，退出360，否则会卡死，妈的，被坑的很惨**
 
-![360sb](https://ooo.0o0.ooo/2017/02/08/589af1a1142be.png)
+![360sb](https://ooo.0o0.ooo/2017/02/09/589bcf5446e43.png)
 
 ### 安装步骤
 
@@ -74,8 +76,13 @@ sudo dpkg -i synergy-master-stable-a5140aa-Linux-x86_64.deb
 nohup synergy &
 ```
 
+![2017-02-09 09-40-58屏幕截图.png](https://ooo.0o0.ooo/2017/02/09/589bcf5467e12.png)
+
 synergy启动后取消自动配置，手动填写server ip
 
 **注意如果在server端未设置client，client会一直报错**
 
 
+**client和server需要在一个局域网里，否则无法连接。如果网速慢的话，server控制client会出现卡顿现象**
+
+**如果在一个局域网但是不是一个网段，无法直接ping通可以通过端口映射e.g.  Ngrok等软件进行端口映射 **
