@@ -8,7 +8,7 @@ Synergy 可以在多台电脑之间共享鼠标、键盘、剪贴板。开源，
 
 <!-- more -->
 
-Synergy 需要注意不是远控软件，类似双屏或者KVM切换器，只是共享鼠标和键盘
+Synergy 需要注意不是远控软件，类似双屏或者KVM切换器，只是共享鼠标和键盘.
 
 具体关于synergy的介绍可以看 [Synergy 一套键鼠同时控制多台电脑的神器！超级方便！开源免费，支持\(Win/Mac/Linux\)](http://www.iplaysoft.com/synergy.html) [Synergy – 教你在局域网中用一套键盘/鼠标控制多台电脑](http://www.appinn.com/synergy/)
 
