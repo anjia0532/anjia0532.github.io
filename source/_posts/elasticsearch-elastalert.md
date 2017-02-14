@@ -1,17 +1,17 @@
 ---
-title: ElastAlert--»ùÓÚElasticsearchµÄ¼à¿Ø¸æ¾¯
+title: ElastAlert åŸºäºElasticsearchçš„ç›‘æ§å‘Šè­¦
 date: 2017-02-14 08:27:47
 tags: [elk,elkstasck,ElastAlert]
 categories: [elkstasck]
 ---
 
-ElastalertÊÇYelp¹«Ë¾ÓÃpython2Ğ´µÄÒ»¸ö±¨¾¯¿ò¼Ü(Ä¿Ç°Ö§³Öpython2.6ºÍ2.7£¬²»Ö§³Ö3.x),githubµØÖ·Îª [https://github.com/Yelp/elastalert](https://github.com/Yelp/elastalert)
+Elastalertæ˜¯Yelpå…¬å¸ç”¨python2å†™çš„ä¸€ä¸ªæŠ¥è­¦æ¡†æ¶(ç›®å‰æ”¯æŒpython2.6å’Œ2.7ï¼Œä¸æ”¯æŒ3.x),githubåœ°å€ä¸º [https://github.com/Yelp/elastalert](https://github.com/Yelp/elastalert)
 
 <!-- more -->
 
-## »·¾³
+## ç¯å¢ƒ
 
-Ubuntu 16.10(ÄÚºË 4.8.0-37-generic)
+Ubuntu 16.10(å†…æ ¸ 4.8.0-37-generic)
 
 elasticsearch 5.2.0
 
@@ -19,9 +19,9 @@ logstash 5.2.0
 
 kibana 5.2.0
 
-## ÒÀÀµ
+## ä¾èµ–
 
-²Î¼û [http://elastalert.readthedocs.io/en/latest/running_elastalert.html#requirements](http://elastalert.readthedocs.io/en/latest/running_elastalert.html#requirements)
+å‚è§ [http://elastalert.readthedocs.io/en/latest/running_elastalert.html#requirements](http://elastalert.readthedocs.io/en/latest/running_elastalert.html#requirements)
 
 - Elasticsearch
 - ISO8601 or Unix timestamped data
@@ -29,46 +29,46 @@ kibana 5.2.0
 - pip, see requirements.txt
 
 
-## °²×°Elastalert
+## å®‰è£…Elastalert
 
-°²×°Ö®Ç°ÏÈÔËĞĞ `python --version`²é¿´pythonµÄ°æ±¾
+å®‰è£…ä¹‹å‰å…ˆè¿è¡Œ `python --version`æŸ¥çœ‹pythonçš„ç‰ˆæœ¬
 
 ```bash
 python --version
 
 Python 2.7.12+
 
-#Èç¹û2.6»òÕß2.7ÔòÕı³££¬Èç¹ûÊÇ3.xÔòĞèÒª¸Ä³Épython2.x
-#¼ÙÉè±¾»ú×°ÁËpython 2ºÍ3 ¿ÉÒÔ½«/usr/bin/pythonµÄÈíÁ¬½ÓÖ¸Ïò python2
+#å¦‚æœ2.6æˆ–è€…2.7åˆ™æ­£å¸¸ï¼Œå¦‚æœæ˜¯3.xåˆ™éœ€è¦æ”¹æˆpython2.x
+#å‡è®¾æœ¬æœºè£…äº†python 2å’Œ3 å¯ä»¥å°†/usr/bin/pythonçš„è½¯è¿æ¥æŒ‡å‘ python2
 ```
 
 ```bash
-# ÏÂÔØ×îĞÂelastalert
+# ä¸‹è½½æœ€æ–°elastalert
 git clone https://github.com/Yelp/elastalert.git
 
-# °²×°Ä£¿é
+# å®‰è£…æ¨¡å—
 sudo python setup.py install
 
 sudo pip install -r requirements.txt
 
 ```
 
-°²×°Íêºó£¬»áÔÚ /usr/local/bin/ ÏÂÉú³É4¸öelastalertÃüÁî
+å®‰è£…å®Œåï¼Œä¼šåœ¨ /usr/local/bin/ ä¸‹ç”Ÿæˆ4ä¸ªelastalertå‘½ä»¤
 ```bash
 
 $ ll /usr/local/bin/elastalert*
--rwxr-xr-x 1 root root 396 2ÔÂ  14 10:03 /usr/local/bin/elastalert
--rwxr-xr-x 1 root root 422 2ÔÂ  14 10:03 /usr/local/bin/elastalert-create-index
--rwxr-xr-x 1 root root 430 2ÔÂ  14 10:03 /usr/local/bin/elastalert-rule-from-kibana
--rwxr-xr-x 1 root root 416 2ÔÂ  14 10:03 /usr/local/bin/elastalert-test-rule
+-rwxr-xr-x 1 root root 396 2æœˆ  14 10:03 /usr/local/bin/elastalert
+-rwxr-xr-x 1 root root 422 2æœˆ  14 10:03 /usr/local/bin/elastalert-create-index
+-rwxr-xr-x 1 root root 430 2æœˆ  14 10:03 /usr/local/bin/elastalert-rule-from-kibana
+-rwxr-xr-x 1 root root 416 2æœˆ  14 10:03 /usr/local/bin/elastalert-test-rule
 
 ```
 
-## ÉèÖÃelasticsearchË÷Òı
+## è®¾ç½®elasticsearchç´¢å¼•
 
-²Î¼û [setting-up-elasticsearch][setting-up-elasticsearch] 
+å‚è§ [setting-up-elasticsearch][setting-up-elasticsearch] 
 
-`elastalert-create-index` Õâ¸öÃüÁî»áÔÚelasticsearch´´½¨Ë÷Òı£¬Õâ²»ÊÇ±ØĞëµÄ²½Öè£¬µ«ÊÇÇ¿ÁÒ½¨Òé´´½¨¡£ÒòÎª¶ÔÓÚ£¬Éó¼Æ£¬²âÊÔºÜÓĞÓÃ£¬²¢ÇÒÖØÆôelastalert²»Ó°Ïì¼ÆÊıºÍ·¢ËÍ`alert`,Ä¬ÈÏÇé¿öÏÂ£¬´´½¨µÄË÷Òı½Ğ `elastalert_status`
+`elastalert-create-index` è¿™ä¸ªå‘½ä»¤ä¼šåœ¨elasticsearchåˆ›å»ºç´¢å¼•ï¼Œè¿™ä¸æ˜¯å¿…é¡»çš„æ­¥éª¤ï¼Œä½†æ˜¯å¼ºçƒˆå»ºè®®åˆ›å»ºã€‚å› ä¸ºå¯¹äºï¼Œå®¡è®¡ï¼Œæµ‹è¯•å¾ˆæœ‰ç”¨ï¼Œå¹¶ä¸”é‡å¯elastalertä¸å½±å“è®¡æ•°å’Œå‘é€`alert`,é»˜è®¤æƒ…å†µä¸‹ï¼Œåˆ›å»ºçš„ç´¢å¼•å« `elastalert_status`
 
 ```bash
 $ elastalert-create-index
@@ -78,9 +78,9 @@ New index elastalert_status created
 Done!
 ```
 
-¾ßÌåÉú³ÉµÄÊı¾İ£¬Çë²Î¼û [ElastAlert Metadata Index][metadata]
+å…·ä½“ç”Ÿæˆçš„æ•°æ®ï¼Œè¯·å‚è§ [ElastAlert Metadata Index][metadata]
 
-## ÉèÖÃÅäÖÃÎÄ¼şºÍ¹æÔòRule
+## è®¾ç½®é…ç½®æ–‡ä»¶å’Œè§„åˆ™Rule
 
 ```bash
 cp ~/elastalert/config.yaml.example ~/elastalert/config.yaml
@@ -141,19 +141,19 @@ alert_time_limit:
 ```
 
 ```bash
-#×¢Òâ½«${userName}Ìæ»»³É¾ßÌåÓÃ»§Ãû
+#æ³¨æ„å°†${userName}æ›¿æ¢æˆå…·ä½“ç”¨æˆ·å
 vi /home/${userName}/elastalert/example_rules/smtp_auth_file.yaml
 ```
 ```yaml
-#·¢ËÍÓÊ¼şµÄÓÊÏä
+#å‘é€é‚®ä»¶çš„é‚®ç®±
 user: xxx@163.com
-#²»ÊÇÓÊÏäÃÜÂë£¬ÊÇÉèÖÃµÄPOP3ÃÜÂë
+#ä¸æ˜¯é‚®ç®±å¯†ç ï¼Œæ˜¯è®¾ç½®çš„POP3å¯†ç 
 password: xxx
 ```
 ```bash
 vi ~/elastalert/example_rules/example_frequency.yaml
 ```
-²Î¼û [creating-a-rule][creating-a-rule]
+å‚è§ [creating-a-rule][creating-a-rule]
 ```yaml
 # From example_rules/example_frequency.yaml
 #es_host: elasticsearch.example.com
@@ -161,11 +161,11 @@ vi ~/elastalert/example_rules/example_frequency.yaml
 name: Example rule
 type: frequency
 index: logstash-*
-#ÏŞ¶¨Ê±¼äÄÚ£¬·¢ÉúÊÂ¼ş´ÎÊı
+#é™å®šæ—¶é—´å†…ï¼Œå‘ç”Ÿäº‹ä»¶æ¬¡æ•°
 num_events: 1
-#ÏŞ¶¨Ê±¼ä¿Ì¶È
+#é™å®šæ—¶é—´åˆ»åº¦
 timeframe:
-    #1·ÖÖÓ
+    #1åˆ†é’Ÿ
     minutes: 1
 
 filter:
@@ -173,18 +173,18 @@ filter:
     query_string:
       query: "field: value"
 
-#SMTPĞ­ÒéµÄÓÊ¼ş·şÎñÆ÷Ïà¹ØÅäÖÃ
-#smtp.163.comÊÇÍøÒ×163ÓÊÏäµÄsmtp·şÎñÆ÷
-#µÇÂ½163ÓÊÏäºó£¬ÕÒµ½ ¡¾ÉèÖÃ¡¿>¡¾POP3/SMTP/IMAP¡¿>¿ªÆô£¬È»ºóÉèÖÃ¡¾¿Í»§¶ËÊÚÈ¨ÃÜÂë¡¿
+#SMTPåè®®çš„é‚®ä»¶æœåŠ¡å™¨ç›¸å…³é…ç½®
+#smtp.163.comæ˜¯ç½‘æ˜“163é‚®ç®±çš„smtpæœåŠ¡å™¨
+#ç™»é™†163é‚®ç®±åï¼Œæ‰¾åˆ° ã€è®¾ç½®ã€‘>ã€POP3/SMTP/IMAPã€‘>å¼€å¯ï¼Œç„¶åè®¾ç½®ã€å®¢æˆ·ç«¯æˆæƒå¯†ç ã€‘
 smtp_host: smtp.163.com
 smtp_port: 25
 
-#ÓÃ»§ÈÏÖ¤ÎÄ¼ş£¬ĞèÒªuserºÍpasswordÁ½¸öÊôĞÔ
-#×¢Òâ½«${userName}Ìæ»»³É¾ßÌåÓÃ»§Ãû
+#ç”¨æˆ·è®¤è¯æ–‡ä»¶ï¼Œéœ€è¦userå’Œpasswordä¸¤ä¸ªå±æ€§
+#æ³¨æ„å°†${userName}æ›¿æ¢æˆå…·ä½“ç”¨æˆ·å
 smtp_auth_file: /home/${userName}/elastalert/example_rules/smtp_auth_file.yaml
-#»Ø¸´¸øÄÇ¸öÓÊÏä
+#å›å¤ç»™é‚£ä¸ªé‚®ç®±
 email_reply_to: xxx@163.com
-#´ÓÄÄ¸öÓÊÏä·¢ËÍ
+#ä»å“ªä¸ªé‚®ç®±å‘é€
 from_addr: xxx@163.com
 
 # (Required)
@@ -195,21 +195,21 @@ alert:
 # (required, email specific)
 # a list of email addresses to send alerts to
 email:
-#½ÓÊÕ±¨¾¯ÓÊ¼şµÄÓÊÏä
+#æ¥æ”¶æŠ¥è­¦é‚®ä»¶çš„é‚®ç®±
 - "xxxx@qq.com"
 ```
 
-## ²âÊÔ¹æÔò
+## æµ‹è¯•è§„åˆ™
 
-²Î¼û [Testing Your Rule][testing-your-rule]
+å‚è§ [Testing Your Rule][testing-your-rule]
 
 ```bash
 elastalert-test-rule ~/elastalert/example_rules/example_frequency.yaml
 ```
 
-¾ßÌåÅäÖÃ£¬²Î¼û [commonconfig][commonconfig]
+å…·ä½“é…ç½®ï¼Œå‚è§ [commonconfig][commonconfig]
 
-## ÔËĞĞ
+## è¿è¡Œ
 ```bash
 $ cd ~/elastalert
 $ python -m elastalert.elastalert --verbose --rule example_frequency.yaml
@@ -226,12 +226,12 @@ $ curl -X POST "http://127.0.0.1:9200/logstash-2017.02.14/test"  -d '{
 "field": "value"
 }'
 
-# ·µ»Ø {"_index":"logstash-2017.02.14","_type":"test","_id":"AVo6oVCnFreCcJPhQqgX","_version":1,"result":"created","shards":{"total":2,"successful":1,"failed":0},"created":true}
+# è¿”å› {"_index":"logstash-2017.02.14","_type":"test","_id":"AVo6oVCnFreCcJPhQqgX","_version":1,"result":"created","shards":{"total":2,"successful":1,"failed":0},"created":true}
 
 ```
-**@timestampµÄÊ±¼äÊÇUTCÊ±¼ä£¬»»Ëã·½Ê½±±¾©Ê±¼ä£¨¶«°ËÇø£©¼õ8Ğ¡Ê±£¬ÀıÈç2017-02-14 11:21:50µÄUTCÊ±¼äÊÇ 2017-02-14 03:21:50**
+**@timestampçš„æ—¶é—´æ˜¯UTCæ—¶é—´ï¼Œæ¢ç®—æ–¹å¼åŒ—äº¬æ—¶é—´ï¼ˆä¸œå…«åŒºï¼‰å‡8å°æ—¶ï¼Œä¾‹å¦‚2017-02-14 11:21:50çš„UTCæ—¶é—´æ˜¯ 2017-02-14 03:21:50**
 ```bash
-Èç¹ûÕı³££¬»áÊä³öÈçÏÂĞÅÏ¢
+å¦‚æœæ­£å¸¸ï¼Œä¼šè¾“å‡ºå¦‚ä¸‹ä¿¡æ¯
 
 INFO:elastalert:Queried rule Example rule from 2017-02-14 11:08 CST to 2017-02-14 11:19 CST: 2 / 2 hits
 INFO:elastalert:Alert for Example rule at 2017-02-14T03:10:46Z:
@@ -255,7 +255,7 @@ INFO:elastalert:Sleeping for 59 seconds
 
 ## Alert
 
-![³É¹¦±¨¾¯](https://ooo.0o0.ooo/2017/02/14/58a27e882df14.png)
+![æˆåŠŸæŠ¥è­¦](https://ooo.0o0.ooo/2017/02/14/58a27e882df14.png)
 
 [setting-up-elasticsearch]: http://elastalert.readthedocs.io/en/latest/running_elastalert.html#setting-up-elasticsearch
 [metadata]: http://elastalert.readthedocs.io/en/latest/elastalert_status.html#metadata
