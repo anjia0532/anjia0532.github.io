@@ -49,7 +49,7 @@ Synergy 需要注意不是远控软件，类似双屏或者KVM切换器，只是
 
 ### 设置服务器
 
-![synergy2.png](https://ooo.0o0.ooo/2017/02/08/589af40123cb3.png)
+![设置服务器](https://ooo.0o0.ooo/2017/02/14/58a25ac9a4796.png)
 
 ## 安装Ubuntu
 
@@ -76,13 +76,12 @@ sudo dpkg -i synergy-master-stable-a5140aa-Linux-x86_64.deb
 nohup synergy &
 ```
 
-![2017-02-09 09-40-58屏幕截图.png](https://ooo.0o0.ooo/2017/02/09/589bcf5467e12.png)
+![设置客户端](https://ooo.0o0.ooo/2017/02/14/58a25ac9a6991.png)
 
 synergy启动后取消自动配置，手动填写server ip
 
-**注意如果在server端未设置client，client会一直报错**
+**注意如果在server端未设置client，client会一直报错 **
 
-
-**client和server需要在一个局域网里，否则无法连接。如果网速慢的话，server控制client会出现卡顿现象**
+**client和server需要在一个局域网里，否则无法连接。如果网速慢的话，server控制client会出现卡顿现象 **
 
 **如果在一个局域网但是不是一个网段，无法直接ping通可以通过端口映射e.g.  Ngrok等软件进行端口映射 **
