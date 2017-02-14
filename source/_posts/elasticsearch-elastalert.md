@@ -231,7 +231,7 @@ $ curl -X POST "http://127.0.0.1:9200/logstash-2017.02.14/test"  -d '{
 ```
 **@timestamp的时间是UTC时间，换算方式北京时间（东八区）减8小时，例如2017-02-14 11:21:50的UTC时间是 2017-02-14 03:21:50**
 ```bash
-如果正常，会输出如下信息
+#如果正常，会输出如下信息
 
 INFO:elastalert:Queried rule Example rule from 2017-02-14 11:08 CST to 2017-02-14 11:19 CST: 2 / 2 hits
 INFO:elastalert:Alert for Example rule at 2017-02-14T03:10:46Z:

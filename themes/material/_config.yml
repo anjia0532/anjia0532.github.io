@@ -44,7 +44,7 @@ js_effect:
 # markdown available value:
 #     Material | Github | Plain
 reading:
-    markdown: Github
+    markdown: Material
     entry_excerpt: 80
     code_highlight: androidstudio
 
@@ -135,7 +135,7 @@ qrcode: true
 comment:
     use: duoshuo
     shortname: anjia
-    duoshuo_thread_key_type: d38a31abc602704745d637c58dd63de9
+    duoshuo_thread_key_type: path
     duoshuo_embed_js_url: "https://static.duoshuo.com/embed.js"
 
 # Search Systems
