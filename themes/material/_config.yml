@@ -44,7 +44,7 @@ js_effect:
 # markdown available value:
 #     Material | Github | Plain
 reading:
-    markdown: Material
+    markdown: Github
     entry_excerpt: 80
     code_highlight: androidstudio
 

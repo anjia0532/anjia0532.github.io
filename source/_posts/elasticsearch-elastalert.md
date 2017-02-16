@@ -34,7 +34,7 @@ kibana 5.2.0
 安装之前先运行 `python --version`查看python的版本
 
 ```bash
-python --version
+$ python --version
 
 Python 2.7.12+
 
@@ -42,14 +42,15 @@ Python 2.7.12+
 #假设本机装了python 2和3 可以将/usr/bin/python的软连接指向 python2
 ```
 
+下载最新elastalert并安装模块
+
 ```bash
-# 下载最新elastalert
-git clone https://github.com/Yelp/elastalert.git
 
-# 安装模块
-sudo python setup.py install
+$ git clone https://github.com/Yelp/elastalert.git
 
-sudo pip install -r requirements.txt
+$ sudo python setup.py install
+
+$ sudo pip install -r requirements.txt
 
 ```
 
@@ -83,8 +84,9 @@ Done!
 ## 设置配置文件和规则Rule
 
 ```bash
-cp ~/elastalert/config.yaml.example ~/elastalert/config.yaml
-vi ~/elastalert/config.yaml
+$ cp ~/elastalert/config.yaml.example ~/elastalert/config.yaml
+
+$ vi ~/elastalert/config.yaml
 ```
 
 ```yaml
