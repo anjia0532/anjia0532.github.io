@@ -36,6 +36,9 @@ Email 优点是免费，可追溯(不手动删除情况下),配置方便。缺�
 2. ElastAlert 0.1.8
 
 ### 步骤
+
+具体ElastAlert安装以及使用Email报警，参见我写的另外一篇文章 [ElastAlert 基于Elasticsearch的监控告警](https://anjia.ml/2017/02/14/elasticsearch-elastalert/)
+
 ```bash
 $ cd ~/
 
@@ -112,9 +115,9 @@ INFO:elastalert:Sleeping for 57 seconds
 
 部分代码参考 [python与shell通过微信企业号发送消息][python-shell-wechat]
 
-##ElastAlert Command之java版
+## ElastAlert Command之java版
 
-###准备工作
+### 准备工作
 1. [申请企业号][weixin-qiye] 具体自行百度
 2. [安装Git][git]
 3. [Java 1.8+][jdk]
