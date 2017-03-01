@@ -301,8 +301,10 @@ if (logger.isInfoEnabled()){
 
 **强烈建议阅读此文** [写给开发者：记录日志的10个建议](http://blog.jobbole.com/52018/) 英语原文(需翻墙)[The 10 Commandments of Logging](http://www.masterzen.fr/2013/01/13/the-10-commandments-of-logging/)
 
+以及 简书上的[LOG使用规范（整理）](http://www.jianshu.com/p/8551fe9c6354)
+
 摘录其中部分内容
-> ####2. 你应在适当级别上进行log
+> #### 2. 你应在适当级别上进行log
 
 >TRACE level: 如果使用在生产环境中，这是一个代码异味(code smell)。它可以用于开发过程中追踪bug，但不要提交到你的版本控制系统
 
@@ -318,11 +320,11 @@ if (logger.isInfoEnabled()){
 
 >FATAL level: 末日来了。它极少被用到，在实际程序中也不应该出现多少。在这个级别上进行log意味着程序要结束了。例如一个网络守护进程无法bind到socket上，那么它唯一能做的就只有log到这里，然后退出运行。
 
-> ####4. 你应该写有意义的log
+> #### 4. 你应该写有意义的log
 
-> ####6. 你应该给log带上上下文
+> #### 6. 你应该给log带上上下文
 
-> ####7. 你应该用机器可解析的格式来打日志
+> #### 7. 你应该用机器可解析的格式来打日志
 
 对于需要打印的对象，一定注意重载对象的toString方法，或者使用commons-lang3包下的 `ReflectionToStringBuilder.toString()`和`new ToStringBuilder()`
 
