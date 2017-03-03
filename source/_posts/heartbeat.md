@@ -130,7 +130,7 @@ Boolean值，如果指定了host，是否使用ipv4协议进行pin，默认为tr
 `any`或者`all`,默认为`any`。如果是`any`，监控器对指定的主机名只ping一个ip地址。如果是`all`，则ping所有dns能解析出来的ip地址。对于负载均衡监控很有用
 
 ###### watch.poll_file
-!> 此为实验功能。未来可能更改或删除
+**此为实验功能。未来可能更改或删除**
 
 这是JSON格式的监控器配置文件。可以包含多个需要监控的对象。Heartbeat定期检查此文件。Heartbeat会合并heartbeat.yml和json中的配置，有新增的则新增监控实例。josn文件中删除实例后，heartbeat会停止监控该实例。
 
@@ -309,7 +309,7 @@ output.elasticsearch:
 
 如果是要输出到Logstash，参见[配置Heartbeat使用Logstash][config-heartbeat-logstash]
 
-!> 如果要测试配置，在heartbeat可执行目录下，运行`./heartbeat -configtest -e`
+*如果要测试配置，在heartbeat可执行目录下，运行`./heartbeat -configtest -e`*
 
 # 运行Heartbeat
 
@@ -334,11 +334,11 @@ net start heartbeat
 ```
 Windows默认将log输出在`${Heartbeat_home}\Logs`文件夹
 
-?> 目前为止，Heartbeat已经开始检查你的服务状态并且发送相应的数据到你定义的输出点了(logstash/elasticsearch)
+*目前为止，Heartbeat已经开始检查你的服务状态并且发送相应的数据到你定义的输出点了(logstash/elasticsearch)*
 
 # 命令行选项
 
-?> 命令行运行`./heartbeat -h`查看完整的选项列表
+*命令行运行`./heartbeat -h`查看完整的选项列表*
 
 `-E <setting>=<value>`
 
@@ -403,6 +403,98 @@ Windows默认将log输出在`${Heartbeat_home}\Logs`文件夹
 
 本文只是针对官网文档进行了部分翻译。其他像是[输出到logstash,redis等配置信息][configuring-howto-heartbeat]以及[Processors][configuration-processors]部分[Exported Fields][exported-fields]部分,[Securing Heartbeat][securing-heartbeat]暂不翻译
 
+
+# Heartbeat+ElastAlert 心跳报警
+ElastAlert如何使用， [参见另外一篇文章][_elastalert] 。
+
+监控服务(主机能否ping通，端口是否开放，http响应是否合法)。使用Heartbeat如果up=true则说明验证通过。服务可用。[common fields#_up][common_fields_up] 。
+
+使用ElastAlert的[change rule][change_rule]。具体示例参见 `example_rules/example_change.yaml`文件。为啥用change rule，是因为一般服务就两种状态，up/down 我们只需要在状态切换(可用->不可用/不可用->可用)时获取到通知即可
+
+我的配置如下
+
+```yaml
+# Alert when some field changes between documents
+# This rule would alert on documents similar to the following:
+# {'username': 'bob', 'country_name': 'USA', '@timestamp': '2014-10-15T00:00:00'}
+# {'username': 'bob', 'country_name': 'Russia', '@timestamp': '2014-10-15T05:00:00'}
+# Because the user (query_key) bob logged in from different countries (compare_key) in the same day (timeframe)
+
+# (Optional)
+# Elasticsearch host
+# es_host: elasticsearch.example.com
+
+# (Optional)
+# Elasticsearch port
+# es_port: 14900
+
+# (Optional) Connect with SSL to Elasticsearch
+#use_ssl: True
+
+# (Optional) basic-auth username and password for elasticsearch
+#es_username: someusername
+#es_password: somepassword
+
+# (Required)
+# Rule name, must be unique
+name: heartbeat-monitor
+
+# (Required)
+# Type of alert.
+# the change rule will alert when a certain field changes in two documents within a timeframe
+type: change
+
+# (Required)
+# Index to search, wildcard supported
+index: heartbeat-*
+
+# (Required, change specific)
+# The field to look for changes in
+compare_key: up
+
+# (Required, change specific)
+# Ignore documents without the compare_key (country_name) field
+ignore_null: true
+
+# (Required, change specific)
+# The change must occur in two documents with the same query_key
+query_key: monitor
+
+# (Required, change specific)
+# The value of compare_key must change in two events that are less than timeframe apart to trigger an alert
+num_events: 1
+timeframe:
+    minutes: 1
+
+# (Required)
+# The alert is use when a match is found
+alert:
+#- "email"
+#- "debug"
+- "elastalert_modules.wechat_qiye_alert.WeChatAlerter"
+
+#后台登陆后【设置】->【权限管理】->【普通管理组】->【创建并设置通讯录和应用权限】->【CorpID，Secret】
+#设置微信企业号的appid
+corp_id: xxx
+#设置微信企业号的Secret
+secret: xxx
+#后台登陆后【应用中心】->【选择应用】->【应用id】
+#设置微信企业号应用id
+agent_id: xxx
+#如果标签下无用户，则推送到部门
+#party_id: xxx
+#如果标签下无用户，则推送到用户
+#user_id: xxx
+
+tag_id: xxx
+```
+
+不过elastalert有个代码逻辑错误。我已提交[Pull request#926][pr]和[Issue#925][issues] 。 如果官方不采纳的话，可以手动修改`elastalert\ruletypes.py#L135`将 `not val`改成 `val is None`具体原因参见[Issue#925][issues]
+
+如果正常的话，先将Heartbeat监听的服务启动，输出到Elasticsearch后，再停用。再次写入到Elasticsearch后。Elastalert控制台也会提示`xx hits/xx hits`并发送微信。
+
+![snipaste20170303_134853.png](https://ooo.0o0.ooo/2017/03/03/58b9040175781.png)
+
 [downloads]: https://www.elastic.co/downloads/beats/heartbeat
 [nssm]: http://nssm.cc/download
 [overview]: https://www.elastic.co/guide/en/beats/heartbeat/current/heartbeat-overview.html
@@ -414,3 +506,8 @@ Windows默认将log输出在`${Heartbeat_home}\Logs`文件夹
 [exported-fields]: https://www.elastic.co/guide/en/beats/heartbeat/current/exported-fields.html
 [securing-heartbeat]: https://www.elastic.co/guide/en/beats/heartbeat/current/securing-heartbeat.html
 [configuration-processors]: https://www.elastic.co/guide/en/beats/heartbeat/current/configuration-processors.html
+[_elastalert]: https://anjia.ml/2017/03/03/heartbeat/
+[change_rule]: https://elastalert.readthedocs.io/en/latest/ruletypes.html#change
+[common_fields_up]: https://www.elastic.co/guide/en/beats/heartbeat/current/exported-fields-common.html#_up
+[pr]: https://github.com/Yelp/elastalert/pull/926
+[issues]: https://github.com/Yelp/elastalert/issues/925
