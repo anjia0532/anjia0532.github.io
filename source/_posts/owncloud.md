@@ -246,9 +246,9 @@ upload_tmp_dir = /tmp/owncloud
 
 ### 启动服务
 ```bash
-$ sudo service php7.0-fpm start
+$ sudo service php7.0-fpm restart
 
-$ sudo service nginx stop
+$ sudo service nginx restart
 ```
 
 ### 配置
