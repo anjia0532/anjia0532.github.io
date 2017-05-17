@@ -105,3 +105,9 @@ export PATH=$JAVA_HOME/bin:$PATH
 #使配置生效
 $ source /etc/profile
 ```
+
+本人原创
+
+博客 https://anjia.ml/2017/05/17/jdk-zip/
+简书 http://www.jianshu.com/p/5dc20d5d4f5c
+掘金 https://juejin.im/post/591bdb222f301e006bcde36b
