@@ -4,7 +4,7 @@ date: 2017-06-21 10:11:46
 tags: [nginx,logstash,elk,elkstack]
 categories: [nginx]
 ---
-在使用nginx记录访问日志时，发现在含有`request_body`的 `PUT`,`POST` 请求时，日志中会含有 `\x22``\x9B``\x5C``\x09``\x08` 字符，不利于阅读和处理。
+在使用nginx记录访问日志时，发现在含有`request_body`的 `PUT`,`POST` 请求时，日志中会含有 `\x22` `\x9B` `\x5C` `\x09` `\x08` 字符，不利于阅读和处理。
 
 <!-- more -->
 
