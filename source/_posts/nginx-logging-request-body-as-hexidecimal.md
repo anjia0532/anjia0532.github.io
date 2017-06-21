@@ -30,8 +30,16 @@ categories: [nginx]
 
 如果是老版本的，linux可以考虑使用`shell`命令替换，`logstash`可以考虑使用`ruby`处理 ，参考 [Optionally support handling of \x escape codes][linkOptionallySupportHandlingOf\xEscape]
 
+博客 [https://anjia.ml/2017/06/21/nginx-logging-request-body-as-hexidecimal/][blog]
+简书 [http://www.jianshu.com/p/8409f28f32e9][jianshu]
+掘金 [https://juejin.im/post/5949e0f7128fe1006a627cc0][juejin]
+
+
 [link9MethodDefinitions]: https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
 [linkPayloadsOfHttpRequestMethods]: https://stackoverflow.com/questions/5905916/payloads-of-http-request-methods#answer-5928241
 [linkHowToGenerateAJsonLogFromNginx?]: https://stackoverflow.com/questions/25049667/how-to-generate-a-json-log-from-nginx#answer-42564710
 [ngx_http_log_module]: http://nginx.org/en/docs/http/ngx_http_log_module.html#log_format
 [linkOptionallySupportHandlingOf\xEscape]: https://github.com/logstash-plugins/logstash-codec-json/issues/2
+[jianshu]: http://www.jianshu.com/p/8409f28f32e9
+[juejin]: https://juejin.im/post/5949e0f7128fe1006a627cc0
+[blog]: https://anjia.ml/2017/06/21/nginx-logging-request-body-as-hexidecimal/
