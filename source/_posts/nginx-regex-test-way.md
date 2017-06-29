@@ -1,8 +1,8 @@
 ---
 title: nginx正则表达式快捷测试方法
 date: 2017-06-29 16:03:19
-tags:[nginx]
-categories:[nginx]
+tags: [nginx]
+categories: [nginx]
 ---
 之前在配置时都是本地起一个nginx服务，修改`location`规则,然后`nginx -s reload` 或则 `service nginx reload`不断尝试来判断是否符合预期。显而易见，效率极低。使用一些在线正则表达式测试(e.g. [在线工具](http://tool.oschina.net/regex/))又因为使用的库不同，多少存在差异。
 
@@ -65,3 +65,10 @@ $ echo 'a.gif' | grep -P -o '\.(jp?g|gif|bmp|png)'
 [汤姆的猫-Perl入门（四）Perl的正则表达式](http://blog.csdn.net/sunshoupo211/article/details/31769837)
 
 
+博客 [https://anjia.ml/2017/06/29/nginx-regex-test-way/][blog]
+简书 [http://www.jianshu.com/p/17eb0ba22ff6][jianshu]
+掘金 [https://juejin.im/post/5954ad1b5188250d8f602bca][juejin]
+
+[jianshu]: http://www.jianshu.com/p/17eb0ba22ff6
+[juejin]: https://juejin.im/post/5954ad1b5188250d8f602bca
+[blog]: https://anjia.ml/2017/06/29/nginx-regex-test-way/
