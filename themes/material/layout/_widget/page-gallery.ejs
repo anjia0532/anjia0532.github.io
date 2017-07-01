@@ -1,4 +1,8 @@
-<%- css("css/gallery.min") %>
+<% if(theme.materialcdn.use === true) { %>
+    <link rel="stylesheet" href="<%= theme.materialcdn.base %>/css/gallery.min.css">
+<%}else{%>
+    <%- css('css/gallery.min') %>
+<%}%>
 
 <body>
     <!-- Wrapper -->
@@ -25,14 +29,13 @@
             <% if (site.data.gallery) { %>
                 <% for (var i in site.data.gallery) { %>
                     <article class="thumb">
-                        <a href="<%= site.data.gallery[i].full_link %>" class="image"><img src="<%= site.data.gallery[i].thumb_link %>" alt="<%= i %>" /></a>
+                        <a href="<%= site.data.gallery[i].full_link %>" class="image lazy" data-original="<%= site.data.gallery[i].thumb_link %>"><img class="lazy" data-original="<%= site.data.gallery[i].thumb_link %>" alt="<%= i %>" /></a>
                         <h2><%= i %></h2>
                         <p><%= site.data.gallery[i].descr %></p>
                     </article>
                 <% } %>
             <% } %>
         </div>
-
         <!-- Footer -->
         <!--
         <footer id="footer" class="panel">
@@ -85,9 +88,28 @@
     </div>
 
     <!-- Scripts -->
-    <%- js('js/jquery.min') %>
-    <%- js('js/gallery/jquery.poptrox.min') %>
-    <%- js('js/gallery/skel.min') %>
-    <%- js('js/gallery/util.min') %>
-    <%- js('js/gallery/main.min') %>
+    <% if(theme.materialcdn.use === true) { %>
+        <%- js(theme.materialcdn.base + "/js/jquery.min.js") %>
+        <%- js(theme.materialcdn.base + "/js/gallery/gallery.js") %>
+        <%- js(theme.materialcdn.base + "/js/lazyload.min.js") %>
+    <%}else{%>
+        <%- js('js/jquery.min') %>
+        <%- js('js/gallery/gallery') %>
+        <%- js('js/lazyload.min') %>
+    <%}%>
+
+    <script>
+        queue.offer(function(){
+            $('.lazy').lazyload({
+              effect: 'fadeIn',
+              event: 'scrollstop'
+            });
+        })
+        <!-- Start Queue -->
+        $(document).ready(function(){
+            setInterval(function(){
+                queue.execNext();
+            },200);
+        });
+    </script>
 </body>
