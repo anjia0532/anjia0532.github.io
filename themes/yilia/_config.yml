@@ -2,7 +2,6 @@
 
 menu:
   主页: /
-  随笔: /tags/随笔/
 
 # SubNav
 subnav:
@@ -44,11 +43,11 @@ open_in_new: false
 # 打赏基础设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-所有文章均有打赏
 reward_type: 2
 # 打赏wording
-reward_wording: '谢谢你请我吃糖果'
+reward_wording: '谢谢支持'
 # 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
-alipay: 
+alipay: http://ww1.sinaimg.cn/large/afaffa71gy1fh49enp7guj20c90c4dhj.jpg
 # 微信二维码图片地址
-weixin: 
+weixin: http://ww1.sinaimg.cn/large/afaffa71gy1fh49en82gjj20bm0bkmxk.jpg
 
 # Miscellaneous
 baidu_analytics: ''
@@ -61,9 +60,21 @@ avatar: https://avatars1.githubusercontent.com/u/15098916?v=3&u=23a4b699baa0ed92
 #是否开启分享
 share_jia: true
 
-#是否开启多说评论，填写你在多说申请的项目名称 duoshuo: duoshuo-key
-#若使用disqus，请在博客config文件中填写disqus_shortname，并关闭多说评论
+#评论：1、多说；2、网易云跟帖；3、畅言；4、Disqus 不需要使用某项，直接设置值为false，或注释掉
+#具体请参考wiki：https://github.com/litten/hexo-theme-yilia/wiki/
+
+#1、多说
 duoshuo: false
+
+#2、网易云跟帖
+wangyiyun: 7b4836b35cf343358d137d5d18d199d1
+
+#3、畅言
+changyan_appid: false
+changyan_conf: false
+
+#4、Disqus 在hexo根目录的config里也有disqus_shortname字段，优先使用yilia的
+disqus: false
 
 # 样式定制 - 一般不需要修改，除非有很强的定制欲望…
 style:
@@ -88,11 +99,9 @@ smart_menu:
   aboutme: '关于我'
 
 friends:
-  友情链接1: http://localhost:4000/
-  友情链接2: http://localhost:4000/
-  友情链接3: http://localhost:4000/
-  友情链接4: http://localhost:4000/
-  友情链接5: http://localhost:4000/
-  友情链接6: http://localhost:4000/
+  掘金: https://juejin.im/user/58748572b123db4a2eccd3e0
+  简书: http://www.jianshu.com/u/1daa5424ab2e
+  jhipster开发笔记: https://jh.jiankangsn.com/
+  jhipster: https://jhipster.github.io/
 
-aboutme: 很惭愧<br><br>只做了一点微小的工作<br>谢谢大家
+aboutme: 人无我有<br><br>人有我精<br><br>人精我绝<br><br>人绝我化中

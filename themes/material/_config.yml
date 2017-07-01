@@ -83,7 +83,13 @@ img:
     random_thumbnail: "/img/random/material-"
 
 # Custom Fonts
-fonts: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif
+#   family: the font-family which will be used in the theme
+#   host: uri of fonts host.
+#       Available value of "host": google | baomitu | ustc | custom
+fonts:
+    family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif
+    use: google
+    custom_font_host:
 
 # Card Elevation Level
 card_elevation: 2
@@ -187,7 +193,6 @@ materialcdn:
 # Comment Systems
 # Available value of "use":
 #     disqus | disqus_click | changyan | 163gentie
-
 comment:
     use: 163gentie
     gentie_productKey: 7b4836b35cf343358d137d5d18d199d1

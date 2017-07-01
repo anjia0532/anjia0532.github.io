@@ -10,7 +10,7 @@ author: 安家
 language: zh-CN
 timezone:
 email: anjia0532@gmail.com
-keywords: "jhipster,顺能网络,山东顺能网络科技有限公司,开发者,程序员,编程,代码,"
+keywords: "jhipster,顺能网络,山东顺能网络科技有限公司,开发者,程序员,编程,代码"
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -65,7 +65,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: material
+theme: yilia
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
