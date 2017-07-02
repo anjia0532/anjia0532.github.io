@@ -45,9 +45,9 @@ reward_type: 2
 # 打赏wording
 reward_wording: '谢谢支持'
 # 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
-alipay: http://ww1.sinaimg.cn/large/afaffa71gy1fh49enp7guj20c90c4dhj.jpg
+alipay: http://ww1.sinaimg.cn/large/afaffa71ly1fh5kp403h1j20az0b03zg.jpg
 # 微信二维码图片地址
-weixin: http://ww1.sinaimg.cn/large/afaffa71gy1fh49en82gjj20bm0bkmxk.jpg
+weixin: http://ww1.sinaimg.cn/large/afaffa71ly1fh5kp406yij209w09yaaf.jpg
 
 # Miscellaneous
 baidu_analytics: ''
