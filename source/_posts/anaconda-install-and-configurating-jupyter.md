@@ -115,6 +115,15 @@ sys.version
 
 注意，nssm默认使用`LOCALSYSTEM `账号操作，而jupyter默认读取`~\.jupyter`(`~\`是当前登录用户文件夹)，可以使用`nssm set <servicename> ObjectName <username> <password>` 使用指定用户，这样就不需要`--config=C:\Users\{用户名}\.jupyter\jupyter_notebook_config.py` 参数了，具体详见 [Usage][] 和 [Managing services from the command line][linkManagingServicesFromTheCommandLine]
 
+
+博客 [https://anjia.ml/2017/07/02/anaconda-install-and-configurating-jupyter/][blog]
+掘金 [https://juejin.im/post/595897c36fb9a06bca0b91eb][juejin]
+简书 [http://www.jianshu.com/p/e981c9d28555][jianshu]
+
+[blog]: https://anjia.ml/2017/07/02/anaconda-install-and-configurating-jupyter/
+[juejin]: https://juejin.im/post/595897c36fb9a06bca0b91eb
+[jianshu]: http://www.jianshu.com/p/e981c9d28555
+
 [linkSublimeText3]: http://www.sublimetext.com/3
 [Anaconda]: https://www.continuum.io
 [linkJupyterNotebook]: http://jupyter.org/
