@@ -1,5 +1,5 @@
 ---
-title: 安装anaconda并且配置jupyter notebook
+title: 安装anaconda并且配置jupyter notebook支持python2.x和3.x共存
 date: 2017-07-02 10:59:18
 tags:[python,anaconda,jupyter,ipython]
 categories: [anaconda,jupyter]
