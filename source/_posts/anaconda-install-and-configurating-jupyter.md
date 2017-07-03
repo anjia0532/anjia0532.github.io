@@ -115,6 +115,33 @@ sys.version
 
 注意，nssm默认使用`LOCALSYSTEM `账号操作，而jupyter默认读取`~\.jupyter`(`~\`是当前登录用户文件夹)，可以使用`nssm set <servicename> ObjectName <username> <password>` 使用指定用户，这样就不需要`--config=C:\Users\{用户名}\.jupyter\jupyter_notebook_config.py` 参数了，具体详见 [Usage][] 和 [Managing services from the command line][linkManagingServicesFromTheCommandLine]
 
+#### nginx反向代理
+
+```
+upstream jupyter {
+    server http://ip:8888;
+    server http://ip2:8888;
+}
+server {
+    listen 80;
+    server_name jupyter.example.com;
+    location / {
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Nginx-Proxy true;
+        proxy_set_header Host  $host;
+
+        # kernels使用websocket通讯，需要增加Upgrade和Connection [WebSocket proxying](http://nginx.org/en/docs/http/websocket.html)
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
+
+        #如果是单服务，无负载，则不需要用upsstream
+        #proxy_pass     http://ip:8888;
+        proxy_pass http://jupyter;
+    }
+}
+```
 
 博客 [https://anjia.ml/2017/07/02/anaconda-install-and-configurating-jupyter/][blog]
 掘金 [https://juejin.im/post/595897c36fb9a06bca0b91eb][juejin]
