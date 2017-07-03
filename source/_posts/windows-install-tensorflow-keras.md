@@ -5,6 +5,11 @@ tags: [python,anaconda,AI,Tensorflow,Keras]
 categories: [anaconda,python,AI,Tensorflow,Keras]
 ---
 
+windows 10 下 pip,conda 换国内源，安装Tensorflow,Keras
+
+
+<!-- more -->
+
 ### 修改pip源 参考 [Python pip 国内镜像大全及使用办法][linkPythonPip国内镜像大全及使用办法]
 
 官方文档 [Config file][linkConfigFile]
@@ -93,6 +98,16 @@ Using TensorFlow backend.
 ```
 安装成功，默认后端是TensorFlow
 
+
+
+
+博客 [https://anjia.ml/2017/07/03/windows-install-tensorflow-keras/][blog]
+掘金 [https://juejin.im/post/595a24b15188250d8d14237a][juejin]
+简书 [http://www.jianshu.com/p/e0d9fa795116][jianshu]
+
+[blog]: https://anjia.ml/2017/07/03/windows-install-tensorflow-keras/
+[juejin]: https://juejin.im/post/595a24b15188250d8d14237a
+[jianshu]: http://www.jianshu.com/p/e0d9fa795116
 [linkPythonPip国内镜像大全及使用办法]: http://blog.csdn.net/testcs_dn/article/details/54374849
 [linkConfigFile]: https://pip.pypa.io/en/stable/user_guide/#config-file
 [linkInstallingTensorflowOnWindows]: https://www.tensorflow.org/install/install_windows
