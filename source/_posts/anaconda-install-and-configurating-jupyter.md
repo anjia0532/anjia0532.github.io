@@ -23,11 +23,6 @@ categories: [anaconda,jupyter]
 
 
 
-### 切换python版本
-
-参考 [Managing Python][linkManagingPython] 或者 [Anaconda多环境多版本python配置指导][5465452]
-
-打开 `C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Anaconda3 (64-bit)` 运行 `Anaconda Prompt`
 
 #### 设置清华镜像源
 更多可参阅 [conda 使用清华大学开源软件镜像][linkConda使用清华大学开源软件镜像] 或者 [清华镜像][qinghua]
@@ -59,6 +54,12 @@ print('hello jupyter')
 
 具体快捷键，参见 `Help` -> `Keyboard Shortcuts`
 ![](http://ww1.sinaimg.cn/large/afaffa71ly1fh5htjiup4j210d0nzjty.jpg)
+
+### 切换python版本
+
+参考 [Managing Python][linkManagingPython] 或者 [Anaconda多环境多版本python配置指导][5465452]
+
+打开 `C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Anaconda3 (64-bit)` 运行 `Anaconda Prompt`
 
 #### 创建python2.7环境
 
