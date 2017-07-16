@@ -95,6 +95,13 @@ else:
 ## [OpenCV入门教程][opencv-tutorial]
 
 
+博客 [https://anjia.ml/2017/07/16/opencv-on-jupyter/][blog]
+掘金 [https://juejin.im/post/596b3e50f265da6c2211b609][juejin]
+简书 [http://www.jianshu.com/p/69af8b1dce6d][jianshu]
+
+[blog]: https://anjia.ml/2017/07/16/opencv-on-jupyter/
+[juejin]: https://juejin.im/post/596b3e50f265da6c2211b609
+[jianshu]: http://www.jianshu.com/p/69af8b1dce6d
 [opencv-tutorial]: http://blog.csdn.net/column/details/opencv-tutorial.html
 [lenna]: https://en.wikipedia.org/wiki/Lenna
 [Python环境搭建之OpenCV]: http://www.cnblogs.com/lclblack/p/6377710.html
