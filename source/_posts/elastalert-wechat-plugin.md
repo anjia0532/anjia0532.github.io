@@ -98,10 +98,7 @@ tag_id: xx
 ```bash
 $ python -m elastalert.elastalert --verbose --rule example_rules/example_frequency.yaml
 
-$ curl -X POST "http://127.0.0.1:9200/logstash-2017.02.16/test"  -d '{
-"@timestamp": "2017-02-16T17:23:00.000+08:00",
-"field": "value"
-}'
+$ curl -X POST 'http://127.0.0.1:9200/logstash-'$(date +%Y.%m.%d)'/test' -d '{"@timestamp": "'$(date +%Y-%m-%d'T'%T%z)'","field": "value"}'
 
 INFO:elastalert:Starting up
 INFO:elastalert:Queried rule Example rule from 2017-02-16 17:16 CST to 2017-02-16 17:25 CST: 1 / 1 hits
