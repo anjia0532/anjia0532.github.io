@@ -65,5 +65,12 @@ tags: [nginx,redis,lua,openresty,lua-resty-redis]
 
 详细使用方法，参见我的项目 [anjia0532/lua-resty-redis-util][]
 
+博客 [https://anjia.ml/2017/08/16/openresty-redis-common-utils/][blog]
+掘金 [https://juejin.im/post/5993fea8518825242d5f72fb][juejin]
+简书 [http://www.jianshu.com/p/54cca5f33d48][jianshu]
+
+[blog]: https://anjia.ml/2017/08/16/openresty-redis-common-utils/
+[juejin]: https://juejin.im/post/5993fea8518825242d5f72fb
+[jianshu]: http://www.jianshu.com/p/54cca5f33d48
 [openresty/lua-resty-redis]: https://github.com/openresty/lua-resty-redis
 [anjia0532/lua-resty-redis-util]: https://github.com/anjia0532/lua-resty-redis-util
