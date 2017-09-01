@@ -38,7 +38,7 @@ RUN echo -e "https://mirrors.ustc.edu.cn/alpine/latest-stable/main\nhttps://mirr
 
 <!-- more -->
 
-其实一开始没有用国内源，用的官方，但是经常失败，以为是墙的问题，辗转换过阿里云镜像，清华镜像，中科大镜像，甚至后来自建镜像 github repo [anjia0532/alpine-package-mirror][],但是都是时好时坏，严重影响效率。
+其实一开始没有用国内源，用的官方，但是经常失败，以为是墙的问题，辗转换过阿里云镜像，清华镜像，中科大镜像，甚至后来自建镜像 github repo [anjia0532/alpine-package-mirror][] , [三种方法解决docker构建失败(alpine)][],但是都是时好时坏，严重影响效率。
 
 后来在观察nginx访问日志的时候，报错的时候nginx没有产生访问日志，遂怀疑是构建镜像时没有发出网络请求，祭出神器 `tcpdump` 进行进一步排查
 
@@ -95,7 +95,17 @@ sudo tcpdump -i docker0
 11:14:17.844028 IP 172.17.0.2.36810 > 172.60.20.6.http: Flags [S], seq 4032628285, win 42340, options [mss 1460,sackOK,TS val 1959807306 ecr 0,nop,wscale 11], length 0
 ```
 
+整个过程可参见我在中科大 github的issues [alpine 镜像频繁异常][linkAlpine镜像频繁异常]
 
+博客 [https://anjia.ml/2017/09/01/docker-dns/][blog]
+掘金 [https://juejin.im/post/59a8f9e0f265da24797b7da0][juejin]
+简书 [http://www.jianshu.com/p/1f4e62dff251][jianshu]
+
+[blog]: https://anjia.ml/2017/09/01/docker-dns/
+[juejin]: https://juejin.im/post/59a8f9e0f265da24797b7da0
+[jianshu]: http://www.jianshu.com/p/1f4e62dff251
 [anjia0532/alpine-package-mirror]: https://github.com/anjia0532/alpine-package-mirror
 [linkDaemonConfigurationFile#onLinux]: https://docs.docker.com/engine/reference/commandline/dockerd/#on-linux
 [linkEmbeddedDnsServerInUser-defined]: https://docs.docker.com/engine/userguide/networking/configure-dns/
+[linkAlpine镜像频繁异常]: https://github.com/ustclug/discussions/issues/166
+[三种方法解决docker构建失败(alpine)]: https://anjia.ml/2017/08/23/alpine-mirror-server/
