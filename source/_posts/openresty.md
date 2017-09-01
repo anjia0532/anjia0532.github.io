@@ -411,6 +411,9 @@ exit $RETVAL
 
 ### openresty编译参数
 ubuntu openresty 默认编译参数如下(为了便于阅读，将一行的编译参数展开成多行),`resty -V`是查看构建参数，`resty -v`是查看版本号
+
+[openresty官方组件][] ,[nginx 模块][linkNginx模块]
+
 ```bash
 nginx version: openresty/1.11.2.4
 built with OpenSSL 1.0.2k  26 Jan 2017
@@ -474,37 +477,43 @@ $ cd openresty-*
 $ ./configure --help 
 
 #进行编译
-./configure --prefix=/opt/openresty/nginx \
+./configure --prefix=/etc/openresty \
+--user=nginx \
+--group=nginx \
+--with-cc-opt='-O2 -I/usr/local/openresty/zlib/include -I/usr/local/openresty/pcre/include -I/usr/local/openresty/openssl/include' \
+--with-ld-opt='-Wl,-rpath,/usr/local/openresty/luajit/lib -L/usr/local/openresty/zlib/lib -L/usr/local/openresty/pcre/lib -L/usr/local/openresty/openssl/lib -Wl,-rpath,/usr/local/openresty/zlib/lib:/usr/local/openresty/pcre/lib:/usr/local/openresty/openssl/lib' \
 --with-pcre-jit \
 --with-stream \
 --with-stream_ssl_module \
 --with-http_v2_module \
 --with-http_stub_status_module \
 --with-http_realip_module \
---with-http_addition_module \
---with-http_auth_request_module \
 --with-http_gzip_static_module \
 --with-http_sub_module \
 --with-http_gunzip_module \
 --with-threads \
 --with-file-aio \
---with-cc-opt='-O2 -I/opt/openresty/zlib/include -I/opt/openresty/pcre/include -I/opt/openresty/openssl/include' \
---with-ld-opt='-Wl,-rpath,/opt/openresty/luajit/lib -L/opt/openresty/zlib/lib -L/opt/openresty/pcre/lib -L/opt/openresty/openssl/lib -Wl,-rpath,/opt/openresty/zlib/lib:/opt/openresty/pcre/lib:/opt/openresty/openssl/lib' \
 --with-http_ssl_module \
---without-http_memc_module \
---without-http_redis_module \
+--with-http_auth_request_module \
 --without-mail_pop3_module \
 --without-mail_imap_module \
 --without-mail_smtp_module \
---without-http_rds_json_module \
---without-http_rds_csv_module  \
 --without-http_fastcgi_module \
 --without-http_uwsgi_module \
 --without-http_scgi_module \
 --without-http_autoindex_module \
 --without-http_memcached_module \
 --without-http_empty_gif_module \
--j4 
+--without-http_ssi_module \
+--without-http_userid_module \
+--without-http_browser_module \
+--without-http_rds_json_module \
+--without-http_rds_csv_module \
+--without-http_memc_module \
+--without-http_redis2_module \
+--without-lua_resty_memcached \
+--without-lua_resty_mysql \
+-j4
 
 #禁用memcached模块
 #--without-http_memc_module \
@@ -814,4 +823,6 @@ $ curl "http://localhost/wp-admin/admin.php?where1=%3Cscript%3Ealert(String.from
 [linkOpenresty系列课程]: http://www.stuq.org/course/1015
 [ModSecurity]: https://github.com/SpiderLabs/ModSecurity
 [linkUbuntu15.04]: https://github.com/SpiderLabs/ModSecurity/wiki/Compilation-recipes#ubuntu-1504
+[openresty官方组件]: https://openresty.org/en/components.html
 
+[linkNginx模块]: 
