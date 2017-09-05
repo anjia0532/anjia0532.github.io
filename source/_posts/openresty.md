@@ -14,13 +14,16 @@ Tengine是阿里巴巴的深度定制的nginx，目前最新版本[Tengine-2.2.0
 
 但是鉴于阿里有很多看似不错的项目最后都人走政息的传统(KPI驱动的项目),比如 微服务框架[dubbo][] 长期不维护，后来被坑的几家(当当，韩都衣舍)为了自身需要，又在他基础上搞了[dubbox][], 淘宝家的玉伯的[seajs][]
 
+补充 [alibaba/tengine/issues/921#Tengine future][linkAlibaba/tengine/issues/921#tengine] 一个老外在tengine上发的讨论帖，以及国人的回复，挺热闹。看样子最近有重新启动的迹象，但是，很难说。
+
 而且Tengine还不支持Windows,网上文档比nginx少很多，所以如无特殊必要，还是建议用nginx。
 
 nginx 最新主线版本1.13.3，稳定版本1.12.1，基本保持1月一更甚至3更的频率，响应很快，堪称版本帝，可以参考[CHANGES][]和[security][]来考虑是否有必要升级
 
 如果不差钱，可以考虑一下 `nginx plus` ,价格很感人，[Pricing - Application Delivery for the Modern Web | NGINX][pricing]
 
-
+如果不差钱，其实可以考虑用 `openresty edge` ([openresty的商业版][]) ,按照实例数收费，一般1-2个微小企业，一次交买3年，平均每月1000左右人民币。
+<!--more-->
 ## nginx
 
 **本文主要讲解openresty编译安装以及加固，对于nginx只做简单描述。**
@@ -215,189 +218,9 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 
 至此nginx编译完成。可以通过`curl localhost`或者浏览器打开`localhost` 查看nginx默认页面
 
-### nginx服务脚本
-```bash
-$ vi /etc/init.d/nginx
+### nginx init.d 脚本
 
-#!/bin/sh
-### BEGIN INIT INFO
-# Provides:          nginx
-# Required-Start:    $network $remote_fs $local_fs 
-# Required-Stop:     $network $remote_fs $local_fs
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: Stop/start nginx
-### END INIT INFO
-
-# Author: Sergey Budnevitch <sb@nginx.com>
-
-PATH=/sbin:/usr/sbin:/bin:/usr/bin
-
-if [ -L $0 ]; then
-    SCRIPTNAME=`/bin/readlink -f $0`
-else
-    SCRIPTNAME=$0
-fi
-
-sysconfig=`/usr/bin/basename $SCRIPTNAME`
-
-[ -r /etc/default/$sysconfig ] && . /etc/default/$sysconfig
-
-DESC=${DESC:-nginx}
-NAME=${NAME:-nginx}
-CONFFILE=${CONFFILE:-/etc/nginx/nginx.conf}
-DAEMON=${DAEMON:-/usr/sbin/nginx}
-PIDFILE=${PIDFILE:-/var/run/nginx.pid}
-SLEEPSEC=${SLEEPSEC:-1}
-UPGRADEWAITLOOPS=${UPGRADEWAITLOOPS:-5}
-CHECKSLEEP=${CHECKSLEEP:-3}
-
-[ -x $DAEMON ] || exit 0
-
-DAEMON_ARGS="-c $CONFFILE $DAEMON_ARGS"
-
-. /lib/init/vars.sh
-
-. /lib/lsb/init-functions
-
-do_start()
-{
-    start-stop-daemon --start --quiet --pidfile $PIDFILE --exec $DAEMON -- \
-        $DAEMON_ARGS
-    RETVAL="$?"
-    return "$RETVAL"
-}
-
-do_stop()
-{
-    # Return
-    #   0 if daemon has been stopped
-    #   1 if daemon was already stopped
-    #   2 if daemon could not be stopped
-    #   other if a failure occurred
-    start-stop-daemon --stop --quiet --oknodo --retry=TERM/30/KILL/5 --pidfile $PIDFILE
-    RETVAL="$?"
-    rm -f $PIDFILE
-    return "$RETVAL"
-}
-
-do_reload() {
-    #
-    start-stop-daemon --stop --signal HUP --quiet --pidfile $PIDFILE
-    RETVAL="$?"
-    return "$RETVAL"
-}
-
-do_configtest() {
-    if [ "$#" -ne 0 ]; then
-        case "$1" in
-            -q)
-                FLAG=$1
-                ;;
-            *)
-                ;;
-        esac
-        shift
-    fi
-    $DAEMON -t $FLAG -c $CONFFILE
-    RETVAL="$?"
-    return $RETVAL
-}
-
-do_upgrade() {
-    OLDBINPIDFILE=$PIDFILE.oldbin
-
-    do_configtest -q || return 6
-    start-stop-daemon --stop --signal USR2 --quiet --pidfile $PIDFILE
-    RETVAL="$?"
-    
-    for i in `/usr/bin/seq  $UPGRADEWAITLOOPS`; do
-        sleep $SLEEPSEC
-        if [ -f $OLDBINPIDFILE -a -f $PIDFILE ]; then
-            start-stop-daemon --stop --signal QUIT --quiet --pidfile $OLDBINPIDFILE
-            RETVAL="$?"
-            return
-        fi
-    done
-
-    echo $"Upgrade failed!"
-    RETVAL=1
-    return $RETVAL
-}
-
-do_checkreload() {
-    templog=`/bin/mktemp --tmpdir nginx-check-reload-XXXXXX.log`
-    trap '/bin/rm -f $templog' 0
-    /usr/bin/tail --pid=$$ -n 0 --follow=name /var/log/nginx/error.log > $templog &
-    /bin/sleep 1
-    start-stop-daemon --stop --signal HUP --quiet --pidfile $PIDFILE
-    /bin/sleep $CHECKSLEEP
-    /bin/grep -E "\[emerg\]|\[alert\]" $templog
-}
-
-case "$1" in
-    start)
-        [ "$VERBOSE" != no ] && log_daemon_msg "Starting $DESC " "$NAME"
-        do_start
-        case "$?" in
-            0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
-            2) [ "$VERBOSE" != no ] && log_end_msg 1 ;;
-        esac
-        ;;
-    stop)
-        [ "$VERBOSE" != no ] && log_daemon_msg "Stopping $DESC" "$NAME"
-        do_stop
-        case "$?" in
-            0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
-            2) [ "$VERBOSE" != no ] && log_end_msg 1 ;;
-        esac
-        ;;
-  status)
-        status_of_proc -p "$PIDFILE" "$DAEMON" "$NAME" && exit 0 || exit $?
-        ;;
-  configtest)
-        do_configtest
-        ;;
-  upgrade)
-        do_upgrade
-        ;;
-  reload|force-reload)
-        log_daemon_msg "Reloading $DESC" "$NAME"
-        do_reload
-        log_end_msg $?
-        ;;
-  restart|force-reload)
-        log_daemon_msg "Restarting $DESC" "$NAME"
-        do_configtest -q || exit $RETVAL
-        do_stop
-        case "$?" in
-            0|1)
-                do_start
-                case "$?" in
-                    0) log_end_msg 0 ;;
-                    1) log_end_msg 1 ;; # Old process is still running
-                    *) log_end_msg 1 ;; # Failed to start
-                esac
-                ;;
-            *)
-                # Failed to stop
-                log_end_msg 1
-                ;;
-        esac
-        ;;
-    check-reload)
-        do_checkreload
-        RETVAL=0
-        ;;
-    *)
-        echo "Usage: $SCRIPTNAME {start|stop|status|restart|reload|force-reload|upgrade|configtest|check-reload}" >&2
-        exit 3
-        ;;
-esac
-
-exit $RETVAL
-
-```
+详见 [anjia0532/nginx][]
 
 ## openresty
 
@@ -543,201 +366,25 @@ $ /opt/openresty/nginx/nginx/sbin/nginx -t && /opt/openresty/nginx/nginx/sbin/ng
 $ curl localhost
 ```
 
-### openresty 服务脚本
+### openresty init.d 脚本
 
+详见 [anjia0532/openresty][]
+
+一般来说，只需要修改 `OPENRESTY_WORKSPACE=${OPENRESTY_HOME}/nginx` 为实际的应用目录即可(需要确保该有的目录都存在)
 ```bash
-$ vi /etc/init.d/openresty 
-#!/bin/sh
-
-### BEGIN INIT INFO
-# Provides:   openresty
-# Required-Start:    $local_fs $remote_fs $network $syslog $named
-# Required-Stop:     $local_fs $remote_fs $network $syslog $named
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: starts openresty
-# Description:       starts openresty using start-stop-daemon
-### END INIT INFO
-
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON=/usr/local/openresty/nginx/sbin/nginx
-NAME=nginx
-DESC="full-fledged web platform"
-
-if [ -r /etc/default/openresty ]; then
-        . /etc/default/openresty
-fi
-
-STOP_SCHEDULE="${STOP_SCHEDULE:-QUIT/5/TERM/5/KILL/5}"
-
-test -x $DAEMON || exit 0
-
-. /lib/init/vars.sh
-. /lib/lsb/init-functions
-
-PID=$(cat /usr/local/openresty/nginx/conf/nginx.conf | grep -Ev '^\s*#' | awk 'BEGIN { RS="[;{}]" } { if ($1 == "pid") print $2 }' | head -n1)
-if [ -z "$PID" ]; then
-    PID=/usr/local/openresty/nginx/logs/nginx.pid
-fi
-
-start_nginx() {
-    # Start the daemon/service
-    #
-    # Returns:
-    #   0 if daemon has been started
-    #   1 if daemon was already running
-    #   2 if daemon could not be started
-    start-stop-daemon --start --quiet --pidfile $PID --exec $DAEMON --test > /dev/null \
-        || return 1
-    start-stop-daemon --start --quiet --pidfile $PID --exec $DAEMON -- \
-        $DAEMON_OPTS 2>/dev/null \
-        || return 2
-}
-
-test_config() {
-    $DAEMON -q -t $DAEMON_OPTS >/dev/null 2>&1
-}
-
-stop_nginx() {
-    # Stops the daemon/service
-    #
-    # Return
-    #   0 if daemon has been stopped
-    #   1 if daemon was already stopped
-    #   2 if daemon could not be stopped
-    #   other if a failure occurred
-    start-stop-daemon --stop --quiet --retry=$STOP_SCHEDULE --pidfile $PID --name $NAME
-    RETVAL="$?"
-    sleep 1
-    return "$RETVAL"
-}
-
-reload_nginx() {
-    # Function that sends a SIGHUP to the daemon/service
-    start-stop-daemon --stop --signal HUP --quiet --pidfile $PID --name $NAME
-    return 0
-}
-
-rotate_logs() {
-    # Rotate log files
-    start-stop-daemon --stop --signal USR1 --quiet --pidfile $PID --name $NAME
-    return 0
-}
-
-upgrade_nginx() {
-    # Online upgrade nginx executable
-    # http://nginx.org/en/docs/control.html
-    #
-    # Return
-    #   0 if nginx has been successfully upgraded
-    #   1 if nginx is not running
-    #   2 if the pid files were not created on time
-    #   3 if the old master could not be killed
-    if start-stop-daemon --stop --signal USR2 --quiet --pidfile $PID --name $NAME; then
-        # Wait for both old and new master to write their pid file
-        while [ ! -s "${PID}.oldbin" ] || [ ! -s "${PID}" ]; do
-            cnt=`expr $cnt + 1`
-            if [ $cnt -gt 10 ]; then
-                return 2
-            fi
-            sleep 1
-        done
-        # Everything is ready, gracefully stop the old master
-        if start-stop-daemon --stop --signal QUIT --quiet --pidfile "${PID}.oldbin" --name $NAME; then
-            return 0
-        else
-            return 3
-        fi
-    else
-        return 1
-    fi
-}
-
-case "$1" in
-    start)
-        log_daemon_msg "Starting $DESC" "$NAME"
-        start_nginx
-        case "$?" in
-            0|1) log_end_msg 0 ;;
-            2)   log_end_msg 1 ;;
-        esac
-        ;;
-    stop)
-        log_daemon_msg "Stopping $DESC" "$NAME"
-        stop_nginx
-        case "$?" in
-            0|1) log_end_msg 0 ;;
-            2)   log_end_msg 1 ;;
-        esac
-        ;;
-    restart)
-        log_daemon_msg "Restarting $DESC" "$NAME"
-
-        # Check configuration before stopping nginx
-        if ! test_config; then
-            log_end_msg 1 # Configuration error
-            exit $?
-        fi
-
-        stop_nginx
-        case "$?" in
-            0|1)
-                start_nginx
-                case "$?" in
-                    0) log_end_msg 0 ;;
-                    1) log_end_msg 1 ;; # Old process is still running
-                    *) log_end_msg 1 ;; # Failed to start
-                esac
-                ;;
-            *)
-                # Failed to stop
-                log_end_msg 1
-                ;;
-        esac
-        ;;
-    reload|force-reload)
-        log_daemon_msg "Reloading $DESC configuration" "$NAME"
-
-        # Check configuration before stopping nginx
-        #
-        # This is not entirely correct since the on-disk nginx binary
-        # may differ from the in-memory one, but that's not common.
-        # We prefer to check the configuration and return an error
-        # to the administrator.
-        if ! test_config; then
-            log_end_msg 1 # Configuration error
-            exit $?
-        fi
-
-        reload_nginx
-        log_end_msg $?
-        ;;
-    configtest|testconfig)
-        log_daemon_msg "Testing $DESC configuration"
-        test_config
-        log_end_msg $?
-        ;;
-    status)
-        status_of_proc -p $PID "$DAEMON" "$NAME" && exit 0 || exit $?
-        ;;
-    upgrade)
-        log_daemon_msg "Upgrading binary" "$NAME"
-        upgrade_nginx
-        log_end_msg $?
-        ;;
-    rotate)
-        log_daemon_msg "Re-opening $DESC log files" "$NAME"
-        rotate_logs
-        log_end_msg $?
-        ;;
-    *)
-        echo "Usage: $NAME {start|stop|restart|reload|force-reload|status|configtest|rotate|upgrade}" >&2
-        exit 3
-        ;;
-esac
-
+nginx/
+├── client_body_temp
+├── conf
+├── html
+├── logs
+└── proxy_temp
 ```
 
+可以使用 mkdir -p ${OPENRESTY_WORKSPACE}/{client_body_temp,conf,html,logs,proxy_temp} 进行批量创建
+
+
+
+waf 部分暂时先搁置
 
 ## WAF 基于[ModSecurity][]
 
@@ -826,3 +473,7 @@ $ curl "http://localhost/wp-admin/admin.php?where1=%3Cscript%3Ealert(String.from
 [openresty官方组件]: https://openresty.org/en/components.html
 
 [linkNginx模块]: 
+[anjia0532/openresty]: https://gist.github.com/anjia0532/4bb10b59909da367cd857de6bd88d05b
+[anjia0532/nginx]: https://gist.github.com/anjia0532/826bc5b8d465289ea9a1ed46bf0ff6e6
+[linkAlibaba/tengine/issues/921#tengine]: https://github.com/alibaba/tengine/issues/921
+[openresty的商业版]: https://openresty.com/cn/
