@@ -19,13 +19,23 @@ zsh是一款超赞的shell工具，但是配置复杂，有个闲着没事的程
 第一种方法也是最简单的办法是，修改xshell连接此host的终端类型，改成`linux`
 ![](http://ww1.sinaimg.cn/large/afaffa71ly1fjekq3ap0wj20fu0d3jrt.jpg)
 
-但是注意 [@linlinlinlin ][] 所说，改用`linux`可能会导致shell的颜色比较奇怪。结合 [@candrew34][] 和 [@linlinlinlin ][]的回复，得出第二种方案
+但是注意 [@linlinlinlin ][] 所说，改用`linux`可能会导致shell的颜色比较奇怪。
+
+`linux`
+
+![](http://ww1.sinaimg.cn/large/afaffa71ly1fjel9lc8faj205706rglk.jpg)
+
+`xterm`
+
+![](http://ww1.sinaimg.cn/large/afaffa71ly1fjel9lchsfj207e09gaa4.jpg)
+
+
+结合 [@candrew34][] 和 [@linlinlinlin ][]的回复，得出第二种方案
 
 第二种方法，稍微复杂点
 
 ```bash
-tee ~/.zshrc <<-'EOF'
-"
+cat <<ENDOF >> ~/.zshrc
 # Home
 bindkey '\e[1~' beginning-of-line
 # End
@@ -53,7 +63,7 @@ bindkey -s "^[Ok" "+"
 bindkey -s "^[Om" "-"
 bindkey -s "^[Oj" "*"
 bindkey -s "^[Oo" "/"
-EOF
+ENDOF
 
 source ~/.zshrc
 ```
