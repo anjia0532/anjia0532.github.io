@@ -69,8 +69,11 @@ source ~/.zshrc
 ```
 
 
+另附 [客户端putty, xshell连接linux中vim的小键盘问题][link客户端putty,Xshell连接linux中vim的小键盘问题]
+
 [robbyrussell/oh-my-zsh]: https://github.com/robbyrussell/oh-my-zsh
 [fisherman/fisherman]: https://github.com/fisherman/fisherman
 [@linlinlinlin ]: https://github.com/linlinlinlin
 [@candrew34]: https://github.com/candrew34
 [linkCannotUsingHome/endKeyAfterInstall]: https://github.com/robbyrussell/oh-my-zsh/issues/3061#issuecomment-93494905
+[link客户端putty,Xshell连接linux中vim的小键盘问题]: http://blog.csdn.net/jiedushi/article/details/6266944
