@@ -18,7 +18,7 @@ Tengine是阿里巴巴的深度定制的nginx，目前最新版本[Tengine-2.2.0
 
 而且Tengine还不支持Windows,网上文档比nginx少很多，所以如无特殊必要，还是建议用nginx。
 
-nginx 最新主线版本1.13.3，稳定版本1.12.1，基本保持1月一更甚至3更的频率，响应很快，堪称版本帝，可以参考[CHANGES][]和[security][]来考虑是否有必要升级
+nginx 最新主线版本1.13.3，稳定版本1.12.1，基本保持1月一更甚至3更的频率，响应很快，堪称版本帝，可以参考 [changes][] 和[security][]来考虑是否有必要升级
 
 如果不差钱，可以考虑一下 `nginx plus` ,价格很感人，[Pricing - Application Delivery for the Modern Web | NGINX][pricing]
 
@@ -291,9 +291,15 @@ configure arguments:
 参见 [构建openresty][]
 
 ```bash
-$ sudo apt-get install -y libreadline-dev libncurses5-dev libpcre3-dev libssl-dev perl make build-essential
+$ sudo apt-get install -y libreadline-dev libncurses5-dev libpcre3-dev libssl-dev perl make build-essential dos2unix mercurial
 $ wget https://openresty.org/download/openresty-1.11.2.4.tar.gz
 $ tar zxf openresty-1.11.2.4.tar.gz
+
+# 或者直接从github clone 一份自行编译
+# git clone https://github.com/openresty/openresty 
+# cd openresty 
+# make -j4
+
 $ cd openresty-*
 
 # 查看所有编译参数
@@ -471,9 +477,8 @@ $ curl "http://localhost/wp-admin/admin.php?where1=%3Cscript%3Ealert(String.from
 [ModSecurity]: https://github.com/SpiderLabs/ModSecurity
 [linkUbuntu15.04]: https://github.com/SpiderLabs/ModSecurity/wiki/Compilation-recipes#ubuntu-1504
 [openresty官方组件]: https://openresty.org/en/components.html
-
-[linkNginx模块]: 
 [anjia0532/openresty]: https://gist.github.com/anjia0532/4bb10b59909da367cd857de6bd88d05b
 [anjia0532/nginx]: https://gist.github.com/anjia0532/826bc5b8d465289ea9a1ed46bf0ff6e6
 [linkAlibaba/tengine/issues/921#tengine]: https://github.com/alibaba/tengine/issues/921
 [openresty的商业版]: https://openresty.com/cn/
+[linkNginx模块]: https://www.nginx.com/resources/wiki/modules/
