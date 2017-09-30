@@ -4,7 +4,7 @@ date: 2017-09-12 16:31:40
 tags: [openresty,stap,systemtap,flame-graph]
 ---
 
-本文主要是讲解如何在ubuntu安装最新Systemtap.
+本文主要是讲解如何在ubuntu安装最新Systemtap.以及绘制火焰图
 
 ## 安装调试镜像
 
@@ -138,6 +138,17 @@ nginx    14065   721  0 17:20 ?        00:00:14 nginx: worker process
 - [openresty/openresty-systemtap-toolkit][]
 
 - [brendangregg/FlameGraph][]
+
+
+
+博客 [https://anjia.ml/2017/09/12/stap/][blog]
+掘金 [https://juejin.im/post/59ce27fef265da065b66d54b][juejin]
+简书 [http://www.jianshu.com/p/008fde8837f5][jianshu]
+
+[blog]: https://anjia.ml/2017/09/12/stap/
+[juejin]: https://juejin.im/post/59ce27fef265da065b66d54b
+[jianshu]: http://www.jianshu.com/p/008fde8837f5
+
 
 [白话火焰图-火丁笔记]: https://huoding.com/2016/08/18/531
 [linkBuildSystemtap-openresty官方文档]: http://openresty.org/en/build-systemtap.html
