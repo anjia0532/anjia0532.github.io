@@ -57,7 +57,7 @@ $ ./configure --prefix=/opt/stap --disable-docs \
 $ make -j$(getconf _NPROCESSORS_ONLN) && sudo make install
 
 # export STAP_HOME=/opt/stap/
-# export PATH=$PATH:$STAP_HOME
+# export PATH=$STAP_HOME:$PATH
 
 # stap -V
 
@@ -89,7 +89,8 @@ Pass 5: run completed in 0usr/20sys/486real ms.
 ```
 # git clone https://github.com/openresty/stapxx.git --depth=1 /opt/stapxx
 # export STAP_PLUS_HOME=/opt/stapxx
-# export PATH=$PATH:$STAP_PLUS_HOME
+# export PATH=$STAP_PLUS_HOME:$STAP_PLUS_HOME/samples:$PATH
+
 # stap++ -e 'probe begin { println("hello") exit() }'
 
 hello
@@ -102,12 +103,7 @@ hello
 
 ### 绘制火焰图
 ```
-# 如果是多个worker,在-x 写多个即可
-# ps -ef | grep nginx | grep worker 
-nginx      725   721  0 11:39 ?        00:00:27 nginx: worker process is shutting down
-nginx    14065   721  0 17:20 ?        00:00:14 nginx: worker process
-
-# /opt/stapxx/samples/lj-lua-stacks.sxx --arg time=20 --skip-badvars -x 14065 725 > /tmp/tmp.bt （-x 是要抓的进程的 pid， 探测结果输出到 tmp.bt）
+# /opt/stapxx/samples/lj-lua-stacks.sxx --arg time=120 --skip-badvars -x `ps --no-headers -fC nginx|awk '/worker/  {print$2}'| shuf | head -n 1` > /tmp/tmp.bt （-x 是要抓的进程的 pid， 探测结果输出到 tmp.bt）
 # /opt/openresty-systemtap-toolkit/fix-lua-bt tmp.bt > /tmp/flame.bt  (处理 lj-lua-stacks.sxx 的输出，使其可读性更佳)
 # /opt/FlameGraph/stackcollapse-stap.pl /tmp/flame.bt > /tmp/flame.cbt
 # /opt/FlameGraph/flamegraph.pl /tmp/flame.cbt > /tmp/flame.svg
@@ -120,6 +116,51 @@ nginx    14065   721  0 17:20 ?        00:00:14 nginx: worker process
 ```
 
 用浏览器打开 `/tmp/flame.svg` 尽量用 `chrome` `firefox`别用国产乱七八糟浏览器.
+
+## openresty/stapxx
+
+```
+## 使用 stap++ --args xx.sxx查看具体参数
+
+# stap++ --args /opt/stapxx/samples/lj-lua-stacks.sxx
+    --arg depth=VALUE (default: 30)
+    --arg detailed=VALUE (default: 0)
+    --arg limit=VALUE (default: 1000)
+    --arg min=VALUE (default: 2)
+    --arg nointerp=VALUE (default: )
+    --arg nojit=VALUE (default: )
+    --arg probe=VALUE (default: timer.profile)
+    --arg time=VALUE (default: )
+```
+
+具体脚本用法，参见 [openresty/stapxx#samples][]
+
+## openresty/openresty-systemtap-toolkit
+
+这一系列脚本很有用，比如可以用来看共享内存大小，使用情况，内存泄露情况，哪里泄露的，不过部分脚本需要在编译的时候，开启调试或者增加依赖。具体参见[readme][].
+
+如果要使用`ngx-leaked-pools`需要用到`dtrace`
+```bash
+$ apt install systemtap-sdt-dev -y
+$ ./configure --prefix=/etc/openresty \
+  --with-dtrace-probes
+```
+
+如果要用到`ngx-pcrejit`需要在编译openresty时增加`--with-pcre-opt=-g`
+
+重新编译并`make && make install` 后会将原有的二进制文件重命名为`${openresty_home}/nginx/sbin/nginx.old`，并创建一个`${openresty_home}/nginx/sbin/nginx`(新版)
+
+```bash
+$ old_pid=`cat /var/run/nginx.pid`
+$ kill -USR2 old_pid
+```
+
+通过`ps -fC nginx`或者`ps -fC openresty`查看新版本是否成功启动
+
+如果成功启动，此时新旧版本同时接受请求
+
+通过`kill -WINCH old_pid` 平滑杀掉旧版
+
 
 更多资料请自行谷歌、百度。或者参阅 下面的**参考连接**
 
@@ -151,3 +192,5 @@ nginx    14065   721  0 17:20 ?        00:00:14 nginx: worker process
 [openresty/stapxx]: https://github.com/openresty/stapxx/blob/master/README.markdown
 [openresty/openresty-systemtap-toolkit]: https://github.com/openresty/openresty-systemtap-toolkit/blob/master/README.markdown
 [brendangregg/FlameGraph]: https://github.com/brendangregg/FlameGraph/blob/master/README.md
+[openresty/stapxx#samples]: https://github.com/openresty/stapxx#samples
+[readme]: https://github.com/openresty/openresty-systemtap-toolkit/#tools
