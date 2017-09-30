@@ -102,12 +102,12 @@ hello
 
 ### 绘制火焰图
 ```
-# 如果你在nginx.conf中设置了worker_processes auto;类似配置，先将其改成worker_processes 1; 然后reload 
+# 如果是多个worker,在-x 写多个即可
 # ps -ef | grep nginx | grep worker 
 nginx      725   721  0 11:39 ?        00:00:27 nginx: worker process is shutting down
 nginx    14065   721  0 17:20 ?        00:00:14 nginx: worker process
 
-# /opt/stapxx/samples/lj-lua-stacks.sxx --arg time=20 --skip-badvars -x 14065 > /tmp/tmp.bt （-x 是要抓的进程的 pid， 探测结果输出到 tmp.bt）
+# /opt/stapxx/samples/lj-lua-stacks.sxx --arg time=20 --skip-badvars -x 14065 725 > /tmp/tmp.bt （-x 是要抓的进程的 pid， 探测结果输出到 tmp.bt）
 # /opt/openresty-systemtap-toolkit/fix-lua-bt tmp.bt > /tmp/flame.bt  (处理 lj-lua-stacks.sxx 的输出，使其可读性更佳)
 # /opt/FlameGraph/stackcollapse-stap.pl /tmp/flame.bt > /tmp/flame.cbt
 # /opt/FlameGraph/flamegraph.pl /tmp/flame.cbt > /tmp/flame.svg
@@ -126,17 +126,11 @@ nginx    14065   721  0 17:20 ?        00:00:14 nginx: worker process
 ## 参考连接 
 
 - [白话火焰图-火丁笔记][]
-
 - [Build Systemtap-openresty官方文档][linkBuildSystemtap-openresty官方文档]
-
 - [火焰图-openresty最佳实践][]
-
 - [Systemtap - ubuntu wiki][Systemtap-UbuntuWiki]
-
 - [openresty/stapxx][]
-
 - [openresty/openresty-systemtap-toolkit][]
-
 - [brendangregg/FlameGraph][]
 
 
