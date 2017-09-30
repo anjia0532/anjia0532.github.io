@@ -34,6 +34,7 @@ sudo apt-get install -y linux-image-$(uname -r)-dbgsym
 
 ```
 
+<!--more-->
 
 ## 安装最新版 systemtap
 
@@ -151,15 +152,19 @@ $ ./configure --prefix=/etc/openresty \
 重新编译并`make && make install` 后会将原有的二进制文件重命名为`${openresty_home}/nginx/sbin/nginx.old`，并创建一个`${openresty_home}/nginx/sbin/nginx`(新版)
 
 ```bash
-$ old_pid=`cat /var/run/nginx.pid`
-$ kill -USR2 old_pid
+$ kill -USR2 `cat /var/run/nginx.pid`
 ```
 
 通过`ps -fC nginx`或者`ps -fC openresty`查看新版本是否成功启动
 
 如果成功启动，此时新旧版本同时接受请求
 
-通过`kill -WINCH old_pid` 平滑杀掉旧版
+通过
+```
+$ kill -QUIT `cat /var/run/nginx.pid.oldbin`
+```
+
+平滑杀掉旧版
 
 
 更多资料请自行谷歌、百度。或者参阅 下面的**参考连接**
@@ -173,7 +178,7 @@ $ kill -USR2 old_pid
 - [openresty/stapxx][]
 - [openresty/openresty-systemtap-toolkit][]
 - [brendangregg/FlameGraph][]
-
+- [虢兆坤- Nginx 的启动、停止、平滑重启、信号控制和平滑升级][虢兆坤-Nginx的启动、停止、平滑重启、信号控制和平滑升级]
 
 
 博客 [https://anjia.ml/2017/09/12/stap/][blog]
@@ -194,3 +199,4 @@ $ kill -USR2 old_pid
 [brendangregg/FlameGraph]: https://github.com/brendangregg/FlameGraph/blob/master/README.md
 [openresty/stapxx#samples]: https://github.com/openresty/stapxx#samples
 [readme]: https://github.com/openresty/openresty-systemtap-toolkit/#tools
+[虢兆坤-Nginx的启动、停止、平滑重启、信号控制和平滑升级]: http://zachary-guo.iteye.com/blog/1358312
