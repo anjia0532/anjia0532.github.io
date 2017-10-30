@@ -312,6 +312,8 @@ $ ./configure --help
 --with-cc-opt='-O2 -I/usr/local/openresty/zlib/include -I/usr/local/openresty/pcre/include -I/usr/local/openresty/openssl/include' \
 --with-ld-opt='-Wl,-rpath,/usr/local/openresty/luajit/lib -L/usr/local/openresty/zlib/lib -L/usr/local/openresty/pcre/lib -L/usr/local/openresty/openssl/lib -Wl,-rpath,/usr/local/openresty/zlib/lib:/usr/local/openresty/pcre/lib:/usr/local/openresty/openssl/lib' \
 --with-pcre-jit \
+--with-dtrace-probes \
+--with-pcre-opt=-g \
 --with-stream \
 --with-stream_ssl_module \
 --with-http_v2_module \
@@ -375,6 +377,12 @@ $ curl localhost
 ### openresty init.d 脚本
 
 详见 [anjia0532/openresty][]
+
+```bash
+$ chmod +x /etc/init.d/openresty
+#$ systemctl mask openresty
+#$ systemctl unmask openresty
+```
 
 一般来说，只需要修改 `OPENRESTY_WORKSPACE=${OPENRESTY_HOME}/nginx` 为实际的应用目录即可(需要确保该有的目录都存在)
 ```bash

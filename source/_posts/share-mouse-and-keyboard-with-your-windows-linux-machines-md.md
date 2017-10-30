@@ -19,21 +19,15 @@ Synergy 需要注意不是远控软件，类似双屏或者KVM切换器，只是
 但是该文章中的版本较旧，本着折腾的态度，终于搞定2台PC（Ubuntu Zesty Zapus + Windows10 1607版），安装最新版并且免费使用。
 
 
-## 注册[synergy](https://symless.com/synergy/#get-synergy)
 
-填写`email`和`fullname`
-
-<kbd>Enter</kbd>回车确定，不进行支付
-
-## 下载最新版本[每夜构建版本](https://symless.com/nightly)
+## 下载最新稳定版本[最新稳定版本](https://www.brahma.world/synergy-stable-builds/)
 
 按照需要下载指定版本
 
-比如我下载的 [synergy-master-stable-a5140aa-Windows-x64.msi](https://symless.com/files/nightly/synergy-master-stable-a5140aa-Windows-x64.msi) 和 [synergy-master-stable-a5140aa-Linux-x86_64.deb](https://symless.com/files/nightly/synergy-master-stable-a5140aa-Linux-x86_64.deb)
+比如我下载的 [synergy-v1.8.8-stable-Windows-x64.msi](https://github.com/brahma-dev/synergy-stable-builds/releases/download/v1.8.8-stable/synergy-v1.8.8-stable-Windows-x64.msi) 和 [synergy-v1.8.8-stable-Linux-x86_64.deb](https://github.com/brahma-dev/synergy-stable-builds/releases/download/v1.8.8-stable/synergy-v1.8.8-stable-Linux-x86_64.deb)
 
 ## 获取序列号
-
-从 [1.4.18免费下载页面](http://symless.com/download/free/)随便下载一个，即可显示序列号，复制并保存下来，如果没有，则点击右上角的`Login` 进行登录，重复此步骤
+[Synergy and Serial Number Activation Key for SSL security - Reverse Engineering the source code (easy)](http://mrlithium.blogspot.com/2017/06/synergy-serial-number-activation-key.html)
 
 ## 安装windows版本
 
@@ -62,7 +56,7 @@ Synergy 需要注意不是远控软件，类似双屏或者KVM切换器，只是
 
 wget http://security.ubuntu.com/ubuntu/pool/main/a/avahi/libavahi-compat-libdnssd1_0.6.32-1ubuntu1_amd64.deb #ubuntu 16.10 版本
 
-wget https://symless.com/files/nightly/synergy-master-stable-a5140aa-Linux-x86_64.deb
+wget https://github.com/brahma-dev/synergy-stable-builds/releases/download/v1.8.8-stable/synergy-v1.8.8-stable-Linux-x86_64.deb
 
 sudo dpkg -i libavahi-compat-libdnssd1_0.6.32-1ubuntu1_amd64.deb
 
@@ -71,7 +65,7 @@ sudo dpkg -i libavahi-compat-libdnssd1_0.6.32-1ubuntu1_amd64.deb
 # sudo apt-get -f install # 解决依赖关系
 # sudo dpkg -i xxx.deb # 重新安装
 
-sudo dpkg -i synergy-master-stable-a5140aa-Linux-x86_64.deb
+sudo dpkg -i synergy-v1.8.8-stable-Linux-x86_64.deb
 
 nohup synergy &
 ```
