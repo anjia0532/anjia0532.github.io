@@ -120,6 +120,13 @@ volumes:
 
 - [Backups -- gitlab-ce-doc][Backups--Gitlab-ce-doc]
 
+博客 [https://anjia.ml/2017/11/07/gitlab-upgrade/][blog]
+掘金 [https://juejin.im/post/5a0170a9f265da430702aea5][juejin]
+简书 [http://www.jianshu.com/p/3ac4bd8372e0][jianshu]
+
+[blog]: https://anjia.ml/2017/11/07/gitlab-upgrade/
+[juejin]: https://juejin.im/post/5a0170a9f265da430702aea5
+[jianshu]: http://www.jianshu.com/p/3ac4bd8372e0
 [gitlab服务器迁移--深山鬼怪]: http://www.cnblogs.com/wenwei-blog/p/6362829.html
 [GitlabCe8.9升级/迁移到gitlabCe9.3.4--]: http://www.jianshu.com/p/79447d5bf99e
 [Backups--Gitlab-ce-doc]: https://docs.gitlab.com/omnibus/settings/backups.html
