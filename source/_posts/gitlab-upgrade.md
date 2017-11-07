@@ -1,5 +1,5 @@
 ---
-title: gitlab-upgrade
+title: gitlab迁移到docker并升级大版本到10.1.1和汉化
 date: 2017-11-07 10:38:37
 tags: [gitlab,docker,docker-compose]
 ---
