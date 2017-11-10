@@ -12,7 +12,14 @@ tags: [k8s,kubernetes,rancher]
 
 
 
+
 <!--more-->
+
+## 环境准备
+
+|    主机名    |     主机ip    |                  OS                  | docker version | ranhcer version |
+|--------------|---------------|--------------------------------------|----------------|-----------------|
+| anjia-ubuntu | 192.168.31.83 | ubuntu 17.04 4.9.0-12-generic x86_64 | 17.06.2-ce     | v1.6.10         |
 
 ## 安装 docker
 
@@ -68,7 +75,7 @@ gcr.io/google_containers/heapster-influxdb-amd64:v1.3.3
 gcr.io/kubernetes-helm/tiller:v2.3.0
 ```
 
-找一台能翻墙的vps,`docker login` 登陆docker hub的账号
+找一台能翻墙的vps,`docker login` 登陆docker hub的账号,如果没有翻墙vps，稍微麻烦点，在github上创建repo，然后创建`Dockerfile`，里面很简单 `FROM gcr.io/google_containers/.....` 就行，用docker-hub 添加自动构建库，并在github上给dockerhub分配读权限
 
 ```bash
 #!/usr/bin/env bash
