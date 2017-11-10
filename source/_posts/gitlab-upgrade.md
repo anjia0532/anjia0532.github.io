@@ -11,7 +11,7 @@ tags: [gitlab,docker,docker-compose]
 ## gitlab备份
 
 ### 查看现有版本
-```
+```bash
 sudo gitlab-rake gitlab:env:info
 
 ...
@@ -25,7 +25,7 @@ Version:    9.2.5
 ```
 sudo gitlab-rake gitlab:backup:create RAILS_ENV=production
 
-sudo sh -c 'umask 0077; tar -cf /var/opt/gitlab/backups/$(date "+etc-gitlab-%s_%Y_%m_%d.tar") -C /etc/gitlab'
+sudo sh -c 'umask 0077; tar -cf /var/opt/gitlab/backups/$(date "+etc-gitlab-%s_%Y_%m_%d.tar") -C / etc/gitlab'
 ```
 
 通过`sudo ls -lah /var/opt/gitlab/backups | grep $(date "+%Y_%m_%d" )` 查看
