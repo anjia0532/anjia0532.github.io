@@ -118,6 +118,13 @@ tiller-deploy-c4598db7d-8wxpp          1/1       Running            0          1
 ```
 
 
+博客 [https://anjia.ml/2017/11/13/rancher-k8s-china/][blog]
+掘金 [https://juejin.im/post/5a097599f265da430d578385][juejin]
+简书 [http://www.jianshu.com/p/2f906a7f4bfa][jianshu]
+
+[blog]: https://anjia.ml/2017/11/13/rancher-k8s-china/
+[juejin]: https://juejin.im/post/5a097599f265da430d578385
+[jianshu]: http://www.jianshu.com/p/2f906a7f4bfa
 [GettingStartedWithHosts#supported]: http://rancher.com/docs/rancher/v1.6/en/hosts/#supported-docker-versions
 [InstallingRancherServer]: http://rancher.com/docs/rancher/v1.6/en/installing-rancher/installing-server/
 [中科大docker镜像]: http://mirrors.ustc.edu.cn/help/docker-ce.html
