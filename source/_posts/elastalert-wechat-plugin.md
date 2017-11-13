@@ -46,7 +46,7 @@ $ git clone https://github.com/Yelp/elastalert.git
 
 $ cd elastalert
 
-$ wget -P ~/elastalert/elastalert_modules/ https://raw.githubusercontent.com/anjia0532/elastalert-wechat-plugin/master/wechat_qiye_alert.py
+$ wget -P ~/elastalert/elastalert_modules/ wget https://raw.githubusercontent.com/anjia0532/elastalert-wechat-plugin/master/elastalert_modules/wechat_qiye_alert.py
 
 $ touch ~/elastalert/elastalert_modules/__init__.py
 

@@ -10,9 +10,6 @@ tags: [k8s,kubernetes,rancher]
 
 本文主要介绍，如何在国内，使用`rancher`加速`k8s`的安装，部分内容也适用于直接原生`k8s`加速
 
-
-
-
 <!--more-->
 
 ## 环境准备
@@ -30,6 +27,7 @@ tags: [k8s,kubernetes,rancher]
 
 ## 注册 [docker hub][DockerHub]
 
+** 以下部分看看即可，最新方案，参考《rancher中国区加速安装Kubernetes》**
 ## 安装k8s
 
 ![](http://ww1.sinaimg.cn/large/afaffa71ly1flcuo8bzfdj210b0ms0u6.jpg)
@@ -151,7 +149,7 @@ monitoring-influxdb-3527312529-n3xxw    0/1       ContainerCreating   0         
 tiller-deploy-402017509-jkw7n           0/1       ContainerCreating   0          13m
 ```
 
-查看状态，我这边一直`Pending` 手动囧一个,找到原因,后续补充
+查看状态，我这边一直`Pending` 手动囧一个,找到原因,后续补充.
 
 [GettingStartedWithHosts#supported]: http://rancher.com/docs/rancher/v1.6/en/hosts/#supported-docker-versions
 [InstallingRancherServer]: http://rancher.com/docs/rancher/v1.6/en/installing-rancher/installing-server/
