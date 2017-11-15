@@ -15,25 +15,27 @@ tags: [k8s,kubernetes,rancher,gcr.io]
 
 |    主机名    |     主机ip    |                  OS                  |     docker version    | ranhcer version |
 |--------------|---------------|--------------------------------------|-----------------------|-----------------|
-| anjia-ubuntu | 192.168.31.83 | ubuntu 17.04 4.9.0-12-generic x86_64 | Docker version 1.12.6 | v1.6.10         |
+| anjia-ubuntu | 192.168.31.83 | ubuntu 17.04 4.9.0-12-generic x86_64 | Docker version 1.12.6 | v1.6.11         |
 
 ## 安装 docker
 
-按照 [Getting Started with Hosts#SUPPORTED DOCKER VERSIONS][GettingStartedWithHosts#supported] 安装受支持的`docker-ce version` (如果国内安装较慢，可以考虑使用[中科大docker镜像][] ,或者其他阿里云镜像，腾讯云镜像，清华镜像等)
+按照 [Getting Started with Hosts#SUPPORTED DOCKER VERSIONS][GettingStartedWithHosts#supported] 安装受支持的`docker version` (如果国内安装较慢，可以考虑使用[中科大docker镜像][] ,或者其他阿里云镜像，腾讯云镜像，清华镜像等)
+
+**一定注意版本号，在群里处理过好几个因为docker版本不对导致的k8s无法打开dashboard**
 
 如果之前装有其他版本的，需要删除所有镜像和容器，并卸载docker重装,rancher k8s 目前只支持 `docker 1.12.3+` 的版本
+
 ```bash
-sudo apt install docker.io
+curl https://releases.rancher.com/install-docker/1.12.sh | sh
 ```
 
 ## 安装rancher
 按照 [Installing Rancher Server][InstallingRancherServer] 根据实际情况，安装`rancher` ,建议使用 [加速器 DaoCloud - 业界领先的容器云平台][加速器Daocloud-业界领先的容器云平台] 或者 [阿里云docker加速器][]
 
-如果rancher/server是v1.6.10版本(低于v1.6.10版本未试过)，需要你修改私有registry，且将gcr.io的插件push到私有registry，且namespace必须为`google_containers`,如果允许的话，请选择v1.6.11+(目前v1.6.11还是rc版) 请根据实际情况自行选择版本
+如果rancher/server是v1.6.10版本(低于v1.6.10版本未试过)，需要你修改私有registry，且将gcr.io的插件push到私有registry，且namespace必须为`google_containers`,建议v1.6.11+
 
 ```bash
-sudo docker run -d --restart=unless-stopped --name=rancher-server -p 8080:8080 rancher/server:v1.6.11-rc10 && sudo docker logs -f rancher-server
-#sudo docker run -d --restart=unless-stopped --name=rancher-server -p 8080:8080 rancher/server:v1.6.10 && sudo docker logs -f rancher-server
+sudo docker run -d --restart=unless-stopped --name=rancher-server -p 8080:8080 rancher/server:v1.6.11 && sudo docker logs -f rancher-server
 ```
 
 ## 注册 [docker hub][DockerHub]
@@ -50,6 +52,8 @@ sudo rm -rf /var/etcd/
 ![创建环境模板](http://ww1.sinaimg.cn/large/afaffa71ly1flglqhdy4yj20860oxmxy.jpg)
 
 ### 修改k8s模板
+
+鉴于`gfw`屏蔽`gcr.io`的情况，花了点时间，将所有的`gcr.io`镜像(423个镜像，7547个版本)都同步到我的docker hub账号下 [https://hub.docker.com/r/anjia0532/][] 并且每天定时更新，详情参见另外一篇文章 [Google Container Registry(gcr.io) 中国可用镜像(长期维护)][GoogleContainerRegistry(gcr.io)]
 
 `Private Registry for Add-Ons and Pod Infra Container Image` `index.docker.io`
 
@@ -117,10 +121,10 @@ tiller-deploy-c4598db7d-8wxpp          1/1       Running            0          1
 > kubectl --namespace=kube-system get events
 ```
 
-
 博客 [https://anjia.ml/2017/11/13/rancher-k8s-china/][blog]
 掘金 [https://juejin.im/post/5a097599f265da430d578385][juejin]
 简书 [http://www.jianshu.com/p/2f906a7f4bfa][jianshu]
+
 
 [blog]: https://anjia.ml/2017/11/13/rancher-k8s-china/
 [juejin]: https://juejin.im/post/5a097599f265da430d578385
@@ -136,3 +140,5 @@ tiller-deploy-c4598db7d-8wxpp          1/1       Running            0          1
 [《rancher安装Kubernetes》]: https://anjia.ml/2017/11/10/rancher-k8s/
 [《原生加速中国区Kubernetes安装》]: https://www.cnrancher.com/kubernetes-installation/
 [Kubernetes部署失败的10个最普遍原因（part1）]: http://dockone.io/article/2247
+[https://hub.docker.com/r/anjia0532/]: https://hub.docker.com/r/anjia0532/
+[GoogleContainerRegistry(gcr.io)]: https://anjia.ml/2017/11/15/gcr-io-image-mirror/

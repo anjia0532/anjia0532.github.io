@@ -12,6 +12,8 @@ tags: [k8s,kubernetes,rancher]
 
 <!--more-->
 
+** 以下部分看看即可，最新方案，参考《rancher中国区加速安装Kubernetes》**
+
 ## 环境准备
 
 |    主机名    |     主机ip    |                  OS                  | docker version | ranhcer version |
@@ -27,7 +29,6 @@ tags: [k8s,kubernetes,rancher]
 
 ## 注册 [docker hub][DockerHub]
 
-** 以下部分看看即可，最新方案，参考《rancher中国区加速安装Kubernetes》**
 ## 安装k8s
 
 ![](http://ww1.sinaimg.cn/large/afaffa71ly1flcuo8bzfdj210b0ms0u6.jpg)
