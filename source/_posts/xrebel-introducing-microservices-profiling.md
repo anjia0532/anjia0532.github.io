@@ -82,6 +82,15 @@ xrebel支持eclipse和idea,同时有eclipse插件，建议使用独立方式安�
 
 ![](http://ww1.sinaimg.cn/large/afaffa71ly1flprzm06cej20lo09iq3n.jpg)
 
+
+博客 [https://anjia.ml/2017/11/21/xrebel-introducing-microservices-profiling/][blog]
+掘金 [https://juejin.im/post/5a13e3db6fb9a045186a5bfc][juejin]
+简书 [http://www.jianshu.com/p/0029c32dde4e][jianshu]
+
+
+[blog]: https://anjia.ml/2017/11/21/xrebel-introducing-microservices-profiling/
+[juejin]: https://juejin.im/post/5a13e3db6fb9a045186a5bfc
+[jianshu]: http://www.jianshu.com/p/0029c32dde4e
 [分布式跟踪系统（一）：Zipkin的背景和设计]: http://manzhizhen.iteye.com/blog/2348175
 [下载xrebel]: https://zeroturnaround.com/software/xrebel/download/
 [xrebel-3.4.1.zip]: https://zeroturnaround.com/software/xrebel/download/thank-you/?file=xrebel/releases/xrebel-3.4.1.zip
