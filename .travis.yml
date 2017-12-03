@@ -6,9 +6,10 @@ install:
   - npm install
 
 
-#before_script:
+before_script:
   #- npm install hexo-helper-qrcode --save
   #- npm install hexo-generator-feed --save
+  - npm install hexo-generator-sitemap --save
 
 script:
   - hexo g
