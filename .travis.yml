@@ -16,7 +16,7 @@ script:
 
 after_script:
   - cd ./public
-  - if [ $MY_DOMAIN ]; then echo ${MY_DOMAIN} > CNAME; fi
+  #- if [ $MY_DOMAIN ]; then echo ${MY_DOMAIN} > CNAME; fi
   - git init
   - git config user.name "anjia0532"
   - git config user.email "anjia0532@gmail.com"
