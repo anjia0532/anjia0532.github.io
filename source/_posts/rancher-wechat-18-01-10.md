@@ -42,8 +42,6 @@ tags: [jhipster,spring,spring-boot,spring-cloud,微服务,microservices,service-
 - 框架语言单一，无法灵活选用
 
 
-
-
 微服务好处
 
 - 敏捷性：按功能拆分，快速迭代
@@ -59,8 +57,6 @@ tags: [jhipster,spring,spring-boot,spring-cloud,微服务,microservices,service-
 - 事务一致性
 
 扩展阅读 [Introduction to Microservices](https://www.nginx.com/blog/introduction-to-microservices/)
-
-
 
 ### 框架选型
 
