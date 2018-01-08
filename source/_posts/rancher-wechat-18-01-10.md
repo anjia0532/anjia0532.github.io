@@ -15,13 +15,27 @@ tags: [jhipster,spring,spring-boot,spring-cloud,微服务,microservices,service-
 
 ![](http://ww1.sinaimg.cn/large/afaffa71ly1fmtclday7oj20y309rgnr.jpg)
 
-和`k8s`、`kubernetes` 、`docker` 的搜索趋势
+从图中可见，`dubbo`的搜索量增势放缓，而`Spring Boot`从16年中下旬开始发力，一路高涨。而学习了`Spring boot` 再学习`Spring Cloud`  几乎顺理成章。
+
+
+
+spring boot旨在解决Spring越来越臃肿的全家桶方案的`配置地狱`（讽刺的是，Spring刚出道是扯着轻量化解决方案大旗一路冲杀，现在自己也开始慢慢胖起来了）,提供了很多简单易用的`starter`。特点是预定大于配置。
+
+
+
+dubbo放缓是源于，阿里巴巴中间断更将近三年([dubbo-2.4.11](https://github.com/alibaba/dubbo/releases/tag/dubbo-2.4.11) 2014-10-30, [dubbo-2.5.4](https://github.com/alibaba/dubbo/releases/tag/dubbo-2.5.4) 2017-09-07),很多依赖框架和技术都较为陈旧，也不接纳社区的PR，导致当当另起炉灶，fork了一个[dangdangdotcom/dubbox](https://github.com/dangdangdotcom/dubbox) 当然，现在也已断更。而且dubbo仅相当于Spring cloud的一个子集，参考 [微服务架构的基础框架选择：Spring Cloud还是Dubbo？](http://blog.csdn.net/kobejayandy/article/details/52078275)
+
+
+
+ `k8s`、`kubernetes` 、`docker` 的搜索趋势
 
 ![](http://ww1.sinaimg.cn/large/afaffa71ly1fmtcqtu6ejj20ye08bq3u.jpg)
 
 
 
 ### 微服务vs单体应用
+
+下面是我整理的一些关于单体服务和微服务的对比
 
 单体应用好处
 
@@ -57,6 +71,8 @@ tags: [jhipster,spring,spring-boot,spring-cloud,微服务,microservices,service-
 - 事务一致性
 
 扩展阅读 [Introduction to Microservices](https://www.nginx.com/blog/introduction-to-microservices/)
+
+
 
 ### 框架选型
 
@@ -125,7 +141,7 @@ jhipster依赖的技术框架版本基本都是最新稳定版，版本更新比
 
 
 
-## 使用jhipster创建微服务
+## 10分钟搭建微服务
 
 ### [安装node,yarn](https://jh.jiankangsn.com/install.html)
 
@@ -703,6 +719,46 @@ services:
     #        - ZIPKIN_UI_LOGS_URL=http://localhost:5601/app/kibana#/dashboard/logs-dashboard?_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:now-1h,mode:quick,to:now))&_a=(filters:!(),options:(darkTheme:!f),panels:!((col:1,id:logs-levels,panelIndex:2,row:1,size_x:6,size_y:3,type:visualization),(col:7,columns:!(stack_trace),id:Stacktraces,panelIndex:7,row:1,size_x:4,size_y:3,sort:!('@timestamp',desc),type:search),(col:11,id:Log-forwarding-instructions,panelIndex:8,row:1,size_x:2,size_y:3,type:visualization),(col:1,columns:!(app_name,level,message),id:All-logs,panelIndex:9,row:4,size_x:12,size_y:7,sort:!('@timestamp',asc),type:search)),query:(query_string:(analyze_wildcard:!t,query:'{traceId}')),title:logs-dashboard,uiState:())
 
 ```
+
+`docker-compose.yml`中给的`jhipster-registry`是本地模式的，可以根据注释部分内容，改成从git拉。好处是维护方便，坏处是，容易造成单点故障。使用git模式，就可以将 `registry-config-sidekick` 部分去掉。
+
+
+
+jhipster使用[liquibase](http://www.liquibase.org/) 进行数据库版本管理，便于数据库版本变更记录管理和迁移。(rancher server 也用的liquibase)
+
+
+
+## 自建gitlab
+
+我汉化的gitlab 镜像,如果要用官方镜像，参见 https://hub.docker.com/r/gitlab/gitlab-ce/tags/
+
+```yaml
+version: '2'
+services:
+  gitlab:
+    mem_limit: 5368709120 #限制内存最大 5G = 5*1024*1024*1024
+    image: anjia0532/gitlab-ce-zh:10.3.3-ce.0
+    volumes:
+    - /data/gitlab/config:/etc/gitlab
+    - /data/gitlab/data:/var/opt/gitlab
+    - /data/gitlab/log:/var/log/gitlab
+    ports:
+    - 80:80/tcp
+    - 443:443/tcp
+
+```
+
+
+## gitlab ci 
+
+参见文档 [GitLab Continuous Integration (GitLab CI)](https://docs.gitlab.com/ce/ci/README.html)
+
+
+## 搭建镜像伺服
+
+- 老牌 [sonatype nexus oss](https://www.sonatype.com/download-oss-sonatype) 可以管理 Bower,Docker,Git LFS,Maven,npm,NuGet,PyPI,Ruby Gems,Yum Proxy,功能丰富
+- [GitLab Container Registry administration](https://docs.gitlab.com/ce/administration/container_registry.html#gitlab-container-registry-administration) gitlab registry跟gitlab集成，不需要额外安装服务
+- [harbor](http://vmware.github.io/harbor/) rancher应用商店就有，安装方便，号称企业级registry，功能强大。
 
 
 
