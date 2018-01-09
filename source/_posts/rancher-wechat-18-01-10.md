@@ -802,6 +802,8 @@ service mesh 的设想就是，让开发人员专注于业务，不再分心于�
 
 [Service Mesh：下一代微服务](https://servicemesh.gitbooks.io/awesome-servicemesh/mesh/2017/service-mesh-next-generation-of-microservice/)
 
+[Service Mesh 在华为公有云的实践](http://gitbook.cn/books/5a1e7dca387c5b4ee351790b/index.html)
+
 
 
 **注意**
