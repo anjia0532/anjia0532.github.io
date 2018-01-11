@@ -4,14 +4,18 @@ date: 2017-12-26 17:44:28
 tags: [jhipster,spring,spring-boot,spring-cloud,微服务,microservices,service-mesh,k8s,kubernetes]
 ---
 
-基于spring cloud的微服务实践
+初创团队如何快速落地微服务--基于spring cloud/jhipster的微服务实践
 ---
+
+本次分享主要是针对，小公司及初创团队如何用较低成本落地微服务，拥抱变化，快速交付
+
+<!--more-->
 
 ## 微服务概述
 
 ### 相关趋势图
 
-从百度指数搜索 `微服务`、`spring boot`、`spring cloud`、`dubbo` 相关关键词，得到如下趋势（微服务的概念源于2014年3月Martin Fowler所写的一篇文章[Microservices](http://martinfowler.com/articles/microservices.html) ,所以选择从2014.03至今）
+从[百度指数](http://index.baidu.com/)搜索 `微服务`、`spring boot`、`spring cloud`、`dubbo` 相关关键词，得到如下趋势（微服务的概念源于2014年3月Martin Fowler所写的一篇文章[Microservices](http://martinfowler.com/articles/microservices.html) ,所以选择从2014.03至今）
 
 ![](http://ww1.sinaimg.cn/large/afaffa71ly1fmtclday7oj20y309rgnr.jpg)
 
@@ -23,7 +27,7 @@ spring boot旨在解决Spring越来越臃肿的全家桶方案的`配置地狱`�
 
 
 
-dubbo放缓是源于，阿里巴巴中间断更将近三年([dubbo-2.4.11](https://github.com/alibaba/dubbo/releases/tag/dubbo-2.4.11) 2014-10-30, [dubbo-2.5.4](https://github.com/alibaba/dubbo/releases/tag/dubbo-2.5.4) 2017-09-07),很多依赖框架和技术都较为陈旧，也不接纳社区的PR，导致当当另起炉灶，fork了一个[dangdangdotcom/dubbox](https://github.com/dangdangdotcom/dubbox) 当然，现在也已断更。而且dubbo仅相当于Spring cloud的一个子集，参考 [微服务架构的基础框架选择：Spring Cloud还是Dubbo？](http://blog.csdn.net/kobejayandy/article/details/52078275)
+dubbo放缓是源于，阿里巴巴中间断更将近三年([dubbo-2.4.11](https://github.com/alibaba/dubbo/releases/tag/dubbo-2.4.11) 2014-10-30, [dubbo-2.5.4](https://github.com/alibaba/dubbo/releases/tag/dubbo-2.5.4) 2017-09-07),很多依赖框架和技术都较为陈旧，也不接纳社区的PR(当然，从17年九月份开始恢复更新，后面会有说到)，导致当当另起炉灶，fork了一个[dangdangdotcom/dubbox](https://github.com/dangdangdotcom/dubbox) 当然，现在也已断更。而且dubbo仅相当于Spring cloud的一个子集，参考 [微服务架构的基础框架选择：Spring Cloud还是Dubbo？](http://blog.csdn.net/kobejayandy/article/details/52078275) (此处说的是dubbo2.x,最新的3.x变化较大，后边会说到)
 
 
 
@@ -76,11 +80,19 @@ dubbo放缓是源于，阿里巴巴中间断更将近三年([dubbo-2.4.11](https
 
 ### 框架选型
 
-公司主要使用java，所以决定使用spring 框架中的`spring cloud`作为微服务基础框架，但是原生 spring cloud 学习曲线比较陡峭，需要学习`feign`,`zuul`,`eureka`,`hystrix`,`zipkin`,`ribbon`...
+下面讲一下，我司在落地微服务时的框架选型方面的一些经验。
 
-考虑到团队学习成本，故而采用了国外的开源框架 [jhipster官网](http://www.jhipster.tech/)  [jhipster github](https://github.com/jhipster)，登记在册的，使用jhipster的企业有217家
 
-列举一下 [Technology stack](http://www.jhipster.tech/tech-stack/) 给的技术栈
+
+公司主要使用java，所以决定使用spring 框架中的`spring cloud`作为微服务基础框架，但是原生 spring cloud 学习曲线比较陡峭，需要学习`feign`,`zuul`,`eureka`,`hystrix`,`zipkin`,`ribbon`... 所谓的Spring Cloud全家桶
+
+综合考虑团队的技术水平和学习成本，最后采用了国外的开源框架 [jhipster官网](http://www.jhipster.tech/)  [jhipster github](https://github.com/jhipster)，登记在册的，使用jhipster的企业有224家(截止2018-01-11)，包括埃森哲，google，adobe等大厂。
+
+jhipster 是由2013年由法国Java专家 Julien Dubois (朱利安 杜波尔斯)率先倡导，至今已有快5年了，积累了大量丰富经验。 采用Java 8(目前尚不支持java9,但是有开发计划)，特色是多用注解, 不用XML 配置的组态，配备了全方位的工作环境，从开发，测试，监控到制成，以及云部署。
+
+国内用dubbo的较多，用jhipster的较少，起码很多群里交流的时候，很多表示没听过，或者是我加的假群？至于为啥不用dubbo，前面提到过，一个是中间断更，以及阿里说不更就不更的优良传统，还有dubbo从功能来说，只是Spring Cloud的一个子集(dubbo 2.x) 。
+
+列举一下 jhipster 给的技术栈 ，参见 [Technology stack](http://www.jhipster.tech/tech-stack/)
 
 #### 客户端技术栈
 
@@ -147,11 +159,17 @@ jhipster依赖的技术框架版本基本都是最新稳定版，版本更新比
 
 **注意**
 
-如果是windows nodejs 需要安装v7.x，因为注册中心和网关需要用到node-sass@4.5.0，但是github上的node-sass的rebuild只有v7.x(process 51) 版本的，而自己构建太反人类了。如果是linux，可以尝试高版本的
+如果是windows nodejs 需要安装v7.x，因为注册中心和网关需要用到node-sass@4.5.0，但是github上的node-sass的rebuild只有v7.x(process 51) 版本的，而自己构建太反人类了。如果是linux，可以尝试高版本的。
 
-手动下载 `https://github.com/Medium/phantomjs/releases/download/v2.1.1/phantomjs-2.1.1-windows.zip`
+安装完 node,yarn后，执行下面代码，使用npm的淘宝镜像，加速构建。
 
-解压并添加到环境变量里
+```bash
+yarn config set sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
+yarn config set phantomjs_cdnurl=https://npm.taobao.org/mirrors/phantomjs/
+yarn config set registry=https://registry.npm.taobao.org
+```
+
+安装 jdk8,maven,maven加速，请自行百度。
 
 ## 安装jhipster
 
@@ -185,7 +203,7 @@ spring config server,统一配置中心，可以统一管理不同环境的数�
 
 ![](http://ww1.sinaimg.cn/large/afaffa71ly1fn813ofbxjj21fp0ofta7.jpg)
 
-
+jhipster registry 对应SC(Spring Cloud)的eurake+spring config server，想想自己用原生的SC自己搞的辛酸泪吧，再牛逼，刚学，也得10min+才能跑起来吧？
 
 ### 创建网关
 
@@ -243,6 +261,12 @@ $ mvnw
         Profile(s):     [swagger, dev]
 ----------------------------------------------------------
 ```
+
+![](http://ww1.sinaimg.cn/large/afaffa71ly1fncq2fhhg5j20yf0pwjv9.jpg)
+
+访问 `http://localhost:8080/` 默认用户名密码均为 `admin`
+
+![](http://ww1.sinaimg.cn/large/afaffa71ly1fncq3xeiuqj21gs0irac3.jpg)
 
 
 
@@ -472,13 +496,23 @@ The entity JobHistory is being updated.
 ![](http://ww1.sinaimg.cn/large/afaffa71ly1fn825ejmpxj20g90b3t8x.jpg)
 ![](http://ww1.sinaimg.cn/large/afaffa71ly1fn825ehnhnj20op0bp755.jpg)
 
-查询 `REGION`表，数据已经插入成功.
+查询 `REGION`表，数据已经插入成功。
+
+至此，一个虽然简单，但是可用的微服务已经弄好。
 
 
 
 ## 将服务发布到rancher
 
 参见文档 [[BETA] Deploying to Rancher](http://www.jhipster.tech/rancher/) ,jhipster支持发布到 [Cloud Foundry](http://www.jhipster.tech/cloudfoundry/) ,[Heroku](http://www.jhipster.tech/heroku/),[Kubernetes](http://www.jhipster.tech/kubernetes/),[Openshift](http://www.jhipster.tech/openshift/),[Rancher](http://www.jhipster.tech/rancher/),[AWS](http://www.jhipster.tech/aws/),[Boxfuse](http://www.jhipster.tech/boxfuse/)
+
+建议使用rancher，原因，  [Cloud Foundry](http://www.jhipster.tech/cloudfoundry/) ,[Heroku](http://www.jhipster.tech/heroku/),[AWS](http://www.jhipster.tech/aws/),[Boxfuse](http://www.jhipster.tech/boxfuse/) 都是云环境，k8s和openshift origin太复杂了，而rancher很容易上手，其联合创始人成为CNCF的理事会成员。
+
+附上一张 CNCF天梯图 
+
+![](http://ww1.sinaimg.cn/large/afaffa71ly1fncqh707snj247p2dcb2b.jpg)
+
+
 
 ```bash
  $ mkdir docker
@@ -726,11 +760,13 @@ services:
 
 jhipster使用[liquibase](http://www.liquibase.org/) 进行数据库版本管理，便于数据库版本变更记录管理和迁移。(rancher server 也用的liquibase)
 
+把docker-compose.yml和rancher-compose.yml贴到rancher上，就能创建一个应用 stack了。
 
+不过，好像漏了点啥，少了CICD，rancher和docker的compsoe.yml有了，但是，还没构建镜像呢，镜像还没push到registry呢，对吧
 
 ## 自建gitlab
 
-我汉化的gitlab 镜像,如果要用官方镜像，参见 https://hub.docker.com/r/gitlab/gitlab-ce/tags/
+我司用gitlab管理源码，我在docker hub上发布了一个汉化的gitlab  https://hub.docker.com/r/gitlab/gitlab-ce/tags/,如果要用官方镜像，参见 https://hub.docker.com/r/gitlab/gitlab-ce/tags/
 
 ```yaml
 version: '2'
@@ -753,12 +789,23 @@ services:
 
 参见文档 [GitLab Continuous Integration (GitLab CI)](https://docs.gitlab.com/ce/ci/README.html)
 
+为啥不用jenkins？
+
+这个萝卜白菜各有所爱，我是出于压缩技术栈的考虑，
+
+1. gitlab-ci够简单，也够用，
+2. 根gitlab配套，不用多学习jenkins，毕竟多一套，就多一套的学习成本
+
 
 ## 搭建镜像伺服
 
 - 老牌 [sonatype nexus oss](https://www.sonatype.com/download-oss-sonatype) 可以管理 Bower,Docker,Git LFS,Maven,npm,NuGet,PyPI,Ruby Gems,Yum Proxy,功能丰富
+
 - [GitLab Container Registry administration](https://docs.gitlab.com/ce/administration/container_registry.html#gitlab-container-registry-administration) gitlab registry跟gitlab集成，不需要额外安装服务
+
 - [harbor](http://vmware.github.io/harbor/) rancher应用商店就有，安装方便，号称企业级registry，功能强大。
+
+还是那句话，看需求，我司有部署maven和npm的需要，所以用了nexus oss，顺便管理docker registry。
 
 
 
@@ -793,6 +840,10 @@ service mesh 的设想就是，让开发人员专注于业务，不再分心于�
 
 
 
+在此 分享一个dubbo的老用户的利好消息，据说 dubbo3 将兼容2，并且支持service mesh，并且支持反应式编程。参见 重大革新！[Dubbo 3.0来了](http://mp.weixin.qq.com/s/eVYx-tUIMYtAk5wP-qkdkw)
+
+
+
 扩展阅读资料
 
 
@@ -804,7 +855,7 @@ service mesh 的设想就是，让开发人员专注于业务，不再分心于�
 
 [Service Mesh 在华为公有云的实践](http://gitbook.cn/books/5a1e7dca387c5b4ee351790b/index.html)
 
-
+[明星分分合合的洪荒点击量，微博Mesh服务化改造如何支撑？（附PPT下载）](https://mp.weixin.qq.com/s/XZVCHZZzCX8wwgNKZtsmcA)
 
 **注意**
 
