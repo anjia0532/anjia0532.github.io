@@ -164,9 +164,9 @@ jhipster依赖的技术框架版本基本都是最新稳定版，版本更新比
 安装完 node,yarn后，执行下面代码，使用npm的淘宝镜像，加速构建。
 
 ```bash
-yarn config set sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
-yarn config set phantomjs_cdnurl=https://npm.taobao.org/mirrors/phantomjs/
-yarn config set registry=https://registry.npm.taobao.org
+yarn config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
+yarn config set phantomjs_cdnurl https://npm.taobao.org/mirrors/phantomjs/
+yarn config set registry https://registry.npm.taobao.org
 ```
 
 安装 jdk8,maven,maven加速，请自行百度。
