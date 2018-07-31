@@ -175,7 +175,7 @@ actions:
 
 ##### 设置共享文件存储
 
-我采用的还是挂载磁盘的方案，不过社区内有大牛基于aliyun-oss-sdk写了个es的存储插件，[elasticsearch-repository-oss](https://github.com/zhichen/elasticsearch-repository-oss/wiki) 但是这个是5.5.3的，如果其他版本，`需要修改plguins/plugin-descriptor.properties中的elasticsearch.version和version,改为自己es集群的版本` 也有别人改好的，参见  [gist#aramalipoor/.env](aramalipoor/.env) ，当然也可以fork后简单的改改，比如升级一下sdk版本，优化一下代码啥的
+我采用的还是挂载磁盘的方案，不过社区内有大牛基于aliyun-oss-sdk写了个es的存储插件，[elasticsearch-repository-oss](https://github.com/zhichen/elasticsearch-repository-oss/wiki) 但是这个是5.5.3的，如果其他版本，`需要修改plguins/plugin-descriptor.properties中的elasticsearch.version和version,改为自己es集群的版本` 也有别人改好的，参见  [gist#aramalipoor/.env](https://gist.github.com/aramalipoor/c298395d937e1ad412db2ba8c0b239e9) ，当然也可以fork后简单的改改，比如升级一下sdk版本，优化一下代码啥的，我也是这么干的，哈哈，详见 [anjia0532/elasticsearch-repository-oss#6.3.1](https://github.com/anjia0532/elasticsearch-repository-oss/releases)  没有改原有逻辑，只是升级了jar版本
 
 
 
