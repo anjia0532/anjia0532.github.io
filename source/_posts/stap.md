@@ -11,20 +11,12 @@ tags: [openresty,stap,systemtap,flame-graph]
 ```bash
 
 # 导入 GPG key
-# 16.04 and higher
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C8CAB6595FDFF622
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 428D7C01 C8CAB6595FDFF622
 
-#older distributions
-#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ECDCAD72428D7C01 
-
-# 设置源
-codename=$(lsb_release -c | awk  '{print $2}')
-sudo tee /etc/apt/sources.list.d/ddebs.list << EOF
-deb http://ddebs.ubuntu.com/ ${codename}      main restricted universe multiverse
-deb http://ddebs.ubuntu.com/ ${codename}-security main restricted universe multiverse
-deb http://ddebs.ubuntu.com/ ${codename}-updates  main restricted universe multiverse
-deb http://ddebs.ubuntu.com/ ${codename}-proposed main restricted universe multiverse
-EOF
+echo "deb http://ddebs.ubuntu.com $(lsb_release -cs) main restricted universe multiverse
+deb http://ddebs.ubuntu.com $(lsb_release -cs)-updates main restricted universe multiverse
+deb http://ddebs.ubuntu.com $(lsb_release -cs)-proposed main restricted universe multiverse" | \
+sudo tee -a /etc/apt/sources.list.d/ddebs.list
 
 # 更新
 sudo apt-get update
@@ -175,6 +167,7 @@ $ kill -QUIT `cat /var/run/nginx.pid.oldbin`
 - [Build Systemtap-openresty官方文档][linkBuildSystemtap-openresty官方文档]
 - [火焰图-openresty最佳实践][]
 - [Systemtap - ubuntu wiki][Systemtap-UbuntuWiki]
+- [Debug Symbol Packages][Debug-Symbol-Packages]
 - [openresty/stapxx][]
 - [openresty/openresty-systemtap-toolkit][]
 - [brendangregg/FlameGraph][]
@@ -189,7 +182,7 @@ $ kill -QUIT `cat /var/run/nginx.pid.oldbin`
 [juejin]: https://juejin.im/post/59ce27fef265da065b66d54b
 [jianshu]: http://www.jianshu.com/p/008fde8837f5
 
-
+[Debug-Symbol-Packages](https://wiki.ubuntu.com/Debug%20Symbol%20Packages)
 [白话火焰图-火丁笔记]: https://huoding.com/2016/08/18/531
 [linkBuildSystemtap-openresty官方文档]: http://openresty.org/en/build-systemtap.html
 [火焰图-openresty最佳实践]: https://moonbingbing.gitbooks.io/openresty-best-practices/content/flame_graph.html
