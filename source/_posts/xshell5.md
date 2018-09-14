@@ -1,5 +1,5 @@
 ---
-title: xshell5官方下载并破解
+title: (2018年9月可用)官网下载免费版xshell5
 date: 2018-09-14 09:18:40
 tags: [linux,xshell,xshell5]
 ---
@@ -19,6 +19,7 @@ xshell 是一个强大的终端模拟软件，类似的还有很多，比如 mob
 根据 [v2ex](https://www.v2ex.com/t/460182), 其中 [chanssl](https://www.v2ex.com/t/460182) 指出
 
 Xshell: <http://www.netsarang.com/download/down_live.html?productcode=2&majorversion=5>
+
 Xftp: <http://www.netsarang.com/download/down_live.html?productcode=3&majorversion=5>
 
 的办法，发现下载的是评估版的，也就是30天可用。而且最蛋疼的是不能输入注册码，所以网上找的注册码都GG了。
@@ -61,4 +62,9 @@ CRC32：305847D5
 
 至于为啥跟 https://www.netsarang.com/download/down_live.html?productcode=2&majorversion=5 的校验码(`MD5: 6a2aef6ac7a502f31607524a13659a81`)不一致，因为 https://www.netsarang.com/download/down_live.html?productcode=2&majorversion=5  是评估版，并且文件名是`Xshell-5.0.1339.exe`
 
-另：处于对看客服务器的安全考虑，本文不会提供二进制下载。
+另：出于对看客服务器的安全考虑，本文不会提供二进制下载。
+
+
+
+博客 [https://anjia0532.github.io/2018/09/14/xshell5/](https://anjia0532.github.io/2018/09/14/xshell5/)
+掘金 [https://juejin.im/post/5b9b271be51d450e7e513d88](https://juejin.im/post/5b9b271be51d450e7e513d88)
