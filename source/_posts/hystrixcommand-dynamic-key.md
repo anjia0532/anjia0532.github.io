@@ -1,7 +1,7 @@
 ---
 title: 让 @HystrixCommand 支持Spring EL实现动态commandKey,groupKey,threadPoolKey,fallbackMethod
 date: 2018-09-26 11:59:40
-tags: [微服务,hystrix,HystrixCommand,@HystrixCommand]
+tags: [微服务,hystrix,hystrixcommand,hystrix-command,hystrix-command-dynamic]
 ---
 
 `hystrix-javanica`  极大的简化了hystrix的开发工作，不用显式的`new`一堆`HystrixCommand`对象，代价就是，`@HystrixCommand` 一旦添加到方法后就固定了，没法根据入参动态修改注解内容(如果运行时，全局修改注解，请参见 [Changing Annotation Parameters At Runtime](https://www.baeldung.com/java-reflection-change-annotation-params))
@@ -554,3 +554,9 @@ cmd:this is cmd key
 
 
 后续有时间，可能会写一下，基于redis的hystrix集群共享metrics的方案
+
+
+
+博客 [https://anjia0532.github.io/2018/09/26/hystrixcommand-dynamic-key/](https://anjia0532.github.io/2018/09/26/hystrixcommand-dynamic-key/)
+
+掘金 [https://juejin.im/post/5bab20fc5188255c980bdc9d](https://juejin.im/post/5bab20fc5188255c980bdc9d)

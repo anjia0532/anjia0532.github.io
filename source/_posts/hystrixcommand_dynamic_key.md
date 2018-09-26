@@ -554,3 +554,9 @@ cmd:this is cmd key
 
 
 后续有时间，可能会写一下，基于redis的hystrix集群共享metrics的方案
+
+
+
+博客 [https://anjia0532.github.io/2018/09/26/hystrixcommand-dynamic-key/](https://anjia0532.github.io/2018/09/26/hystrixcommand-dynamic-key/)
+
+掘金 [https://juejin.im/post/5bab20fc5188255c980bdc9d](https://juejin.im/post/5bab20fc5188255c980bdc9d)
