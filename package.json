@@ -11,10 +11,12 @@
         "repo": "blog",
         "mdNameFormat": "title",
         "postPath": "source/_posts"
-    },"scripts": {
+    },
+    "scripts": {
         "sync": "yuque-hexo sync",
         "clean:yuque": "yuque-hexo clean",
         "deploy": "npm run sync && hexo clean && hexo g -d",
+        "dev": "hexo clean && hexo server"
     },
     "dependencies": {
         "hexo": "^3.2.0",
