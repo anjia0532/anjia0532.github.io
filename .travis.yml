@@ -1,28 +1,29 @@
 language: node_js
 node_js: stable
 
-# S: Build Lifecycle
+before_script:
+  - npm install hexo-generator-sitemap --save
+  - git config --global user.name "anjia0532"
+  - git config --global user.email "anjia0532@gmail.com"
+
 install:
+  - npm install hexo-cli -g
   - npm install
 
-
-before_script:
-  #- npm install hexo-helper-qrcode --save
-  #- npm install hexo-generator-feed --save
-  - npm install hexo-generator-sitemap --save
-
 script:
-  - hexo g
+  - npm run deploy
 
 after_script:
   - cd ./public
   #- if [ $MY_DOMAIN ]; then echo ${MY_DOMAIN} > CNAME; fi
   - git init
-  - git config user.name "anjia0532"
-  - git config user.email "anjia0532@gmail.com"
   - git add .
   - git commit -m "Update docs"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+  - cd ../
+  - git add .
+  - git commit -m "Update docs"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" blog-source:blog-source
 
 branches:
   only:
@@ -30,4 +31,4 @@ branches:
 env:
  global:
    - GH_REF: github.com/anjia0532/anjia0532.github.io.git
-   - MY_DOMAIN: anjia.ml
+   - MY_DOMAIN: anjia0532.github.io
