@@ -111,6 +111,7 @@ tags: [github,maven,central,mvn-deploy]
 mvn clean deploy
 ```
 
+
 ## 2. mvn deploy && git add && commit && push
 
 参考 https://blog.csdn.net/u010442302/article/details/74639357
