@@ -9,7 +9,7 @@
         "baseUrl": "https://www.yuque.com/api/v2",
         "login": "zhaoanjia",
         "repo": "blog",
-        "mdNameFormat": "title",
+        "mdNameFormat": "slug",
         "postPath": "source/_posts"
     },
     "scripts": {
