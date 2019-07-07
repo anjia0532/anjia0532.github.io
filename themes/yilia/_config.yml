@@ -52,6 +52,9 @@ weixin: http://ww1.sinaimg.cn/large/afaffa71ly1fh5kp406yij209w09yaaf.jpg
 # Miscellaneous
 baidu_analytics: ''
 google_analytics: ''
+sn_analytics: 
+    host: //analytics.jiankangsn.com/
+    id: 2
 favicon: /favicon.png
 
 #你的头像url
