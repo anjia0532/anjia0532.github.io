@@ -11,6 +11,8 @@ install:
   - npm install
 
 script:
+  - npm run sync
+  - cp source/_yuque/* source/_posts/
   - npm run deploy
 
 after_script:

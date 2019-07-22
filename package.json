@@ -6,7 +6,7 @@
         "version": "3.4.2"
     },
     "yuqueConfig": {
-        "postPath": "source/_posts",
+        "postPath": "source/_yuque",
         "cachePath": "yuque.json",
         "mdNameFormat": "slug",
         "adapter": "hexo",
@@ -18,7 +18,7 @@
     },
     "scripts": {
         "sync": "yuque-hexo sync",
-        "deploy": "npm run sync && hexo clean && hexo g -d",
+        "deploy": "hexo clean && hexo g -d",
         "dev": "hexo clean && hexo server"
     },
     "dependencies": {
