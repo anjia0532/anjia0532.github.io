@@ -6,15 +6,18 @@
         "version": "3.4.2"
     },
     "yuqueConfig": {
-        "baseUrl": "https://www.yuque.com/api/v2",
+        "postPath": "source/_posts",
+        "cachePath": "yuque.json",
+        "mdNameFormat": "slug",
+        "adapter": "hexo",
+        "concurrency": 5,
+        "baseUrl": "https://www.yuque.com/api/v2/",
         "login": "zhaoanjia",
         "repo": "blog",
-        "mdNameFormat": "slug",
-        "postPath": "source/_posts"
+        "onlyPublished": true
     },
     "scripts": {
         "sync": "yuque-hexo sync",
-        "clean:yuque": "yuque-hexo clean",
         "deploy": "npm run sync && hexo clean && hexo g -d",
         "dev": "hexo clean && hexo server"
     },
