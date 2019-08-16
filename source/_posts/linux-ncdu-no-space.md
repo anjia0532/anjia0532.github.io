@@ -1,15 +1,21 @@
 
 ---
+
 title: Linux磁盘空间占满问题快速排雷
+
 date: 2019-02-14 14:36:00 +0800
+
 tags: [linux,运维,devops,排雷,磁盘,ncdu]
+
 categories: 运维
+
 ---
 
 情人节一大早就接到报警，一台测试服务器磁盘满了，这很程序员。
 
 <!-- more -->
 
+<a name="8cb08486"></a>
 ## 磁盘排雷三连
 反手一个 `df` 先看是否是真满了(参考 [df(1) - Linux man page](https://linux.die.net/man/1/df) )<br />需要注意，如果磁盘空间未满，但是仍然报 `No space left on device` ,需要执行 `df -i`  排查inode
 
@@ -85,6 +91,7 @@ $ lsof -i | grep deleted
 # 当然也不快
 ```
 
+<a name="ncdu"></a>
 ## [ncdu](https://dev.yorhel.nl/ncdu)
 
 针对 `du -d1` 大文件场景下的龟速表现，有人开发了ncdu,以ubuntu为例
@@ -103,10 +110,11 @@ $ ./configure --prefix=/usr
 $ make && make install
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550123205304-ae5bfcbc-8c91-4f91-ab15-843953ed6701.png#align=left&display=inline&height=397&linkTarget=_blank&name=image.png&originHeight=397&originWidth=779&size=37521&width=779)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550123205304-ae5bfcbc-8c91-4f91-ab15-843953ed6701.png#align=left&display=inline&height=397&name=image.png&originHeight=397&originWidth=779&size=37521&width=779)
 
 参考官方文档 [Ncdu Manual](https://dev.yorhel.nl/ncdu/man)
 
+<a name="e5d9f3cf"></a>
 ## 额外
 
 通过man查询命令时，手册中会带有数字(例如 `du(1)` , `lsof(8)` )，这代表的是手册的不同部分，可以通过 `man man` 或者 [Linux man pages](https://linux.die.net/man/) 来查看
@@ -128,13 +136,16 @@ MANUAL SECTIONS
     which often include additional sections.
 ```
 
+<a name="35808e79"></a>
 ## 参考资料
-* [What do the numbers in a man page mean?](https://unix.stackexchange.com/a/3587)
-* [df(1) - Linux man page](https://linux.die.net/man/1/df)
-* [du(1) - Linux man page](https://linux.die.net/man/1/du)
-* [lsof(8) - Linux man page](https://linux.die.net/man/8/lsof)
-* [Ncdu Manual](https://dev.yorhel.nl/ncdu/man)
 
+- [What do the numbers in a man page mean?](https://unix.stackexchange.com/a/3587)
+- [df(1) - Linux man page](https://linux.die.net/man/1/df)
+- [du(1) - Linux man page](https://linux.die.net/man/1/du)
+- [lsof(8) - Linux man page](https://linux.die.net/man/8/lsof)
+- [Ncdu Manual](https://dev.yorhel.nl/ncdu/man)
+
+<a name="fb674066"></a>
 ## 招聘小广告
 
 山东济南的小伙伴欢迎投简历啊 [加入我们](https://www.shunnengnet.com/index.php/Home/Contact/join.html) , 一起搞事情。
