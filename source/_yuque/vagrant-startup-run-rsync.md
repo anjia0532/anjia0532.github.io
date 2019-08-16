@@ -1,7 +1,14 @@
+
+---
+
 title: 037-vagrant启动(up)后自动同步文件(rsync-auto)
 
 date: 2019-07-29 08:37:45 +0800
 
+tags: []
+
+---
+date: 2019-08-14 12:30:00
 tags: [虚拟机,kvm,vagrant,virtualbox,python]
 categories: python
 ---

@@ -1,9 +1,14 @@
+
+---
+
 title: 037-vagrant启动(up)后自动同步文件(rsync-auto)
 
 date: 2019-07-29 08:37:45 +0800
 
 tags: [虚拟机,kvm,vagrant,virtualbox,python]
-categories: python
+
+categories: python
+
 ---
 
 > 这是坚持技术写作计划（含翻译）的第37篇，定个小目标999，每周最少2篇。
@@ -14,6 +19,7 @@ categories: python
 另外可以参考我的 [036-win10搭建python的linux开发环境(pycharm+vagrant+virtualbox)](https://juejin.im/post/5d3a55ece51d454f71439dd2)
 
 <!-- more -->
+
 <a name="M2lMe"></a>
 ## sync
 

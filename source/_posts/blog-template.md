@@ -1,12 +1,13 @@
 
 ---
+
 title: 博客模板
 
 date: 2010-08-01 19:35:21
 
 tags: []
 
-categories: 
+categories: []
 
 ---
 
