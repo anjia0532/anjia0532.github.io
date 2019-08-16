@@ -1,0 +1,154 @@
+
+---
+
+title: 033-史上最全-mysql迁移到clickhouse的5种办法
+
+date: 2019-07-17 22:15:38 +0800
+
+tags: [数据分析,数据处理,mysql,数据库,clickhouse]
+
+categories: 大数据
+
+---
+
+> 这是坚持技术写作计划（含翻译）的第33篇，定个小目标999，每周最少2篇。
+
+
+数据迁移需要从mysql导入clickhouse, 总结方案如下，包括clickhouse自身支持的三种方式，第三方工具两种。
+
+<!-- more -->
+<a name="0nrjs"></a>
+## create table engin mysql
+
+```sql
+CREATE TABLE [IF NOT EXISTS] [db.]table_name [ON CLUSTER cluster]
+(
+    name1 [type1] [DEFAULT|MATERIALIZED|ALIAS expr1] [TTL expr1],
+    name2 [type2] [DEFAULT|MATERIALIZED|ALIAS expr2] [TTL expr2],
+    ...
+    INDEX index_name1 expr1 TYPE type1(...) GRANULARITY value1,
+    INDEX index_name2 expr2 TYPE type2(...) GRANULARITY value2
+) ENGINE = MySQL('host:port', 'database', 'table', 'user', 'password'[, replace_query, 'on_duplicate_clause']);
+```
+
+> 官方文档: [https://clickhouse.yandex/docs/en/operations/table_engines/mysql/](https://clickhouse.yandex/docs/en/operations/table_engines/mysql/)
+
+注意，实际数据存储在远端mysql数据库中，可以理解成外表。<br />可以通过在mysql增删数据进行验证。
+
+<a name="CDYbo"></a>
+## insert into select from
+
+```sql
+-- 先建表
+CREATE TABLE [IF NOT EXISTS] [db.]table_name [ON CLUSTER cluster]
+(
+    name1 [type1] [DEFAULT|MATERIALIZED|ALIAS expr1],
+    name2 [type2] [DEFAULT|MATERIALIZED|ALIAS expr2],
+    ...
+) ENGINE = engine
+-- 导入数据
+INSERT INTO [db.]table [(c1, c2, c3)] select 列或者* from mysql('host:port', 'db', 'table_name', 'user', 'password')
+```
+可以自定义列类型，列数，使用clickhouse函数对数据进行处理，比如 `select toDate(xx) from mysql("host:port","db","table_name","user_name","password")` 
+
+<a name="jwRVs"></a>
+## create table as select from
+
+```sql
+CREATE TABLE [IF NOT EXISTS] [db.]table_name
+ENGINE =Log
+AS 
+SELECT *
+FROM mysql('host:port', 'db', 'article_clientuser_sum', 'user', 'password')
+```
+> 网友文章: [http://jackpgao.github.io/2018/02/04/ClickHouse-Use-MySQL-Data/](http://jackpgao.github.io/2018/02/04/ClickHouse-Use-MySQL-Data/)
+
+不支持自定义列，参考资料里的博主写的 `ENGIN=MergeTree` 测试失败。<br />可以理解成 create table 和 insert into select 的组合
+
+<a name="rbmGL"></a>
+## Altinity/clickhouse-mysql-data-reader
+Altinity公司开源的一个python工具，用来从mysql迁移数据到clickhouse(支持binlog增量更新和全量导入)，但是官方readme和代码脱节，根据quick start跑不通。
+```bash
+## 创建表
+clickhouse-mysql \
+    --src-host=127.0.0.1 \
+    --src-user=reader \
+    --src-password=Qwerty1# \
+    --table-templates-with-create-database \
+    --src-table=airline.ontime > create_clickhouse_table_template.sql
+## 修改脚本
+vim create_clickhouse_table_template.sql
+
+## 导入建表
+clickhouse-client -mn < create_clickhouse_table_template.sql
+
+## 数据导入
+clickhouse-mysql \
+     --src-host=127.0.0.1 \
+     --src-user=reader \
+     --src-password=Qwerty1# \
+     --table-migrate \
+     --dst-host=127.0.0.1 \
+     --dst-table=logunified \
+     --csvpool
+```
+> 官方文档: [https://github.com/Altinity/clickhouse-mysql-data-reader#mysql-migration-case-1---migrate-existing-data](https://github.com/Altinity/clickhouse-mysql-data-reader#mysql-migration-case-1---migrate-existing-data)
+
+
+注意，上述三种都是从mysql导入clickhouse，如果数据量大，对于mysql压力还是挺大的。下面介绍两种离线方式(streamsets支持实时，也支持离线)<br />csv
+
+```bash
+## 忽略建表
+clickhouse-client \
+  -h host \
+  --query="INSERT INTO [db].table FORMAT CSV" < test.csv
+```
+
+但是如果源数据质量不高，往往会有问题，比如包含特殊字符(分隔符，转义符)，或者换行。被坑的很惨。
+
+- 自定义分隔符, `--format_csv_delimiter="|"` 
+- 遇到错误跳过而不中止， `--input_format_allow_errors_num=10` 最多允许10行错误, `--input_format_allow_errors_ratio=0.1` 允许10%的错误
+- csv 跳过空值(null) ，报 `Code: 27. DB::Exception: Cannot parse input: expected , before: xxxx: (at row 69) ERROR: garbage after Nullable(Date): "8,002<LINE FEED>0205"`  `sed ' :a;s/,,/,\\N,/g;ta' |clickhouse-client -h host --query "INSERT INTO [db].table FORMAT CSV"` 将 `,,` 替换成 `,\N,` 
+
+`python clean_csv.py --src=src.csv --dest=dest.csv --chunksize=50000 --cols --encoding=utf-8 --delimiter=,` 
+
+clean_csv.py参考我另外一篇 [032-csv文件容错处理](https://anjia0532.github.io/2019/07/16/clean-csv/) 
+
+<a name="JB7MZ"></a>
+## streamsets
+streamsets支持从mysql或者读csv全量导入，也支持订阅binlog增量插入，参考我另外一篇 [025-大数据ETL工具之StreamSets安装及订阅mysql binlog](https://anjia0532.github.io/2019/06/10/cdh-streamsets/)。<br />本文只展示从mysql全量导入clickhouse<br />本文假设你已经搭建起streamsets服务<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563437517163-af02c2db-f03b-4884-8f16-4850918ddc0d.png#align=left&display=inline&height=850&name=image.png&originHeight=850&originWidth=1911&size=97265&status=done&width=1911)<br />启用并重启服务<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563437777046-970dff85-960f-48f3-a3e9-0a10002f34b4.png#align=left&display=inline&height=860&name=image.png&originHeight=860&originWidth=1843&size=89828&status=done&width=1843)<br />上传mysql和clickhouse的jdbc jar和依赖包<br />便捷方式，创建pom.xml，使用maven统一下载
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.anjia</groupId>
+  <artifactId>demo</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>demo</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+        <groupId>ru.yandex.clickhouse</groupId>
+        <artifactId>clickhouse-jdbc</artifactId>
+        <version>0.1.54</version>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.47</version>
+  </dependency>
+  </dependencies>
+</project>
+```
+如果本地装有maven，执行如下命令<br />`mvn dependency:copy-dependencies -DoutputDirectory=lib -DincludeScope=compile` <br />所有需要的jar会下载并复制到lib目录下<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563438052063-1f073ee5-1c50-4842-8f9e-5f9974867895.png#align=left&display=inline&height=298&name=image.png&originHeight=298&originWidth=391&size=34034&status=done&width=391)<br />然后拷贝到 streamsets `/opt/streamsets-datacollector-3.9.1/streamsets-libs-extras/streamsets-datacollector-jdbc-lib/lib/` 目录下<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563442430751-7889c386-014a-417e-bc0c-069414f08b89.png#align=left&display=inline&height=740&name=image.png&originHeight=740&originWidth=751&size=59852&status=done&width=751)<br />重启streamsets服务<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563443529858-b23e198f-a097-4359-ad0b-85768a5c68ec.png#align=left&display=inline&height=320&name=image.png&originHeight=320&originWidth=194&size=13854&status=done&width=194)![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563443568159-590b99dc-af61-45d2-8724-b33d08ba7df2.png#align=left&display=inline&height=235&name=image.png&originHeight=235&originWidth=189&size=9943&status=done&width=189)<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563444143877-060e4c52-53af-42f3-99e2-38cfc2add983.png#align=left&display=inline&height=726&name=image.png&originHeight=726&originWidth=1253&size=83069&status=done&width=1253)<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563444315768-4295a91d-b610-4df8-8796-196358662c68.png#align=left&display=inline&height=776&name=image.png&originHeight=776&originWidth=1378&size=80345&status=done&width=1378)<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563444358478-d8bd7c56-c0c0-49a6-903e-1d284d812e5d.png#align=left&display=inline&height=773&name=image.png&originHeight=773&originWidth=1344&size=81650&status=done&width=1344)<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563444395375-690becdc-1f48-4cfb-b6bd-13d03554cbc1.png#align=left&display=inline&height=785&name=image.png&originHeight=785&originWidth=1629&size=69971&status=done&width=1629)
+<a name="ri8A5"></a>
+## 参考资料
+
+- [我的博客](https://anjia0532.github.io/2019/07/17/mysql-to-clickhouse)
+- [我的掘金](https://juejin.im/post/5d30454ce51d4510bf1d6737)
+- [Building data stream pipelines with CrateDB and StreamSets data collector](https://crate.io/docs/crate/guide/en/latest/tools/streamsets.html)
+- [JDBC Query Consumer](https://streamsets.com/documentation/datacollector/latest/help/datacollector/UserGuide/Origins/JDBCConsumer.html)
+- [Data Flow Pipeline Using StreamSets](https://dzone.com/articles/data-flow-pipeline-using-streamsets)
+
