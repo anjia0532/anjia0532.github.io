@@ -5,10 +5,12 @@ title: 037-vagrant启动(up)后自动同步文件(rsync-auto)
 
 date: 2019-07-29 08:37:45 +0800
 
+tags: []
+
+---
+date: 2019-08-14 12:30:00
 tags: [虚拟机,kvm,vagrant,virtualbox,python]
-
-categories: python
-
+categories: python
 ---
 
 > 这是坚持技术写作计划（含翻译）的第37篇，定个小目标999，每周最少2篇。
@@ -16,10 +18,15 @@ categories: python
 
 本文介绍两种vagrant up后自动同步文件(rsync) 分别基于 `sync` 和 `nfs` (如果不设置的话，需要再起一个终端，单独运行 `vagrant rsync-auto` )
 
-另外可以参考我的 [036-win10搭建python的linux开发环境(pycharm+vagrant+virtualbox)](https://juejin.im/post/5d3a55ece51d454f71439dd2)
+python+vagrant+virtualbox系列文章<br /> 
+
+- [036-win10搭建python的linux开发环境(pycharm+vagrant+virtualbox)](https://juejin.im/post/5d3a55ece51d454f71439dd2) 
+- [037-vagrant启动(up)后自动同步文件(rsync-auto)](https://juejin.im/post/5d562b5e5188252d43756db8) 
+- [040-解决Linux使用virtualbox共享文件夹问题](https://juejin.im/post/5d5695056fb9a06afd6600f0)
+- [042-解决win10 VirtualBox无法启动(VERR_NEM_VM_CREATE_FAILED)](https://juejin.im/post/5d63869a51882559c41612c6)
+- [043-解决vagrant访问virtualbox共享文件夹报无权限问题(Permission denied)](https://juejin.im/post/5d6493d6e51d456206115a2c)
 
 <!-- more -->
-
 <a name="M2lMe"></a>
 ## sync
 
