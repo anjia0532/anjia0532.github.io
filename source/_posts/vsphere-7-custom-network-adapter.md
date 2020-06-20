@@ -1,15 +1,5 @@
-
----
-
 title: vSphere7添加第三方网卡驱动（以realtek 8168为例）
-
-date: 2020-06-20 10:45:54 +0800
-
-tags: []
-
----
 date: 2020-06-19 23:35:21
-
 tags: [vsphere,realtek,螃蟹卡,exsi]
 categories: [虚拟化]
 ---<br />
