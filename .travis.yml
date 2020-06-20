@@ -21,11 +21,8 @@ after_script:
   - git init
   - git add .
   - git commit -m "Update docs"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
-  - cd ../
-  - git add .
-  - git commit -m "Update docs"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" blog-source:blog-source
+  - ls -lah
+  - git push --force "https://${GH_TOKEN}@${GH_REF}" master:master
 
 branches:
   only:
