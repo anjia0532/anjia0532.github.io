@@ -1,41 +1,35 @@
-
 ---
-
 title: 019-批量修改redis TTL和批量删除key
-
+urlname: redis-batch-changed-ttl
 date: 2019-05-10 08:37:14 +0800
-
 tags: [redis,python]
-
-categories: redis
-
+categories: [r,e,d,i,s]
 ---
 
-> 这是坚持技术写作计划（含翻译）的第19篇，定个小目标999，每周最少2篇。
+> 这是坚持技术写作计划（含翻译）的第 19 篇，定个小目标 999，每周最少 2 篇。
 
-
-如果因为历史原因，导致redis里存在无用且没有设置ttl的key，会造成浪费。本文主要讲如何在不阻塞redis的情况下批量修改redis的ttl和使用通配符删除key。
+如果因为历史原因，导致 redis 里存在无用且没有设置 ttl 的 key，会造成浪费。本文主要讲如何在不阻塞 redis 的情况下批量修改 redis 的 ttl 和使用通配符删除 key。
 
 <!-- more -->
 
-<a name="s9rs2"></a>
-### 通配符删除key
+### 通配符删除 key
 
 ```
 redis-cli [-a password] [-h localhost] [-p 6379] --scan --pattern pattern* | xargs redis-cli [-a password] [-h localhost] [-p 6379] del
 ```
-其中 `[]` 包裹的都是可选项
+
+其中 `[]`  包裹的都是可选项
 
 - -p 端口
-- -h 是redis主机
+- -h 是 redis 主机
 - -a 是密码
-- pattern* 是通配符
-> SCAN,SSCAN,HSCAN,ZSCAN四个命令都支持增量式迭代， 它们每次执行都只会返回少量元素， 所以这些命令可以用于生产环境， 而不会出现像 KEYS 命令、 SMEMBERS 命令带来的问题 —— 当 KEYS 命令被用于处理一个大的数据库时， 又或者 SMEMBERS 命令被用于处理一个大的集合键时， 它们可能会阻塞服务器达数秒之久。
+- pattern\* 是通配符
+  > SCAN,SSCAN,HSCAN,ZSCAN 四个命令都支持增量式迭代， 它们每次执行都只会返回少量元素， 所以这些命令可以用于生产环境， 而不会出现像 KEYS 命令、 SMEMBERS 命令带来的问题 —— 当 KEYS 命令被用于处理一个大的数据库时， 又或者 SMEMBERS 命令被用于处理一个大的集合键时， 它们可能会阻塞服务器达数秒之久。
 
-参考资料  [redis 命令 ](http://doc.redisfans.com/key/scan.html)[SCAN](http://doc.redisfans.com/key/scan.html) 
+参考资料   [redis 命令  ](http://doc.redisfans.com/key/scan.html)[SCAN](http://doc.redisfans.com/key/scan.html)
 
-<a name="hG47Y"></a>
-### 批量打印或者修改TTL
+### 批量打印或者修改 TTL
+
 使用方式
 
 ```
@@ -77,7 +71,7 @@ import sys, os
 import random
 
 class ShowProcess:
-    
+
     """
     显示处理进度的类
     调用该类相关函数即可实现处理进度的显示
@@ -133,7 +127,7 @@ def check_ttl(redis_conn, dbindex,max_ttl,random_upper,expire):
 
 def main():
     parser = argparse.ArgumentParser()
-    
+
     parser.add_argument('--port', type=int, dest='port', action='store', default=6379,help='port of redis ')
     parser.add_argument('--db_list', type=str, dest='db_list', action='store', default='0',
                         help='ex : -d all / -d 1,2,3,4 ')
@@ -147,7 +141,7 @@ def main():
                         help='unit: sec ,ex 1 mins = 60 sec: --random_upper 60 ')
     parser.add_argument('--max_ttl', type=int, dest='max_ttl', action='store', default='60',
                         help='unit: sec ,ex 1 mins = 60 sec: --max_ttl 60 ')
-    
+
     args = parser.parse_args()
     port = args.port
     expire = args.expire
@@ -155,7 +149,7 @@ def main():
     max_ttl = args.max_ttl
     host = args.host
     password = args.password
-    
+
     if args.db_list == 'all':
         db_list = [i for i in range(0, 16)]
     else:
@@ -173,10 +167,9 @@ if __name__ == '__main__':
 
 ```
 
-参考资料  [【Redis】获取没有设置ttl的key脚本](http://blog.itpub.net/22664653/viewspace-2153419/)
+参考资料   [【Redis】获取没有设置 ttl 的 key 脚本](http://blog.itpub.net/22664653/viewspace-2153419/)
 
-<a name="fb674066"></a>
 ## 招聘小广告
 
-山东济南的小伙伴欢迎投简历啊 [加入我们](https://www.shunnengnet.com/index.php/Home/Contact/join.html) , 一起搞事情。<br />长期招聘，Java程序员，大数据工程师，运维工程师，前端工程师。
-
+山东济南的小伙伴欢迎投简历啊 [加入我们](https://www.shunnengnet.com/index.php/Home/Contact/join.html) , 一起搞事情。
+长期招聘，Java 程序员，大数据工程师，运维工程师，前端工程师。

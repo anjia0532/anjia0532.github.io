@@ -1,27 +1,21 @@
-
 ---
-
 title: 011-openresty的maxminddb插件
-
+urlname: openresty-maxminddb
 date: 2019-03-14 23:26:00 +0800
-
 tags: [nginx,openresty,maxminddb,maxmind,ipip]
-
-categories: 运维
-
+categories: [运,维]
 ---
 
-> 这是坚持技术写作计划（含翻译）的第11篇，定个小目标999，每周最少2篇。
+> 这是坚持技术写作计划（含翻译）的第 11 篇，定个小目标 999，每周最少 2 篇。
 
+本文主要介绍我之前基于 openresty 写的 maxminddb 的解析插件 -- [anjia0532/lua-resty-maxminddb](https://github.com/anjia0532/lua-resty-maxminddb) (已开源)。主要用途是根据 ip 获取地理位置。国内精确度不如国内[ipip.net](https://www.ipip.net/) ，但是胜在免费。在精确度要求不高的场景，还是可以用的。
 
-本文主要介绍我之前基于openresty写的maxminddb的解析插件 -- [anjia0532/lua-resty-maxminddb](https://github.com/anjia0532/lua-resty-maxminddb) (已开源)。主要用途是根据ip获取地理位置。国内精确度不如国内[ipip.net](https://www.ipip.net/) ，但是胜在免费。在精确度要求不高的场景，还是可以用的。
+如果要用 ipip.net 的 lua 库，可以参考官方的  [ipipdotnet/ipdb-luajit](https://github.com/ipipdotnet/ipdb-luajit)
 
-如果要用ipip.net的lua库，可以参考官方的 [ipipdotnet/ipdb-luajit](https://github.com/ipipdotnet/ipdb-luajit)
-
-<a name="b0ff454a"></a>
 ## 前提条件
-<a name="OpenResty"></a>
+
 ### OpenResty
+
 ```bash
 # import our GPG key:
 wget -qO - https://openresty.org/package/pubkey.gpg | sudo apt-key add -
@@ -39,15 +33,14 @@ sudo apt-get update
 sudo apt-get install openresty
 ```
 
-<a name="62a25ba8"></a>
 ### maxmind/libmaxminddb && maxmind/geoipupdate
+
 ```bash
 sudo add-apt-repository ppa:maxmind/ppa
 sudo apt update
 sudo apt install libmaxminddb0 libmaxminddb-dev mmdb-bin geoipupdate
 ```
 
-<a name="a259fd57"></a>
 ### 配置 geoipupdate
 
 ```bash
@@ -67,18 +60,15 @@ EOF
 sudo /usr/local/bin/geoipupdate
 ```
 
-
-<a name="68692f19"></a>
 ## 安装和使用 lua-resty-maxminddb
 
-<a name="e655a410"></a>
 ### 安装
+
 ```bash
 opm get anjia0532/lua-resty-maxminddb
 ```
 
-<a name="2651f0d5"></a>
-### 配置openresty
+### 配置 openresty
 
 ```bash
   local cjson = require 'cjson'
@@ -98,7 +88,6 @@ opm get anjia0532/lua-resty-maxminddb
   end
 ```
 
-<a name="db06c78d"></a>
 ### 测试
 
 ```bash
@@ -201,9 +190,10 @@ node name: city, value: {
 }
 ```
 
-<a name="97caa17e"></a>
 ## 压测 & 性能
+
 事先安装好 [wrk](https://github.com/wg/wrk/wiki)
+
 ```bash
 sudo tee /tmp/wrk.lua <<-'EOF'
 wrk.method = "GET";
@@ -224,9 +214,10 @@ EOF
 
 sudo wrk -t50 -c200 -d120s -s /tmp/wrk.lua --latency http://127.0.0.1
 ```
-![](https://cdn.nlark.com/yuque/0/2019/png/226273/1552578843226-04258e12-de95-4cad-89a2-5a4e8021de30.png#align=left&display=inline&height=157&originHeight=258&originWidth=1227&size=0&status=done&width=746)<br />![](https://cdn.nlark.com/yuque/0/2019/png/226273/1552578867709-755ce4c2-069f-4db9-b8ee-dfaa91331193.png#align=left&display=inline&height=209&originHeight=209&originWidth=635&size=0&status=done&width=635)
 
-<a name="35808e79"></a>
+![](https://cdn.nlark.com/yuque/0/2019/png/226273/1552578843226-04258e12-de95-4cad-89a2-5a4e8021de30.png#align=left&display=inline&height=157&originHeight=258&originWidth=1227&size=0&status=done&width=746)
+![](https://cdn.nlark.com/yuque/0/2019/png/226273/1552578867709-755ce4c2-069f-4db9-b8ee-dfaa91331193.png#align=left&display=inline&height=209&originHeight=209&originWidth=635&size=0&status=done&width=635)
+
 ## 参考资料
 
 - [OpenResty® Linux Packages](https://openresty.org/en/linux-packages.html)
@@ -236,11 +227,8 @@ sudo wrk -t50 -c200 -d120s -s /tmp/wrk.lua --latency http://127.0.0.1
 - [wg/wrk#wiki](https://github.com/wg/wrk/wiki)
 - [MMDB_free_entry_data_list (entry_data_list=0x23) at maxminddb.c:1860 #9](https://github.com/anjia0532/lua-resty-maxminddb/issues/9)
 
-<a name="fb674066"></a>
 ## 招聘小广告
 
 山东济南的小伙伴欢迎投简历啊 [加入我们](https://www.shunnengnet.com/index.php/Home/Contact/join.html) , 一起搞事情。
 
-长期招聘，Java程序员，大数据工程师，运维工程师，前端工程师。
-
-
+长期招聘，Java 程序员，大数据工程师，运维工程师，前端工程师。

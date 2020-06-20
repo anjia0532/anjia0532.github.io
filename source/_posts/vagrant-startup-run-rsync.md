@@ -1,33 +1,31 @@
-
 ---
-
 title: 037-vagrant启动(up)后自动同步文件(rsync-auto)
-
+urlname: vagrant-startup-run-rsync
 date: 2019-07-29 08:37:45 +0800
-
 tags: []
-
+categories: []
 ---
+
 date: 2019-08-14 12:30:00
 tags: [虚拟机,kvm,vagrant,virtualbox,python]
 categories: python
+
 ---
 
-> 这是坚持技术写作计划（含翻译）的第37篇，定个小目标999，每周最少2篇。
+> 这是坚持技术写作计划（含翻译）的第 37 篇，定个小目标 999，每周最少 2 篇。
 
+本文介绍两种 vagrant up 后自动同步文件(rsync) 分别基于  `sync`  和 `nfs` (如果不设置的话，需要再起一个终端，单独运行 `vagrant rsync-auto` )
 
-本文介绍两种vagrant up后自动同步文件(rsync) 分别基于 `sync` 和 `nfs` (如果不设置的话，需要再起一个终端，单独运行 `vagrant rsync-auto` )
+python+vagrant+virtualbox 系列文章
 
-python+vagrant+virtualbox系列文章<br /> 
-
-- [036-win10搭建python的linux开发环境(pycharm+vagrant+virtualbox)](https://juejin.im/post/5d3a55ece51d454f71439dd2) 
-- [037-vagrant启动(up)后自动同步文件(rsync-auto)](https://juejin.im/post/5d562b5e5188252d43756db8) 
-- [040-解决Linux使用virtualbox共享文件夹问题](https://juejin.im/post/5d5695056fb9a06afd6600f0)
-- [042-解决win10 VirtualBox无法启动(VERR_NEM_VM_CREATE_FAILED)](https://juejin.im/post/5d63869a51882559c41612c6)
-- [043-解决vagrant访问virtualbox共享文件夹报无权限问题(Permission denied)](https://juejin.im/post/5d6493d6e51d456206115a2c)
+- [036-win10 搭建 python 的 linux 开发环境(pycharm+vagrant+virtualbox)](https://juejin.im/post/5d3a55ece51d454f71439dd2)
+- [037-vagrant 启动(up)后自动同步文件(rsync-auto)](https://juejin.im/post/5d562b5e5188252d43756db8)
+- [040-解决 Linux 使用 virtualbox 共享文件夹问题](https://juejin.im/post/5d5695056fb9a06afd6600f0)
+- [042-解决 win10 VirtualBox 无法启动(VERR_NEM_VM_CREATE_FAILED)](https://juejin.im/post/5d63869a51882559c41612c6)
+- [043-解决 vagrant 访问 virtualbox 共享文件夹报无权限问题(Permission denied)](https://juejin.im/post/5d6493d6e51d456206115a2c)
 
 <!-- more -->
-<a name="M2lMe"></a>
+
 ## sync
 
 ```bash
@@ -44,16 +42,16 @@ python+vagrant+virtualbox系列文章<br /> 
   end
 ```
 
-参考 [Vagrant Does not Start RSync-Auto on Up or Reload#briancain's reply](https://github.com/hashicorp/vagrant/issues/10002#issuecomment-419503397)
+参考  [Vagrant Does not Start RSync-Auto on Up or Reload#briancain's reply](https://github.com/hashicorp/vagrant/issues/10002#issuecomment-419503397)
 
-<a name="3GPil"></a>
 ## nfs
 
-经测试，在win10上，需要安装插件（vagrant-vbguest vagrant-winnfsd）
+经测试，在 win10 上，需要安装插件（vagrant-vbguest vagrant-winnfsd）
 
 ```bash
 vagrant plugin install vagrant-vbguest vagrant-winnfsd
 ```
+
 如果报
 
 ```bash
@@ -70,11 +68,13 @@ below to help resolve the issue:
 
 Source: https://gems.hashicorp.com/
 ```
-需要设置CAfile
+
+需要设置 CAfile
 
 ```bash
 set SSL_CERT_FILE="path\to\Vagrant\embedded\cacert.pem"
 ```
+
 如果下载速度慢，并且有境外代理服务器，可以考虑设置代理
 
 ```bash
@@ -82,7 +82,8 @@ set http_proxy=http://username:password@ip:port
 set https_proxy=http://username:password@ip:port
 ```
 
-设置Vagrantfile
+设置 Vagrantfile
+
 ```bash
   # ... 忽略无关内容
   config.vm.synced_folder ".", "/vagrant",
@@ -90,11 +91,9 @@ set https_proxy=http://username:password@ip:port
   # ... 忽略无关内容
 ```
 
-<a name="qruRF"></a>
 ## 参考资料
 
 - [我的博客](https://anjia0532.github.io/2019/08/14/vagrant-startup-run-rsync/)
 - [我的掘金](https://juejin.im/post/5d562b5e5188252d43756db8)
 - [Vagrant Does not Start RSync-Auto on Up or Reload#briancain's reply](https://github.com/hashicorp/vagrant/issues/10002#issuecomment-419503397)
 - [How to speed up Vagrant on Windows 10 using NFS](https://peshmerge.io/how-to-speed-up-vagrant-on-windows-10-using-nfs/)
-

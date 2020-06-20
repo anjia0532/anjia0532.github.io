@@ -1,27 +1,21 @@
-
 ---
-
 title: 006-Cobbler批量自动化部署CentOS/Ubuntu/Windows
-
+urlname: cobbler
 date: 2019-02-22 15:46:00 +0800
-
 tags: [pxe,dhcp,cobbler,centos,ubuntu,windows,tftp]
-
-categories: 运维
-
+categories: [运,维]
 ---
 
-> 这是坚持技术写作计划（含翻译）的第6篇，定个小目标999，每周最少2篇。
+> 这是坚持技术写作计划（含翻译）的第 6 篇，定个小目标 999，每周最少 2 篇。
 
+本文主要讲解通过 CentOS7.6 Minimal + Cobbler 自动化安装 CentOS,Ubuntu,Windows
 
-本文主要讲解通过CentOS7.6 Minimal + Cobbler 自动化安装CentOS,Ubuntu,Windows
-
-<a name="424a2ad8"></a>
 ## 准备
-从阿里镜像站，下载 [CentOS-7-x86_64-Minimal-1810.iso](https://mirrors.aliyun.com/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-Minimal-1810.iso) 和 [ubuntu-16.04.5-desktop-amd64.iso](https://mirrors.aliyun.com/ubuntu-releases/releases/releases/16.04.5/ubuntu-16.04.5-desktop-amd64.iso) ，使用VMware创建一台CentOS7的虚拟机。
 
-<a name="eb49d426"></a>
+从阿里镜像站，下载  [CentOS-7-x86_64-Minimal-1810.iso](https://mirrors.aliyun.com/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-Minimal-1810.iso)  和  [ubuntu-16.04.5-desktop-amd64.iso](https://mirrors.aliyun.com/ubuntu-releases/releases/releases/16.04.5/ubuntu-16.04.5-desktop-amd64.iso) ，使用 VMware 创建一台 CentOS7 的虚拟机。
+
 ### 环境初始化
+
 1.改为阿里源
 
 ```bash
@@ -42,22 +36,29 @@ index-url=https://mirrors.aliyun.com/pypi/simple/
 EOF
 ```
 
-2.配置ssh
+2.配置 ssh
 
-默认ssh_config启用了DNS解析，导致每次远程ssh时都特别慢
+默认 ssh_config 启用了 DNS 解析，导致每次远程 ssh 时都特别慢
+
 ```bash
-[root@localhost ~]# sed -i 's%#UseDNS yes%UseDNS no%' /etc/ssh/sshd_config 
+[root@localhost ~]# sed -i 's%#UseDNS yes%UseDNS no%' /etc/ssh/sshd_config
 [root@localhost ~]# service sshd restart
 ```
-~~3.~~[~~配置SElinux~~](https://access.redhat.com/documentation/en-us/red_hat_network_satellite/5.3/html/reference_guide/ch-cobbler#s3-cobbler-reqs-security-selinux)<br />~~如果要在Centos上开启Cobbler的支持，需要用root用户运行 `setsebool` ，注意 `-P` 参数确保重启仍然生效。~~<br />~~同时需要配置SELinux上下文规则(CentOS 7 Minimal默认不安装 `semanage` )，用于提供引导镜像。~~<br />按照红帽的5.4的教程，设置不生效，所以，禁用SELinux
+
+~~3.~~[~~配置 SElinux~~](https://access.redhat.com/documentation/en-us/red_hat_network_satellite/5.3/html/reference_guide/ch-cobbler#s3-cobbler-reqs-security-selinux)
+~~如果要在 Centos 上开启 Cobbler 的支持，需要用 root 用户运行 `setsebool` ，注意 `-P`  参数确保重启仍然生效。~~
+~~同时需要配置 SELinux 上下文规则(CentOS 7 Minimal 默认不安装 `semanage` )，用于提供引导镜像。~~
+按照红帽的 5.4 的教程，设置不生效，所以，禁用 SELinux
+
 ```bash
 #//.. setsebool -P httpd_can_network_connect true
 #//.. yum provides semanage
 #//.. yum -y install policycoreutils-python.x86_64
 #//.. semanage fcontext -a -t public_content_t "/var/lib/tftpboot/.*"
-[root@localhost ~]# sed -i '/SELINUX/s/enforcing/disabled/' /etc/selinux/config  
+[root@localhost ~]# sed -i '/SELINUX/s/enforcing/disabled/' /etc/selinux/config
 [root@localhost ~]# setenforce 0
 ```
+
 4.[配置防火墙](https://access.redhat.com/documentation/en-us/red_hat_network_satellite/5.3/html/reference_guide/ch-cobbler#s3-cobbler-reqs-security-iptables)
 
 ```bash
@@ -89,17 +90,14 @@ EOF
 [root@localhost ~]# firewall-cmd --zone=public --list-ports
 ```
 
-<a name="7abcbeda"></a>
-## 安装Cobbler
+## 安装 Cobbler
 
-<a name="5fc688fa"></a>
 ### 安装依赖软件
 
 ```bash
 [root@localhost ~]# yum install -y cobbler cobbler-web dhcp tftp-server pykickstart httpd xinetd
 ```
 
-<a name="9d785a63"></a>
 ### 设置开机自启动
 
 ```bash
@@ -110,7 +108,6 @@ EOF
 [root@localhost ~]# systemctl enable cobblerd
 ```
 
-<a name="33d81c9d"></a>
 ### 启动服务
 
 ```bash
@@ -120,7 +117,6 @@ EOF
 [root@localhost ~]# systemctl start cobblerd
 ```
 
-<a name="239c3f37"></a>
 ### 检查配置
 
 ```bash
@@ -140,46 +136,54 @@ The following are potential configuration items that you may want to fix:
 Restart cobblerd and then run 'cobbler sync' to apply changes.
 ```
 
-1,2：<br />`cobbler_ip` 为cobbler主机ip<br />`next_server` 是dhcp主机ip，但是本实验dhcp和cobbler是一台
+1,2：
+`cobbler_ip`  为 cobbler 主机 ip
+`next_server`  是 dhcp 主机 ip，但是本实验 dhcp 和 cobbler 是一台
+
 ```bash
 [root@localhost ~]# export cobbler_ip=192.168.0.12
 [root@localhost ~]# sed -i "s%^server: 127.0.0.1%server: ${cobbler_ip}%g" /etc/cobbler/settings
 [root@localhost ~]# sed -i "s%^next_server: 127.0.0.1%next_server: ${cobbler_ip}%g" /etc/cobbler/settings
 ```
 
-3： 可以忽略，因为已经配置SELinux和防火墙了
+3： 可以忽略，因为已经配置 SELinux 和防火墙了
 
-4：开启tftp功能
+4：开启 tftp 功能
+
 ```bash
 [root@localhost ~]# sed -i '/disable\>/s/\<yes\>/no/' /etc/xinetd.d/tftp
 ```
 
-5：下载bootload
+5：下载 bootload
+
 ```bash
 [root@localhost ~]# cobbler get-loaders
 ```
 
-6：下载ubuntu本地包镜像（不装ubuntu的，可以不用改）
+6：下载 ubuntu 本地包镜像（不装 ubuntu 的，可以不用改）
+
 ```bash
 [root@localhost ~]# yum install -y debmirror
 [root@localhost ~]# sed -i 's%^@dists="sid"%#@dists="sid"%g;s%@arches="i386"%#@arches="i386"%g' /etc/debmirror.conf
 ```
 
-7：设置安装系统后的root密码
+7：设置安装系统后的 root 密码
+
 ```bash
 [root@localhost ~]# export root_pwd=$(openssl passwd -1 -salt `openssl rand 15 -base64` 'Abcd1234!@#$')
 [root@localhost ~]# sed -i "s%^default_password_crypted.*%default_password_crypted: \"${root_pwd}\"%g" /etc/cobbler/settings
 ```
 
-8：电源管理模块(非必选)，cman和ence-agents二选一即可,此处忽略
+8：电源管理模块(非必选)，cman 和 ence-agents 二选一即可,此处忽略
 
 其余修改：
+
 ```bash
 [root@localhost ~]# sed -i "s%manage_dhcp: 0%manage_dhcp: 1%g" /etc/cobbler/settings
 [root@localhost ~]# sed -i "s%pxe_just_once: 0%pxe_just_once: 1%g" /etc/cobbler/settings
 ```
 
-修改dhcp
+修改 dhcp
 
 ```bash
 [root@localhost ~]# vi /etc/cobbler/dhcp.template
@@ -203,6 +207,7 @@ subnet 192.168.0.0 netmask 255.255.255.0 {
 ```
 
 再次校验,发现只有两条信息了，忽略即可。
+
 ```bash
 [root@localhost ~]# cobbler check
 The following are potential configuration items that you may want to fix:
@@ -214,7 +219,8 @@ The following are potential configuration items that you may want to fix:
 Restart cobblerd and then run 'cobbler sync' to apply changes.
 ```
 
-执行 `cobbler sync` 同步信息
+执行 `cobbler sync`  同步信息
+
 ```bash
 [root@localhost ~]# cobbler sync
 task started: 2019-02-22_184309_sync
@@ -226,11 +232,11 @@ running shell triggers from /var/lib/cobbler/triggers/change/*
 *** TASK COMPLETE ***
 ```
 
-<a name="cobbler-web"></a>
 ### cobbler-web
-<a name="8ac7b7b1"></a>
-#### 修复2.8.4 bug
-打开 `https://${cobbler_ip}/cobbler_web` 注意是 `https` 但是2.8.4有个bug，会导致打开后报500 `Internal Server Error` 错误 ,是因为  `django` 版本太高了 (参加 [cobbler 2.8.4/2.8.0 on centos 7 error ](https://github.com/cobbler/cobbler/issues/1959))
+
+#### 修复 2.8.4 bug
+
+打开 `https://${cobbler_ip}/cobbler_web`  注意是 `https`  但是 2.8.4 有个 bug，会导致打开后报 500 `Internal Server Error`  错误 ,是因为   `django`  版本太高了 (参加 [cobbler 2.8.4/2.8.0 on centos 7 error ](https://github.com/cobbler/cobbler/issues/1959))
 
 ```bash
 [root@localhost ~]# yum install -y python-pip
@@ -238,19 +244,21 @@ running shell triggers from /var/lib/cobbler/triggers/change/*
 [root@localhost ~]# systemctl restart cobblerd
 ```
 
-<a name="545e05cf"></a>
 #### 设置用户名密码
+
 默认用户名密码是 cobbler/cobbler
+
 ```bash
 [root@localhost ~]# htdigest -c /etc/cobbler/users.digest Cobbler cobbler # 后边这个是用户名
 [root@localhost ~]# systemctl restart cobblerd
 ```
 
-再次打开 `https://${cobbler_ip}/cobbler_web` <br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550854050621-8cd8b769-08c5-457e-9e1f-e85d64c10479.png#align=left&display=inline&height=519&name=image.png&originHeight=519&originWidth=543&size=42554&status=done&width=543)
+再次打开 `https://${cobbler_ip}/cobbler_web` 
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550854050621-8cd8b769-08c5-457e-9e1f-e85d64c10479.png#align=left&display=inline&height=519&name=image.png&originHeight=519&originWidth=543&size=42554&status=done&width=543)
 
-<a name="2074d2c5"></a>
 ### 挂载镜像
-通过 winscp,mobaxterm等将ubuntu和centos镜像上传到Cobbler服务器上的 `/tmp/` 目录下,其中 `net.ifnames=0 biosdevname=0 noipv6` 是让网卡统一命名成 `eth0` 
+
+通过 winscp,mobaxterm 等将 ubuntu 和 centos 镜像上传到 Cobbler 服务器上的 `/tmp/`  目录下,其中 `net.ifnames=0 biosdevname=0 noipv6`  是让网卡统一命名成 `eth0`
 
 ```bash
 [root@localhost ~]# mount -t iso9660 -o loop /tmp/CentOS-7-x86_64-Minimal-1810.iso /mnt/
@@ -260,14 +268,14 @@ running shell triggers from /var/lib/cobbler/triggers/change/*
 [root@localhost ~]# cobbler import --name=ubuntu-16.04.5-server-x86_64 --path=/mnt/ --arch=x86_64
 ```
 
-<a name="9135d7d4"></a>
-### 测试PXE安装系统
-在vmware创建两个虚拟机(选择空白盘),内存2G，CPU2核，磁盘20G，创建完后，记得打个快照，后边做实验失败后，直接恢复即可。<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550853771456-0e9b5af8-6bfe-44e0-83ed-22cf06deb895.png#align=left&display=inline&height=400&name=image.png&originHeight=400&originWidth=720&size=11329&status=done&width=720)<br />选择CentOS，然后回车，系统将自动安装
+### 测试 PXE 安装系统
 
-<a name="11e7dd08"></a>
+在 vmware 创建两个虚拟机(选择空白盘),内存 2G，CPU2 核，磁盘 20G，创建完后，记得打个快照，后边做实验失败后，直接恢复即可。
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550853771456-0e9b5af8-6bfe-44e0-83ed-22cf06deb895.png#align=left&display=inline&height=400&name=image.png&originHeight=400&originWidth=720&size=11329&status=done&width=720)
+选择 CentOS，然后回车，系统将自动安装
+
 ## 优化配置
 
-<a name="332f378a"></a>
 ### CentOS ks
 
 ```bash
@@ -280,12 +288,14 @@ Kickstart                      : /var/lib/cobbler/kickstarts/sample_end.ks
 [root@localhost ~]# cp /var/lib/cobbler/kickstarts/sample_end.ks /var/lib/cobbler/kickstarts/centos-7-6.ks
 [root@localhost ~]# cobbler profile edit --name CentOS-7.6.1810-x86_64  --kickstart=/var/lib/cobbler/kickstarts/centos-7-6.ks
 [root@localhost ~]# cp /var/lib/cobbler/kickstarts/sample.seed /var/lib/cobbler/kickstarts/ubuntu-16-4-5.seed
-[root@localhost ~]# cobbler profile edit --name ubuntu-16.04.5-server-x86_64  --kickstart=/var/lib/cobbler/kickstarts/ubuntu-16-4-5.seed 
+[root@localhost ~]# cobbler profile edit --name ubuntu-16.04.5-server-x86_64  --kickstart=/var/lib/cobbler/kickstarts/ubuntu-16-4-5.seed
 ```
 
-具体CentOS的ks语法可以参考这里：[KICKSTART 语法参考](https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/installation_guide/sect-kickstart-syntax)。另外可以参考 [运维工作笔记-Cobbler 配置文件](https://www.kancloud.cn/devops-centos/centos-linux-devops/392369)<br />具体Ubuntu的Preseed可以参考这里：[Preseed语法参考](https://www.debian.org/releases/stable/amd64/apbs04.html.zh-cn)。
+具体 CentOS 的 ks 语法可以参考这里：[KICKSTART 语法参考](https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/installation_guide/sect-kickstart-syntax)。另外可以参考  [运维工作笔记-Cobbler 配置文件](https://www.kancloud.cn/devops-centos/centos-linux-devops/392369)
+具体 Ubuntu 的 Preseed 可以参考这里：[Preseed 语法参考](https://www.debian.org/releases/stable/amd64/apbs04.html.zh-cn)。
 
-吐槽一下，cobbler代码中检测到是ubuntu时，会自动将ks换成url(强制走preseed)，而用惯了ks的，用preseed还是很不习惯的，可以看一下 [Support selection of automatic installation file format in distros which allow it (Debian/Ubuntu allows kickstart and preseed) ](https://github.com/cobbler/cobbler/issues/1262)和 [Problems Provisioning Ubuntu with Cobbler and Kickstart Profiles](https://thornelabs.blog/posts/problems-provisioning-ubuntu-with-cobbler-and-kickstart-profiles.html)<br />此处贴一下 /var/lib/cobbler/kickstarts/ubuntu-16-4-5.seed 
+吐槽一下，cobbler 代码中检测到是 ubuntu 时，会自动将 ks 换成 url(强制走 preseed)，而用惯了 ks 的，用 preseed 还是很不习惯的，可以看一下  [Support selection of automatic installation file format in distros which allow it (Debian/Ubuntu allows kickstart and preseed) ](https://github.com/cobbler/cobbler/issues/1262)和  [Problems Provisioning Ubuntu with Cobbler and Kickstart Profiles](https://thornelabs.blog/posts/problems-provisioning-ubuntu-with-cobbler-and-kickstart-profiles.html)
+此处贴一下  /var/lib/cobbler/kickstarts/ubuntu-16-4-5.seed
 
 ```bash
 # Mostly based on the Ubuntu installation guide
@@ -423,7 +433,7 @@ tasksel tasksel/first multiselect standard
 # Individual additional packages to install
 # wget is REQUIRED otherwise quite a few things won't work
 # later in the build (like late-command scripts)
-d-i pkgsel/include string ntp ssh wget 
+d-i pkgsel/include string ntp ssh wget
 
 # Debian needs this for the installer to avoid any question for grub
 # Please verify that it suit your needs as it may overwrite any usb stick
@@ -469,10 +479,10 @@ d-i preseed/late_command string wget -O- \
    chroot /target /bin/sh -s
 ```
 
-<a name="516808f3"></a>
-### 创建snippets
+### 创建 snippets
 
-安装完后，自动安装软件,参考 [Using template scripts for Debian and Ubuntu seeds](https://github.com/cobbler/cobbler/wiki/Using%20template%20scripts%20for%20Debian%20and%20Ubuntu%20seeds)
+安装完后，自动安装软件,参考  [Using template scripts for Debian and Ubuntu seeds](https://github.com/cobbler/cobbler/wiki/Using%20template%20scripts%20for%20Debian%20and%20Ubuntu%20seeds)
+
 ```bash
 [root@localhost ~]# tee /var/lib/cobbler/snippets/ubuntu_apt_install_soft <<-'EOF'
 
@@ -491,23 +501,21 @@ EOF
 ## // d-i preseed/late_command 阶段执行
 [root@localhost ~]# echo '$SNIPPET("ubuntu_apt_install_soft") >> /var/lib/cobbler/snippets/late_apt_repo_config
 ```
- 
-<a name="2a68d258"></a>
-### 设置ubuntu package repo
+
+### 设置 ubuntu package repo
 
 ```bash
 [root@localhost ~]# cobbler repo edit --name=ubuntu-16.04.5-server-x86_64 --arch=x86_64 --breed=apt --mirror=http://mirrors.aliyun.com/ubuntu --owners=admin --mirror-locally=False --apt-components='main universe' --apt-dists='xenial xenial-updates xenial-security'
 [root@localhost ~]# cobbler profile edit --name=ubuntu-16.04.5-server-x86_64 --repos=ubuntu-16.04.5-server-x86_64
 ```
 
-限于篇幅，下一篇，将介绍Cobbler安装Windows
+限于篇幅，下一篇，将介绍 Cobbler 安装 Windows
 
-<a name="a08138fa"></a>
 ## 常见错误
 
 ```bash
 [root@localhost ~]# cobbler check
-cobblerd does not appear to be running/accessible: error(111, 'Connection refused') 
+cobblerd does not appear to be running/accessible: error(111, 'Connection refused')
 ```
 
 原因：未启动相关服务
@@ -528,6 +536,7 @@ Traceback (most recent call last):
     response.msg,
 ProtocolError: <ProtocolError for 127.0.0.1:80/cobbler_api: 503 Service Unavailable>
 ```
+
 未关闭防火墙
 
 ```bash
@@ -551,8 +560,8 @@ Exception Info:
 
 !!! TASK FAILED !!!
 ```
-没改dhcp模板，导致sync同步出问题
 
+没改 dhcp 模板，导致 sync 同步出问题
 
 ```bash
 [root@localhost ~]# cat /var/log/httpd/ssl_error_log
@@ -576,26 +585,22 @@ Exception Info:
 [Fri Feb 22 20:07:49.460995 2019] [:error] [pid 6910] [remote 127.0.0.1:204]     from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 [Fri Feb 22 20:07:49.461043 2019] [:error] [pid 6910] [remote 127.0.0.1:204] ImportError: cannot import name TEMPLATE_CONTEXT_PROCESSORS
 ```
-`pip2.7 install -U django==1.9.13` 
 
+`pip2.7 install -U django==1.9.13`
 
-<a name="35808e79"></a>
 ## 参考资料
 
 - [配置防火墙](https://access.redhat.com/documentation/en-us/red_hat_network_satellite/5.3/html/reference_guide/ch-cobbler#s3-cobbler-reqs-security-iptables)
 - [cobbler 2.8.4/2.8.0 on centos 7 error](https://github.com/cobbler/cobbler/issues/1959)
 - [KICKSTART 语法参考](https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/installation_guide/sect-kickstart-syntax)
 - [运维工作笔记-Cobbler 配置文件](https://www.kancloud.cn/devops-centos/centos-linux-devops/392369)
-- [Preseed语法参考](https://www.debian.org/releases/stable/amd64/apbs04.html.zh-cn)
+- [Preseed 语法参考](https://www.debian.org/releases/stable/amd64/apbs04.html.zh-cn)
 - [Support selection of automatic installation file format in distros which allow it (Debian/Ubuntu allows kickstart and preseed) ](https://github.com/cobbler/cobbler/issues/1262)
 - [Problems Provisioning Ubuntu with Cobbler and Kickstart Profiles](https://thornelabs.blog/posts/problems-provisioning-ubuntu-with-cobbler-and-kickstart-profiles.html)
 - [Using template scripts for Debian and Ubuntu seeds](https://github.com/cobbler/cobbler/wiki/Using%20template%20scripts%20for%20Debian%20and%20Ubuntu%20seeds)
 
-<a name="fb674066"></a>
 ## 招聘小广告
 
 山东济南的小伙伴欢迎投简历啊 [加入我们](https://www.shunnengnet.com/index.php/Home/Contact/join.html) , 一起搞事情。
 
-长期招聘，Java程序员，大数据工程师，运维工程师，前端工程师。
-
-
+长期招聘，Java 程序员，大数据工程师，运维工程师，前端工程师。

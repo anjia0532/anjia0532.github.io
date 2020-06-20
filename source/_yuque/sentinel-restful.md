@@ -1,29 +1,22 @@
-
 ---
-
 title: 008-Sentinel清洗RESTful的@PathVariable
-
+urlname: sentinel-restful
 date: 2019-03-05 18:30:00 +0800
-
 tags: [spring boot,spring cloud,sentinel,hystrix,微服务,熔断]
-
-categories: 微服务
-
+categories: [微,服,务]
 ---
 
-> 这是坚持技术写作计划（含翻译）的第8篇，定个小目标999，每周最少2篇。
-
+> 这是坚持技术写作计划（含翻译）的第 8 篇，定个小目标 999，每周最少 2 篇。
 
 前段时间的文章多是运维方面的，最近放出一波后端相关的。
 
-<a name="8e1b944f"></a>
 ## 背景
-最近开始使用Sentinel进行流量保护，但是默认的web servlet filter是拦截全部http请求。在传统的项目中问题不大。但是如果项目中用了Spring MVC，并且用了@PathVariable就尴尬了。<br />比如 uri pattern是  `/foo/{id}` ,而从Sentinel监控看 `/foo/1` 和 `/foo/2` 就是两个资源了，并且Sentinel最大支持6000个资源，再多就不生效了。
 
-<a name="81c1dff6"></a>
+最近开始使用 Sentinel 进行流量保护，但是默认的 web servlet filter 是拦截全部 http 请求。在传统的项目中问题不大。但是如果项目中用了 Spring MVC，并且用了@PathVariable 就尴尬了。
+比如 uri pattern 是   `/foo/{id}` ,而从 Sentinel 监控看 `/foo/1`  和 `/foo/2`  就是两个资源了，并且 Sentinel 最大支持 6000 个资源，再多就不生效了。
+
 ## 解决办法
 
-<a name="beee100b"></a>
 ### 官方给的方案是:UrlCleaner
 
 ```java
@@ -37,11 +30,12 @@ categories: 微服务
             }
         });
 ```
-但是想想就吐， `/v1/{foo}/{bar}/qux/{baz}` 这种的来个20来个，截一个我看看。
 
-<a name="AOP"></a>
+但是想想就吐， `/v1/{foo}/{bar}/qux/{baz}`  这种的来个 20 来个，截一个我看看。
+
 ### AOP
-换种思路，uri pattern难搞，用笨办法 aop总行吧？答案是可以的。
+
+换种思路，uri pattern 难搞，用笨办法 aop 总行吧？答案是可以的。
 
 ```java
 @Aspect
@@ -76,12 +70,11 @@ public class SentinelResourceAspect {
 }
 ```
 
-
-<a name="f7ae864d"></a>
 ### 拦截器
-温习一下 Spring mvc的执行流程 `doFilter -> doService -> dispatcher -> preHandle -> controller -> postHandle -> afterCompletion -> filterAfter` 
 
-核心的是 `String pattern = (String) request.getAttribute(HandlerMapping.BEST_MATCHING_PATTERN_ATTRIBUTE);` 但是是在dispatcher阶段才赋值的，所以在CommFilter是取不到的，所以导致使用官方的Filter是不行的。只能用拦截器
+温习一下 Spring mvc 的执行流程 `doFilter -> doService -> dispatcher -> preHandle -> controller -> postHandle -> afterCompletion -> filterAfter`
+
+核心的是 `String pattern = (String) request.getAttribute(HandlerMapping.BEST_MATCHING_PATTERN_ATTRIBUTE);`  但是是在 dispatcher 阶段才赋值的，所以在 CommFilter 是取不到的，所以导致使用官方的 Filter 是不行的。只能用拦截器
 
 ```java
 
@@ -178,11 +171,12 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
 ```
 
-<a name="999b84d8"></a>
-## UrlBlockHandler和UrlCleaner和WebServletConfig.setBlockPage(blockPage)
-上面说过，UrlCleaner是为了归并请求，清洗url用的。而UrlBlockHandler是在被拦截后的默认处理器。但是clean和handler都不是链式的，所以如果有多种处理，需要自己在一个方法里，进行逻辑判断。
+## UrlBlockHandler 和 UrlCleaner 和 WebServletConfig.setBlockPage(blockPage)
+
+上面说过，UrlCleaner 是为了归并请求，清洗 url 用的。而 UrlBlockHandler 是在被拦截后的默认处理器。但是 clean 和 handler 都不是链式的，所以如果有多种处理，需要自己在一个方法里，进行逻辑判断。
 
 UrlCleaner
+
 ```java
  WebCallbackManager.setUrlCleaner(new UrlCleaner() {
             @Override
@@ -195,7 +189,8 @@ UrlCleaner
         });
 ```
 
-UrlBlockHandler<br />如果通用一点的，可以自己根据request的 content-type进行自适应返回内容(PLAN_TEXT和JSON)
+UrlBlockHandler
+如果通用一点的，可以自己根据 request 的 content-type 进行自适应返回内容(PLAN_TEXT 和 JSON)
 
 ```java
 WebCallbackManager.setUrlBlockHandler((request, response, ex) -> {
@@ -208,23 +203,20 @@ WebCallbackManager.setUrlBlockHandler((request, response, ex) -> {
 ```
 
 WebServletConfig.setBlockPage(blockPage)
+
 ```java
 WebServletConfig.setBlockPage("http://www.baidu.com")
 ```
 
-注意，三个方法都不是不支持调用链，比如我写两个UrlBlockHandler,只认最后一个。
+注意，三个方法都不是不支持调用链，比如我写两个 UrlBlockHandler,只认最后一个。
 
-<a name="35808e79"></a>
 ## 参考资料
 
 - [wiki/主流框架的适配#web-servlet](https://github.com/alibaba/Sentinel/wiki/主流框架的适配#web-servlet)
-- [issues#](https://github.com/alibaba/Sentinel/issues/286)[REST API pattern UrlCleaner同一处理](https://github.com/alibaba/Sentinel/issues/286)
+- [issues#](https://github.com/alibaba/Sentinel/issues/286)[REST API pattern UrlCleaner 同一处理](https://github.com/alibaba/Sentinel/issues/286)
 
-<a name="fb674066"></a>
 ## 招聘小广告
 
 山东济南的小伙伴欢迎投简历啊 [加入我们](https://www.shunnengnet.com/index.php/Home/Contact/join.html) , 一起搞事情。
 
-长期招聘，Java程序员，大数据工程师，运维工程师，前端工程师。
-
-
+长期招聘，Java 程序员，大数据工程师，运维工程师，前端工程师。

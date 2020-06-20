@@ -1,23 +1,19 @@
-
 ---
-
 title: Linux磁盘空间占满问题快速排雷
-
+urlname: linux-ncdu-no-space
 date: 2019-02-14 14:36:00 +0800
-
 tags: [linux,运维,devops,排雷,磁盘,ncdu]
-
-categories: 运维
-
+categories: [运,维]
 ---
 
 情人节一大早就接到报警，一台测试服务器磁盘满了，这很程序员。
 
 <!-- more -->
 
-<a name="8cb08486"></a>
 ## 磁盘排雷三连
-反手一个 `df` 先看是否是真满了(参考 [df(1) - Linux man page](https://linux.die.net/man/1/df) )<br />需要注意，如果磁盘空间未满，但是仍然报 `No space left on device` ,需要执行 `df -i`  排查inode
+
+反手一个 `df`  先看是否是真满了(参考 [df(1) - Linux man page](https://linux.die.net/man/1/df) )
+需要注意，如果磁盘空间未满，但是仍然报 `No space left on device` ,需要执行  `df -i`  排查 inode
 
 ```bash
 $ df -h
@@ -46,7 +42,8 @@ tmpfs          12285255      15 12285240       1% /run/user/0
 
 ```
 
-通过 `df -h` 只能看出磁盘满了，但是看不出每个文件夹的大小，所以需要使用 `du -ahd1` ,如果文件不是很多，很大，一般速度还能接受，但是今天执行相当慢，所以 `Ctrl+C`  中止。<br />此处简单说明一下 `-ahd1` 的意思(可以通过 `man du` 或者 `du --help` 自行查阅帮助文档,参考 [du(1) - Linux man page](https://linux.die.net/man/1/du))
+通过 `df -h`  只能看出磁盘满了，但是看不出每个文件夹的大小，所以需要使用 `du -ahd1` ,如果文件不是很多，很大，一般速度还能接受，但是今天执行相当慢，所以 `Ctrl+C`  中止。
+此处简单说明一下 `-ahd1`  的意思(可以通过 `man du`  或者 `du --help`  自行查阅帮助文档,参考 [du(1) - Linux man page](https://linux.die.net/man/1/du))
 
 ```
 $ du --help
@@ -84,17 +81,16 @@ du: 无法访问'/proc/24390/fdinfo/3': 没有那个文件或目录
 # 慢的要死，Ctrl+C 终止
 ```
 
-如果被删除的文件 `df -h` 快满了，而 `du -ahd1` 却很小，往往是文件被删除，而文件句柄没释放导致的,祭出 `lsof | grep deleted ` ，解决办法，要么kill掉pid，释放句柄(治本)，要么就 ` > /path/to/deleted/file` 把内容覆盖掉(治标)。当然还有别的玩法，比如，不小心 `rm -rf /` 了，先别着急跑路，万一 `lsof | grep deleted` 还存在的，都还有救，约等于windows下的回收站的作用。 参考[ lsof(8) - Linux man page](https://linux.die.net/man/8/lsof)
+如果被删除的文件 `df -h`  快满了，而 `du -ahd1`  却很小，往往是文件被删除，而文件句柄没释放导致的,祭出 `lsof | grep deleted` ，解决办法，要么 kill 掉 pid，释放句柄(治本)，要么就 `> /path/to/deleted/file`  把内容覆盖掉(治标)。当然还有别的玩法，比如，不小心 `rm -rf /`  了，先别着急跑路，万一 `lsof | grep deleted`  还存在的，都还有救，约等于 windows 下的回收站的作用。 参考[ lsof(8) - Linux man page](https://linux.die.net/man/8/lsof)
 
 ```bash
 $ lsof -i | grep deleted
 # 当然也不快
 ```
 
-<a name="ncdu"></a>
 ## [ncdu](https://dev.yorhel.nl/ncdu)
 
-针对 `du -d1` 大文件场景下的龟速表现，有人开发了ncdu,以ubuntu为例
+针对 `du -d1`  大文件场景下的龟速表现，有人开发了 ncdu,以 ubuntu 为例
 
 ```
 # 从APT安装(版本较旧目前是v1.11)
@@ -114,10 +110,9 @@ $ make && make install
 
 参考官方文档 [Ncdu Manual](https://dev.yorhel.nl/ncdu/man)
 
-<a name="e5d9f3cf"></a>
 ## 额外
 
-通过man查询命令时，手册中会带有数字(例如 `du(1)` , `lsof(8)` )，这代表的是手册的不同部分，可以通过 `man man` 或者 [Linux man pages](https://linux.die.net/man/) 来查看
+通过 man 查询命令时，手册中会带有数字(例如 `du(1)` , `lsof(8)` )，这代表的是手册的不同部分，可以通过 `man man`  或者  [Linux man pages](https://linux.die.net/man/)  来查看
 
 ```
 MANUAL SECTIONS
@@ -136,7 +131,6 @@ MANUAL SECTIONS
     which often include additional sections.
 ```
 
-<a name="35808e79"></a>
 ## 参考资料
 
 - [What do the numbers in a man page mean?](https://unix.stackexchange.com/a/3587)
@@ -145,11 +139,8 @@ MANUAL SECTIONS
 - [lsof(8) - Linux man page](https://linux.die.net/man/8/lsof)
 - [Ncdu Manual](https://dev.yorhel.nl/ncdu/man)
 
-<a name="fb674066"></a>
 ## 招聘小广告
 
 山东济南的小伙伴欢迎投简历啊 [加入我们](https://www.shunnengnet.com/index.php/Home/Contact/join.html) , 一起搞事情。
 
-长期招聘，Java程序员，大数据工程师，运维工程师。
-
-
+长期招聘，Java 程序员，大数据工程师，运维工程师。
