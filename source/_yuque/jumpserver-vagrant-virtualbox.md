@@ -16,6 +16,14 @@ categories: python
 
 本文以jumpserver为例，介绍如何在windows环境下进行jumpserver开发(jumpserver依赖的一些库，只有linux环境才能用)，其实不局限于jumpserver，其他项目也适用(不限于python)。参考 [打造跨平台一致性开发环境](https://juejin.im/entry/5c6a6da5f265da2de52d7d7c/detail)
 
+python+vagrant+virtualbox系列文章<br /> 
+
+- [036-win10搭建python的linux开发环境(pycharm+vagrant+virtualbox)](https://juejin.im/post/5d3a55ece51d454f71439dd2) 
+- [037-vagrant启动(up)后自动同步文件(rsync-auto)](https://juejin.im/post/5d562b5e5188252d43756db8) 
+- [040-解决Linux使用virtualbox共享文件夹问题](https://juejin.im/post/5d5695056fb9a06afd6600f0)
+- [042-解决win10 VirtualBox无法启动(VERR_NEM_VM_CREATE_FAILED)](https://juejin.im/post/5d63869a51882559c41612c6)
+- [043-解决vagrant访问virtualbox共享文件夹报无权限问题(Permission denied)](https://juejin.im/post/5d6493d6e51d456206115a2c)
+
 <!-- more -->
 
 <a name="FBqFH"></a>
@@ -65,10 +73,9 @@ Vagrant.configure("2") do |config|
     rsync__exclude: ['.git*', 'node_modules*','*.log','*.box','Vagrantfile']
 
   config.vm.provision "shell", inline: <<-SHELL
-sudo curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
-sudo sed -i -e '/mirrors.cloud.aliyuncs.com/d' -e '/mirrors.aliyuncs.com/d' /etc/yum.repos.d/CentOS-Base.repo
-sudo curl -o /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
+sudo sed -e "/mirrorlist/d" -e "s/#baseurl/baseurl/g" -e "s/mirror\.centos\.org/mirrors\.tuna\.tsinghua\.edu\.cn/g" -i /etc/yum.repos.d/CentOS-Base.repo
 sudo yum makecache
+sudo yum install -y epel-release
 
 sudo yum install -y python36 python36-devel python36-pip \
 		 libtiff-devel libjpeg-devel libzip-devel freetype-devel \
@@ -104,13 +111,12 @@ vagrant ssh
 
 <a name="gn90K"></a>
 ### ~~安装python3.6及配置pip源~~
-如果使用我的Vargrantfile，已经自动配置阿里云源并且安装必要依赖包了，不需要重复配置
+如果使用我的Vargrantfile，已经自动配置阿里云源和清华源并且安装必要依赖包了，不需要重复配置
 ```bash
-## 设置yum的阿里云源
-sudo curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
-sudo sed -i -e '/mirrors.cloud.aliyuncs.com/d' -e '/mirrors.aliyuncs.com/d' /etc/yum.repos.d/CentOS-Base.repo
-sudo curl -o /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
+## 设置yum的清华源
+sudo sed -e "/mirrorlist/d" -e "s/#baseurl/baseurl/g" -e "s/mirror\.centos\.org/mirrors\.tuna\.tsinghua\.edu\.cn/g" -i /etc/yum.repos.d/CentOS-Base.repo
 sudo yum makecache
+sudo yum install -y epel-release
 
 ## 安装依赖包
 sudo yum install -y python36 python36-devel python36-pip \
@@ -169,8 +175,8 @@ cp config_example.yml config.yml
 ## 修改config.yml的相关配置
 vagrant ssh
 source /home/vagrant/venv/bin/activate
-cd /vagrant/utils
-./make_migrations.sh
+cd /vagrant/
+./utils/make_migrations.sh
 ```
 
 <a name="avGGO"></a>
@@ -182,9 +188,23 @@ cd /vagrant/utils
 
 <a name="Kgbm8"></a>
 ## 其他
-已经提交PR，如果有需要的朋友， 可以在PR上投票，可以提高通过率[added Vagrantfile to support windows dev#3036](https://github.com/jumpserver/jumpserver/pull/3036)
+已经提交PR，如果有需要的朋友， 可以在PR上投票，可以提高通过率[added Vagrantfile to support windows dev#3036](https://github.com/jumpserver/jumpserver/pull/3036) （目前已合并到jumpserver repo中）
 
 jumpserver virtualbox 已上传百度云盘 <br />链接：[https://pan.baidu.com/s/1mr6xM7UVkPJy3TPTyoM_NQ](https://pan.baidu.com/s/1mr6xM7UVkPJy3TPTyoM_NQ)  密码：rci6
+
+<a name="Xjcpr"></a>
+## 2019-08-28 更新
+如果遇到ansible无法执行的问题是因为上述方案只起了django 的server，没有启动celery
+
+```bash
+cd /path/to/host/jumpserver/
+vagrant ssh
+# 分别启动 celery和beat
+/vagrant/jms start celery
+/vagrant/jms start beat
+```
+
+至于为啥不直接 `jms start all` 而是使用pycharm启动server，因为可以debug jumpserver 。而用 `jms start all` 则不可以
 
 <a name="sNYV4"></a>
 ## 参考资料
