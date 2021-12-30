@@ -37,6 +37,6 @@
         "hexo-server": "^0.2.0"
     },
     "devDependencies": {
-        "yuque-hexo": "^1.8.0"
+        "yuque-hexo": "^1.7.0"
     }
 }
