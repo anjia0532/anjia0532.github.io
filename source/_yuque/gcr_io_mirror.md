@@ -1,7 +1,7 @@
 ---
 title: 067-Google Container Registry(gcr.io) 中国可用镜像(长期维护，王者归来)
 urlname: gcr_io_mirror
-date: 2011-12-30 19:35:21 +0800
+date: 2021-12-30 19:35:21 +0800
 tags: [k8s,kubernetes,gcr.io,k8s.gcr.io,docker]
 categories: [docker]
 ---
