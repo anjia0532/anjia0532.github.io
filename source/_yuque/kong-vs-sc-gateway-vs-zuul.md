@@ -1,15 +1,9 @@
 ---
 title: 049-Kong1.4 vs SC Gateway2.2 vs Zuul1.3 性能测试
 urlname: kong-vs-sc-gateway-vs-zuul
-date: 2019-11-18 16:55:38 +0800
-tags: []
-categories: []
----
-
-date: 2019-11-17 22:15:41
+date: 2019-11-17 22:15:41 +0800
 tags: [Openresty,Kong,Nginx,微服务,SpringCloud,zuul]
 categories: [微服务]
-
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 49 篇，定个小目标 999，每周最少 2 篇。
