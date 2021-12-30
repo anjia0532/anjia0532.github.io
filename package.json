@@ -14,7 +14,9 @@
         "baseUrl": "https://www.yuque.com/api/v2/",
         "login": "zhaoanjia",
         "repo": "blog",
-        "onlyPublished": true
+        "onlyPublished": true,
+        "onlyPublic": true,
+        "lastGeneratePath": "lastGeneratePath.log"
     },
     "scripts": {
         "sync": "yuque-hexo sync",
@@ -35,6 +37,6 @@
         "hexo-server": "^0.2.0"
     },
     "devDependencies": {
-        "yuque-hexo": "^1.6.5"
+        "yuque-hexo": "^1.8.0"
     }
 }
