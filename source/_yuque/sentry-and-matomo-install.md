@@ -1,9 +1,16 @@
 ---
 title: 030-前端错误日志上报及网站统计(sentry+matomo)
 urlname: sentry-and-matomo-install
-date: 2019-07-07 15:00:00 +0800
-tags: [sentry,运维,日志,前端,vuejs,matomo,网站分析]
-categories: [运,维]
+date: '2019-07-07 15:00:00 +0800'
+tags:
+  - sentry
+  - 运维
+  - 日志
+  - 前端
+  - vuejs
+  - matomo
+  - 网站分析
+categories: 运维
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 30 篇，定个小目标 999，每周最少 2 篇。

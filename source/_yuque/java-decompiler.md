@@ -1,9 +1,12 @@
 ---
 title: 016-JDK8+可用的反编译工具(JD_GUI+Procyon)
 urlname: java-decompiler
-date: 2019-04-18 12:10:00 +0800
-tags: [java,jdk8,反编译]
-categories: [j,a,v,a]
+date: '2019-04-18 12:10:00 +0800'
+tags:
+  - java
+  - jdk8
+  - 反编译
+categories: java
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 16 篇，定个小目标 999，每周最少 2 篇。

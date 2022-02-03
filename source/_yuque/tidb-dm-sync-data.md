@@ -1,9 +1,15 @@
 ---
 title: 041-使用DM进行同步上游数据到tidb
 urlname: tidb-dm-sync-data
-date: 2019-08-22 19:35:21 +0800
-tags: [mysql,tidb,tikv,dm,数据同步]
-categories: [数据库]
+date: '2019-08-22 19:35:21 +0800'
+tags:
+  - mysql
+  - tidb
+  - tikv
+  - dm
+  - 数据同步
+categories:
+  - 数据库
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 41 篇，定个小目标 999，每周最少 2 篇。

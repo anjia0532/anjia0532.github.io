@@ -1,9 +1,15 @@
 ---
 title: 061-基于swagger/yapi/openapi逆向生成sdk
 urlname: codegen-by-openapi
-date: 2021-04-09 19:35:21 +0800
-tags: [java,微服务,swagger,yapi,openapi]
-categories: [微服务]
+date: '2021-04-09 19:35:21 +0800'
+tags:
+  - java
+  - 微服务
+  - swagger
+  - yapi
+  - openapi
+categories:
+  - 微服务
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 61 篇，定个小目标 999，每周最少 2 篇。

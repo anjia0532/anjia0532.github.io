@@ -1,9 +1,12 @@
 ---
 title: 058-差不多是Java中最好用的Emoji库了
 urlname: emoji-java
-date: 2021-03-03 19:35:21 +0800
-tags: [java,emoji]
-categories: [java]
+date: '2021-03-03 19:35:21 +0800'
+tags:
+  - java
+  - emoji
+categories:
+  - java
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 58 篇，定个小目标 999，每周最少 2 篇。
@@ -34,7 +37,7 @@ emoji 是表情符号/颜文字/绘文字，与表情包堪称现代人社交离
 ```java
 String alias = EmojiUtil.toAlias("😄");//:smile:
 String emoji = EmojiUtil.toUnicode(":smile:");//😄
-String alias = EmojiUtil.toHtml("😄");//&#128102;
+String alias = EmojiUtil.toHtml("😄");//👦
 ```
 
 此处，hutool 就是基于 [vdurmont/emoji-java](https://github.com/vdurmont/emoji-java) 库来做的

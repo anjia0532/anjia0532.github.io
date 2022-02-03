@@ -1,9 +1,15 @@
 ---
 title: 036-win10搭建python的linux开发环境(pycharm+vagrant+virtualbox)
 urlname: jumpserver-vagrant-virtualbox
-date: 2019-07-24 19:35:21 +0800
-tags: [虚拟机,kvm,vagrant,virtualbox,jumpserver,堡垒机]
-categories: [p,y,t,h,o,n]
+date: '2019-07-24 19:35:21 +0800'
+tags:
+  - 虚拟机
+  - kvm
+  - vagrant
+  - virtualbox
+  - jumpserver
+  - 堡垒机
+categories: python
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 36 篇，定个小目标 999，每周最少 2 篇。
@@ -11,6 +17,8 @@ categories: [p,y,t,h,o,n]
 本文以 jumpserver 为例，介绍如何在 windows 环境下进行 jumpserver 开发(jumpserver 依赖的一些库，只有 linux 环境才能用)，其实不局限于 jumpserver，其他项目也适用(不限于 python)。参考  [打造跨平台一致性开发环境](https://juejin.im/entry/5c6a6da5f265da2de52d7d7c/detail)
 
 python+vagrant+virtualbox 系列文章
+
+
 
 - [036-win10 搭建 python 的 linux 开发环境(pycharm+vagrant+virtualbox)](https://juejin.im/post/5d3a55ece51d454f71439dd2)
 - [037-vagrant 启动(up)后自动同步文件(rsync-auto)](https://juejin.im/post/5d562b5e5188252d43756db8)

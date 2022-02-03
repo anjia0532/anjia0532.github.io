@@ -1,9 +1,14 @@
 ---
 title: 050-vSphere6.7添加第三方网卡驱动（以realtek 8168为例）
 urlname: vsphere-7-custom-network-adapter
-date: 2020-06-19 23:21:35 +0800
-tags: [vsphere,realtek,螃蟹卡,exsi]
-categories: [虚拟化]
+date: '2020-06-19 23:21:35 +0800'
+tags:
+  - vsphere
+  - realtek
+  - 螃蟹卡
+  - exsi
+categories:
+  - 虚拟化
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 50 篇，定个小目标 999，每周最少 2 篇。

@@ -1,9 +1,15 @@
 ---
 title: 【译】单应用跨多k8s集群的部署与管理
 urlname: rancher2-k8s-multi-cluster-app
-date: 2019-02-15 14:08:00 +0800
-tags: [k8s,rancher,rancher2,集群,运维,翻译]
-categories: [k,8,s]
+date: '2019-02-15 14:08:00 +0800'
+tags:
+  - k8s
+  - rancher
+  - rancher2
+  - 集群
+  - 运维
+  - 翻译
+categories: k8s
 ---
 
 ![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550147773034-220bf087-600f-47dd-9d24-65ac37f79d65.png#align=left&display=inline&height=371&name=image.png&originHeight=371&originWidth=746&size=38965&width=746)

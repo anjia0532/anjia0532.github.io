@@ -1,9 +1,12 @@
 ---
 title: 028-解决cdh6.2 报 Failed to install Oozie ShareLib
 urlname: failed-to-install-oozie-share-lib
-date: 2019-06-12 12:30:53 +0800
-tags: [CDH,hadoop,oozie]
-categories: [大,数,据]
+date: '2019-06-12 12:30:53 +0800'
+tags:
+  - CDH
+  - hadoop
+  - oozie
+categories: 大数据
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 28 篇，定个小目标 999，每周最少 2 篇。

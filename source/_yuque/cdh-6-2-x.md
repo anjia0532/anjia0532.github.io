@@ -1,9 +1,14 @@
 ---
 title: 017-Centos7.6+CDH 6.2 安装和使用
 urlname: cdh-6-2-x
-date: 2019-04-25 19:10:00 +0800
-tags: [大数据,hadoop,spark,cdh,hdp]
-categories: [大,数,据]
+date: '2019-04-25 19:10:00 +0800'
+tags:
+  - 大数据
+  - hadoop
+  - spark
+  - cdh
+  - hdp
+categories: 大数据
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 17 篇，定个小目标 999，每周最少 2 篇。

@@ -1,9 +1,14 @@
 ---
 title: 027-解决cdh6.2中datanode无法启动问题
 urlname: hdfs-datanode-start-failed
-date: 2019-06-10 21:00:01 +0800
-tags: [CDH,hadoop,大数据,hdfs,datanode]
-categories: [大,数,据]
+date: '2019-06-10 21:00:01 +0800'
+tags:
+  - CDH
+  - hadoop
+  - 大数据
+  - hdfs
+  - datanode
+categories: 大数据
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 27 篇，定个小目标 999，每周最少 2 篇。

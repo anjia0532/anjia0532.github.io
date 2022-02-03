@@ -1,9 +1,16 @@
 ---
 title: 006-Cobbler批量自动化部署CentOS/Ubuntu/Windows
 urlname: cobbler
-date: 2019-02-22 15:46:00 +0800
-tags: [pxe,dhcp,cobbler,centos,ubuntu,windows,tftp]
-categories: [运,维]
+date: '2019-02-22 15:46:00 +0800'
+tags:
+  - pxe
+  - dhcp
+  - cobbler
+  - centos
+  - ubuntu
+  - windows
+  - tftp
+categories: 运维
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 6 篇，定个小目标 999，每周最少 2 篇。
@@ -501,6 +508,8 @@ EOF
 ## // d-i preseed/late_command 阶段执行
 [root@localhost ~]# echo '$SNIPPET("ubuntu_apt_install_soft") >> /var/lib/cobbler/snippets/late_apt_repo_config
 ```
+
+
 
 ### 设置 ubuntu package repo
 

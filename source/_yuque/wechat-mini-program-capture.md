@@ -1,9 +1,14 @@
 ---
 title: 056-微信小程序抓包的三种方式
 urlname: wechat-mini-program-capture
-date: 2021-01-24 00:28:30 +0800
-tags: [python,爬虫,微信,小程序]
-categories: [爬虫]
+date: '2021-01-24 00:28:30 +0800'
+tags:
+  - python
+  - 爬虫
+  - 微信
+  - 小程序
+categories:
+  - 爬虫
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 56 篇，定个小目标 999，每周最少 2 篇。

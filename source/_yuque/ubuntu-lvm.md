@@ -1,9 +1,15 @@
 ---
 title: 062-ubuntu LVM不停机扩/缩容磁盘常见运维操作
 urlname: ubuntu-lvm
-date: 2021-04-27 20:12:21 +0800
-tags: [ubuntu,lvm,linux,运维]
-categories: [linux,运维]
+date: '2021-04-27 20:12:21 +0800'
+tags:
+  - ubuntu
+  - lvm
+  - linux
+  - 运维
+categories:
+  - linux
+  - 运维
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 62 篇，定个小目标 999，每周最少 2 篇。

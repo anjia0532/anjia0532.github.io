@@ -1,9 +1,14 @@
 ---
 title: 033-史上最全-mysql迁移到clickhouse的5种办法
 urlname: mysql-to-clickhouse
-date: 2019-07-17 22:15:38 +0800
-tags: [数据分析,数据处理,mysql,数据库,clickhouse]
-categories: [大,数,据]
+date: '2019-07-17 22:15:38 +0800'
+tags:
+  - 数据分析
+  - 数据处理
+  - mysql
+  - 数据库
+  - clickhouse
+categories: 大数据
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 33 篇，定个小目标 999，每周最少 2 篇。

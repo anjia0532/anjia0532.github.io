@@ -1,9 +1,18 @@
 ---
 title: 007-Cobbler批量自动化部署Windows10和Server 2019
 urlname: cobbler-win10-win-server-2019
-date: 2019-02-22 15:46:00 +0800
-tags: [pxe,dhcp,cobbler,centos,ubuntu,windows,tftp,win10,server-2019]
-categories: [运,维]
+date: '2019-02-22 15:46:00 +0800'
+tags:
+  - pxe
+  - dhcp
+  - cobbler
+  - centos
+  - ubuntu
+  - windows
+  - tftp
+  - win10
+  - server-2019
+categories: 运维
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 7 篇，定个小目标 999，每周最少 2 篇。

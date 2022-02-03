@@ -1,9 +1,14 @@
 ---
 title: 012-P2P加速Docker镜像分发(阿里Dragonfly)
 urlname: dragonfly
-date: 2019-03-25 16:58:00 +0800
-tags: [docker,k8s,kubernetes,alibaba,Dragonfly]
-categories: [运,维]
+date: '2019-03-25 16:58:00 +0800'
+tags:
+  - docker
+  - k8s
+  - kubernetes
+  - alibaba
+  - Dragonfly
+categories: 运维
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 12 篇，定个小目标 999，每周最少 2 篇。

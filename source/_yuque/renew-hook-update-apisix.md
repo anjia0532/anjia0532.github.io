@@ -1,9 +1,15 @@
 ---
 title: 063-apisix基于acme.sh自动更新HTTPS证书
 urlname: renew-hook-update-apisix
-date: 2021-05-24 20:05:21 +0800
-tags: [nginx,openresty,apisix,kong,acme.sh]
-categories: [apisix]
+date: '2021-05-24 20:05:21 +0800'
+tags:
+  - nginx
+  - openresty
+  - apisix
+  - kong
+  - acme.sh
+categories:
+  - apisix
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 63 篇，定个小目标 999，每周最少 2 篇。

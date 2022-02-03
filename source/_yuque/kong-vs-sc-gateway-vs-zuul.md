@@ -1,9 +1,16 @@
 ---
 title: 049-Kong1.4 vs SC Gateway2.2 vs Zuul1.3 性能测试
 urlname: kong-vs-sc-gateway-vs-zuul
-date: 2019-11-17 22:15:41 +0800
-tags: [Openresty,Kong,Nginx,微服务,SpringCloud,zuul]
-categories: [微服务]
+date: '2019-11-17 22:15:41 +0800'
+tags:
+  - Openresty
+  - Kong
+  - Nginx
+  - 微服务
+  - SpringCloud
+  - zuul
+categories:
+  - 微服务
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 49 篇，定个小目标 999，每周最少 2 篇。
@@ -50,7 +57,7 @@ $ wget https://github.com/anjia0532/gateway-kong-zuul/releases/download/0.0.1-SN
 | curl -i -X POST --url http://localhost:8001/services/ --data 'name=test' --data 'url=http://localhost:8080'
 
 curl -i -X POST --url http://localhost:8001/services/test/routes --data 'paths[]=/test' | 9000 | Kong
-http://localhost:8000/test/api/* |
+http://localhost:8000/test/api/\* |
 
 ## 安装  wrk
 

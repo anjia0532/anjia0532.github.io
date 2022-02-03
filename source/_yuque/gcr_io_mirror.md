@@ -1,9 +1,15 @@
 ---
 title: 067-Google Container Registry(gcr.io) 中国可用镜像(长期维护，王者归来)
 urlname: gcr_io_mirror
-date: 2021-12-30 19:35:21 +0800
-tags: [k8s,kubernetes,gcr.io,k8s.gcr.io,docker]
-categories: [docker]
+date: '2021-12-30 19:35:21 +0800'
+tags:
+  - k8s
+  - kubernetes
+  - gcr.io
+  - k8s.gcr.io
+  - docker
+categories:
+  - docker
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 67 篇，定个小目标 999，每周最少 2 篇。
@@ -58,4 +64,4 @@ issues 的内容无所谓，可以为空
 ## 参考资料
 
 - [我的博客](https://anjia0532.github.io/2021/12/30/gcr_io_mirror/)
-- 我的掘金
+- [我的掘金](https://juejin.cn/post/7047669822435360805/)

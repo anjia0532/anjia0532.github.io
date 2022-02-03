@@ -1,9 +1,14 @@
 ---
 title: 046-解决google jib多任务问题
 urlname: google-jib-alpine-tini
-date: 2019-09-22 23:30:01 +0800
-tags: [java,docker,google-jib]
-categories: [java,docker]
+date: '2019-09-22 23:30:01 +0800'
+tags:
+  - java
+  - docker
+  - google-jib
+categories:
+  - java
+  - docker
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 46 篇，定个小目标 999，每周最少 2 篇。

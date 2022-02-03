@@ -1,9 +1,17 @@
 ---
 title: 068-用go写个同步eureka/nacos实例到apisix/kong的工具
 urlname: discovery-syncer
-date: 2021-12-30 20:35:21 +0800
-tags: [apisix,kong,nginx,golang,eureka,nacos,微服务]
-categories: [nginx]
+date: '2021-12-30 20:35:21 +0800'
+tags:
+  - apisix
+  - kong
+  - nginx
+  - golang
+  - eureka
+  - nacos
+  - 微服务
+categories:
+  - nginx
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 68 篇，定个小目标 999，每周最少 2 篇。
@@ -257,4 +265,4 @@ body 入参
 ## 参考资料
 
 - [我的博客](https://anjia0532.github.io/2021/12/30/discovery-syncer/)
-- 我的掘金
+- [我的掘金](https://juejin.cn/post/7047670699762122760/)

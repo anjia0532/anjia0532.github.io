@@ -1,9 +1,12 @@
 ---
 title: 014-活该你爬虫被封之Scrapy Ip代理中间件
 urlname: scrapy-proxy
-date: 2019-04-02 20:41:00 +0800
-tags: [python,scrapy,proxy]
-categories: [爬,虫]
+date: '2019-04-02 20:41:00 +0800'
+tags:
+  - python
+  - scrapy
+  - proxy
+categories: 爬虫
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 14 篇，定个小目标 999，每周最少 2 篇。

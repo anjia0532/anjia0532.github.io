@@ -1,7 +1,7 @@
 ---
 title: 037-vagrant启动(up)后自动同步文件(rsync-auto)
 urlname: vagrant-startup-run-rsync
-date: 2019-07-29 08:37:45 +0800
+date: '2019-07-29 08:37:45 +0800'
 tags: []
 categories: []
 ---
@@ -17,6 +17,8 @@ categories: python
 本文介绍两种 vagrant up 后自动同步文件(rsync) 分别基于  `sync`  和 `nfs` (如果不设置的话，需要再起一个终端，单独运行 `vagrant rsync-auto` )
 
 python+vagrant+virtualbox 系列文章
+
+
 
 - [036-win10 搭建 python 的 linux 开发环境(pycharm+vagrant+virtualbox)](https://juejin.im/post/5d3a55ece51d454f71439dd2)
 - [037-vagrant 启动(up)后自动同步文件(rsync-auto)](https://juejin.im/post/5d562b5e5188252d43756db8)

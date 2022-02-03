@@ -1,9 +1,14 @@
 ---
 title: 013-阿里Dragonfly体验之私有registry下载
 urlname: d7y-private-registry
-date: 2019-03-30 10:17:00 +0800
-tags: [docker,k8s,kubernetes,alibaba,Dragonfly]
-categories: [运,维]
+date: '2019-03-30 10:17:00 +0800'
+tags:
+  - docker
+  - k8s
+  - kubernetes
+  - alibaba
+  - Dragonfly
+categories: 运维
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 13 篇，定个小目标 999，每周最少 2 篇。

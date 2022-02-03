@@ -1,9 +1,16 @@
 ---
 title: 057-基于frida的一键脱壳+反编译
 urlname: frida-android-decompile
-date: 2021-02-04 19:35:20 +0800
-tags: [frida,android,反编译,脱壳,逆向]
-categories: [python,逆向]
+date: '2021-02-04 19:35:20 +0800'
+tags:
+  - frida
+  - android
+  - 反编译
+  - 脱壳
+  - 逆向
+categories:
+  - python
+  - 逆向
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 57 篇，定个小目标 999，每周最少 2 篇。
@@ -53,7 +60,7 @@ x86
 
 [https://github.com/frida/frida/releases](https://github.com/frida/frida/releases) (国内如果慢，可以用[https://hub.fastgit.org/frida/frida/releases](https://hub.fastgit.org/frida/frida/releases) 加速下载)
 ![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1612424901964-1983f34f-70fb-4166-9c2d-913335e62aca.png#align=left&display=inline&height=57&margin=%5Bobject%20Object%5D&name=image.png&originHeight=57&originWidth=1046&size=8061&status=done&style=none&width=1046)
-解压下载下来的 firda-server-\${version}-android-x86.xz，并将 frida-server 移动到虚拟机里，有些 app 会监测 frida 的进程，所以将文件随便命名
+解压下载下来的 firda-server-${version}-android-x86.xz，并将 frida-server 移动到虚拟机里，有些 app 会监测 frida 的进程，所以将文件随便命名
 
 ```bash
 xxx\Nox\bin>adb push frida-server-14.2.10-android-x86 /data/local/tmp/abd

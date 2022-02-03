@@ -1,9 +1,14 @@
 ---
 title: 060-轻量级基于curl的seafile上传脚本
 urlname: seafile-client-curl
-date: 2021-04-07 12:35:21 +0800
-tags: [bash,linux,seafile]
-categories: [linux,bash]
+date: '2021-04-07 12:35:21 +0800'
+tags:
+  - bash
+  - linux
+  - seafile
+categories:
+  - linux
+  - bash
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 60 篇，定个小目标 999，每周最少 2 篇。

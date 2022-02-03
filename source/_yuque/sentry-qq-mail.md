@@ -1,9 +1,12 @@
 ---
 title: 029-解决sentry禁用qq邮箱问题
 urlname: sentry-qq-mail
-date: 2019-07-01 20:00:00 +0800
-tags: [sentry,运维,日志]
-categories: [运,维]
+date: '2019-07-01 20:00:00 +0800'
+tags:
+  - sentry
+  - 运维
+  - 日志
+categories: 运维
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 29 篇，定个小目标 999，每周最少 2 篇。

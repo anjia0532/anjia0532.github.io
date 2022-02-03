@@ -1,9 +1,15 @@
 ---
 title: 054-微服务之真正的优雅停机
 urlname: micro-elegant-shutdown
-date: 2021-01-18 23:35:21 +0800
-tags: [微服务,springboot,springcloud,nacos,eureka]
-categories: [微服务]
+date: '2021-01-18 23:35:21 +0800'
+tags:
+  - 微服务
+  - springboot
+  - springcloud
+  - nacos
+  - eureka
+categories:
+  - 微服务
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 54 篇，定个小目标 999，每周最少 2 篇。

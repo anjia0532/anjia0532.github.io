@@ -1,9 +1,15 @@
 ---
 title: 043-解决vagrant访问virtualbox共享文件夹报无权限问题(Permission denied)
 urlname: permission-denied-accessing-vbox
-date: 2019-08-27 12:33:10 +0800
-tags: [虚拟机,kvm,vagrant,virtualbox,python]
-categories: [python]
+date: '2019-08-27 12:33:10 +0800'
+tags:
+  - 虚拟机
+  - kvm
+  - vagrant
+  - virtualbox
+  - python
+categories:
+  - python
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 43 篇，定个小目标 999，每周最少 2 篇。
@@ -11,6 +17,8 @@ categories: [python]
 本文是在 windows 进行 jumpserver 二开时，需要用到 vbox 的共享文件夹(宿主<->虚拟机双向读写)，vagrant 默认登录用户是 vagrant，而 vbox 的挂载文件夹是 vboxsf 组的，故而访问时会报 `Permission denied`  问题。
 
 python+vagrant+virtualbox 系列文章
+
+
 
 - [036-win10 搭建 python 的 linux 开发环境(pycharm+vagrant+virtualbox)](https://juejin.im/post/5d3a55ece51d454f71439dd2)
 - [037-vagrant 启动(up)后自动同步文件(rsync-auto)](https://juejin.im/post/5d562b5e5188252d43756db8)

@@ -1,9 +1,15 @@
 ---
 title: 025-大数据ETL工具之StreamSets安装及订阅mysql binlog
 urlname: cdh-streamsets
-date: 2019-06-10 21:00:01 +0800
-tags: [CDH,hadoop,大数据,ETL,StreamSets,SDC]
-categories: [大,数,据]
+date: '2019-06-10 21:00:01 +0800'
+tags:
+  - CDH
+  - hadoop
+  - 大数据
+  - ETL
+  - StreamSets
+  - SDC
+categories: 大数据
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 25 篇，定个小目标 999，每周最少 2 篇。
@@ -74,7 +80,7 @@ systemctl restart cloudera-scm-server
 打开 streamsets，默认用户名密码 admin/admin
 ![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560945744410-72401676-7384-4312-8859-c7b652c1caca.png#align=left&display=inline&height=516&name=image.png&originHeight=516&originWidth=1374&size=63461&status=done&width=1374)
 
-        ![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561003595012-472339dd-c7c0-49be-9be3-855d9fe21016.png)
+        ![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561003595012-472339dd-c7c0-49be-9be3-855d9fe21016.png "image.png")
 
 
 
@@ -155,7 +161,7 @@ bin/mysqlslap --user=root --password=xxxxxx --concurrency=50 --number-int-cols=5
 
 ## 常见错误
 
-        ![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561021775509-fa60a34d-8e71-4e30-aa65-88a23521fb26.png)
+        ![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561021775509-fa60a34d-8e71-4e30-aa65-88a23521fb26.png "image.png")
 
 
 

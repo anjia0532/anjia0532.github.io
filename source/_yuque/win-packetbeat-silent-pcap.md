@@ -1,9 +1,19 @@
 ---
 title: 045-解决packetbeat静默安装pcap问题
 urlname: win-packetbeat-silent-pcap
-date: 2019-09-22 20:13:21 +0800
-tags: [windows,beats,elastic,监控,wireshark,winpcap,pcap,silent-install]
-categories: [监控,运维]
+date: '2019-09-22 20:13:21 +0800'
+tags:
+  - windows
+  - beats
+  - elastic
+  - 监控
+  - wireshark
+  - winpcap
+  - pcap
+  - silent-install
+categories:
+  - 监控
+  - 运维
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 45 篇，定个小目标 999，每周最少 2 篇。

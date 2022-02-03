@@ -1,9 +1,14 @@
 ---
 title: 011-openresty的maxminddb插件
 urlname: openresty-maxminddb
-date: 2019-03-14 23:26:00 +0800
-tags: [nginx,openresty,maxminddb,maxmind,ipip]
-categories: [运,维]
+date: '2019-03-14 23:26:00 +0800'
+tags:
+  - nginx
+  - openresty
+  - maxminddb
+  - maxmind
+  - ipip
+categories: 运维
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 11 篇，定个小目标 999，每周最少 2 篇。

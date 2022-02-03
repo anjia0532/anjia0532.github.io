@@ -1,9 +1,15 @@
 ---
 title: 038-拯救大兵瑞恩之Tidb如何在Tikv损坏的情况下恢复
 urlname: tidb-tikv-bad-regions
-date: 2019-08-01 22:35:41 +0800
-tags: [数据库,mysql,database,tidb,tikv,dba]
-categories: [数,据,库]
+date: '2019-08-01 22:35:41 +0800'
+tags:
+  - 数据库
+  - mysql
+  - database
+  - tidb
+  - tikv
+  - dba
+categories: 数据库
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 38 篇，定个小目标 999，每周最少 2 篇。
@@ -53,7 +59,7 @@ categories: [数,据,库]
 ![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564648950258-956bb3fb-25de-467f-b6cf-82a7df480f49.png#align=left&display=inline&height=604&name=image.png&originHeight=604&originWidth=1261&size=102094&status=done&width=1261)
 好吧，跟没看区别不大。
 
-既然是 tidb 起不来，就先看 tidb 的日志(实际上应该看http://prometheus:9090/targets ，因为不太熟悉，所以走了弯路，为嘛不看 grafana,是因为 tidb 那卡到后，ansible 就自动退出了，没有起 grafana)
+既然是 tidb 起不来，就先看 tidb 的日志(实际上应该看 http://prometheus:9090/targets ，因为不太熟悉，所以走了弯路，为嘛不看 grafana,是因为 tidb 那卡到后，ansible 就自动退出了，没有起 grafana)
 ![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564648871805-b912a3d1-b5bd-456a-9d4c-8e7db9a47678.png#align=left&display=inline&height=558&name=image.png&originHeight=558&originWidth=1206&size=122785&status=done&width=1206)
 暴露的是连接两个 tikv 报错，这是前期比较关键的线索，起码有初步排查方向了。
 另外从日志看到，疑似报空间不足，实际上没意义，在两台 tikv 执行 `df -i` `df -h`  来看，都很充足。

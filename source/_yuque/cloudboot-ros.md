@@ -1,7 +1,7 @@
 ---
 title: 010-cloudboot批量安装rancheros
 urlname: cloudboot-ros
-date: 2019-03-10 18:41:55 +0800
+date: '2019-03-10 18:41:55 +0800'
 tags: []
 categories: []
 ---

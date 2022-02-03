@@ -1,9 +1,15 @@
 ---
 title: 065-使用Java将pdf转换并拼接成一张图片
 urlname: convert-pdf-to-png
-date: 2021-09-09 19:35:21 +0800
-tags: [java,pdf,png,tools,utils]
-categories: [java]
+date: '2021-09-09 19:35:21 +0800'
+tags:
+  - java
+  - pdf
+  - png
+  - tools
+  - utils
+categories:
+  - java
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 65 篇，定个小目标 999，每周最少 2 篇。

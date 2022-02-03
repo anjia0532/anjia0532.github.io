@@ -1,9 +1,14 @@
 ---
 title: 053-vagrant无法使用ubuntu20.04问题
 urlname: vagrant-hang-when-use-ununtu-focal64
-date: 2021-01-14 20:35:21 +0800
-tags: [vagrant,virtualbox,ubuntu,focal64]
-categories: [vagrant]
+date: '2021-01-14 20:35:21 +0800'
+tags:
+  - vagrant
+  - virtualbox
+  - ubuntu
+  - focal64
+categories:
+  - vagrant
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 53 篇，定个小目标 999，每周最少 2 篇。
@@ -11,6 +16,8 @@ categories: [vagrant]
 最近使用 vagrant 安装 ubuntu20.04(ubuntu/focal64)是发现无法正常启动。
 
 vagrant+virtualbox 系列文章
+
+
 
 - [036-win10 搭建 python 的 linux 开发环境(pycharm+vagrant+virtualbox)](https://juejin.im/post/5d3a55ece51d454f71439dd2)
 - [037-vagrant 启动(up)后自动同步文件(rsync-auto)](https://juejin.im/post/5d562b5e5188252d43756db8)

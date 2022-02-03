@@ -1,9 +1,13 @@
 ---
 title: 051-ffmpeg 研究笔记
 urlname: ffmpeg-note
-date: 2021-01-12 20:21:35 +0800
-tags: [python,ffmpeg,音视频]
-categories: [ffmpeg]
+date: '2021-01-12 20:21:35 +0800'
+tags:
+  - python
+  - ffmpeg
+  - 音视频
+categories:
+  - ffmpeg
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 51 篇，定个小目标 999，每周最少 2 篇。

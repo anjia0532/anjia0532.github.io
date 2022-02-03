@@ -1,9 +1,12 @@
 ---
 title: 066-unidbg-boot-server零基础入门
 urlname: unidbg-boot-server
-date: 2021-11-01 19:35:21 +0800
-tags: [逆向,unidbg]
-categories: [逆向]
+date: '2021-11-01 19:35:21 +0800'
+tags:
+  - 逆向
+  - unidbg
+categories:
+  - 逆向
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 66 篇，定个小目标 999，每周最少 2 篇。

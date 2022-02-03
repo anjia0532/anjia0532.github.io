@@ -1,9 +1,15 @@
 ---
 title: 048-使用Kong替换Zuul(从Eureka同步列表)
 urlname: kong-plugin-sync-eureka
-date: 2019-11-15 19:35:21 +0800
-tags: [SpringCloud,zuul,eureka,kong,微服务]
-categories: [微服务]
+date: '2019-11-15 19:35:21 +0800'
+tags:
+  - SpringCloud
+  - zuul
+  - eureka
+  - kong
+  - 微服务
+categories:
+  - 微服务
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 48 篇，定个小目标 999，每周最少 2 篇。

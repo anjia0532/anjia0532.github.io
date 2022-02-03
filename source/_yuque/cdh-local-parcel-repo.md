@@ -1,9 +1,12 @@
 ---
 title: 018-CDH6.2构建本地源加速CDH安装
 urlname: cdh-local-parcel-repo
-date: 2019-04-28 19:10:00 +0800
-tags: [CDH,hadoop,大数据]
-categories: [大,数,据]
+date: '2019-04-28 19:10:00 +0800'
+tags:
+  - CDH
+  - hadoop
+  - 大数据
+categories: 大数据
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 18 篇，定个小目标 999，每周最少 2 篇。

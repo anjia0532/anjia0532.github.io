@@ -1,9 +1,12 @@
 ---
-title: 005-blocked by：[FORBIDDEN/12/index read-only / allow delete (api)]
+title: '005-blocked by：[FORBIDDEN/12/index read-only / allow delete (api)]'
 urlname: es-forbidden-12
-date: 2019-02-19 08:31:34 +0800
-tags: [es,elasticsearch,运维]
-categories: [运,维]
+date: '2019-02-19 08:31:34 +0800'
+tags:
+  - es
+  - elasticsearch
+  - 运维
+categories: 运维
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 5 篇，定个小目标 999，每周最少 2 篇。

@@ -1,7 +1,7 @@
 ---
 title: 040-解决Linux使用virtualbox共享文件夹问题
 urlname: linux-virtualbox-shared-folder
-date: 2019-08-16 18:01:57 +0800
+date: '2019-08-16 18:01:57 +0800'
 tags: []
 categories: []
 ---
@@ -22,6 +22,8 @@ categories: python
 - VirtualBox  综合来看，virtualbox 不错，当然，如果文件量太多的话，也有性能问题,意思是别想着用来构建前端项目(一个  `node_modules`  搞死你啊)，可以结合 rsync 使用，rsync 可以设置排除目录，然后定时同步到虚拟机，需要双向的，再把文件复制到挂载为 virtualbox 的目录下，宿主机就可以访问了。
 
 python+vagrant+virtualbox 系列文章
+
+
 
 - [036-win10 搭建 python 的 linux 开发环境(pycharm+vagrant+virtualbox)](https://juejin.im/post/5d3a55ece51d454f71439dd2)
 - [037-vagrant 启动(up)后自动同步文件(rsync-auto)](https://juejin.im/post/5d562b5e5188252d43756db8)

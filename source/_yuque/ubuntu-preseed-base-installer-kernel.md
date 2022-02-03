@@ -1,9 +1,14 @@
 ---
 title: 039-解决ubuntu使用preseed装机 base-installer/kernel/failed-package-install 问题
 urlname: ubuntu-preseed-base-installer-kernel
-date: 2019-08-16 18:30:07 +0800
-tags: [pxe,dhcp,cloudboot,ubuntu,preseed]
-categories: [运,维]
+date: '2019-08-16 18:30:07 +0800'
+tags:
+  - pxe
+  - dhcp
+  - cloudboot
+  - ubuntu
+  - preseed
+categories: 运维
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 39 篇，定个小目标 999，每周最少 2 篇。

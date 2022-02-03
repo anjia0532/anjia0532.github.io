@@ -1,9 +1,15 @@
 ---
 title: 042-解决win10 VirtualBox无法启动(VERR_NEM_VM_CREATE_FAILED)
 urlname: win-10-virtualbox-verr-nem-vm-create
-date: 2019-08-26 19:35:21 +0800
-tags: [虚拟机,kvm,vagrant,virtualbox,python]
-categories: [python]
+date: '2019-08-26 19:35:21 +0800'
+tags:
+  - 虚拟机
+  - kvm
+  - vagrant
+  - virtualbox
+  - python
+categories:
+  - python
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 42 篇，定个小目标 999，每周最少 2 篇。
@@ -11,6 +17,8 @@ categories: [python]
 最近将 win10 从 1809 升级到 1903，结果自己的 VirtualBox 无法启动，经过一番 google，问题已解决。
 
 python+vagrant+virtualbox 系列文章
+
+
 
 - [036-win10 搭建 python 的 linux 开发环境(pycharm+vagrant+virtualbox)](https://juejin.im/post/5d3a55ece51d454f71439dd2)
 - [037-vagrant 启动(up)后自动同步文件(rsync-auto)](https://juejin.im/post/5d562b5e5188252d43756db8)

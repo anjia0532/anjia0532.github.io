@@ -1,9 +1,15 @@
 ---
 title: 031-数据可视化之redash(支持43种数据源)
 urlname: redash
-date: 2019-07-08 12:30:00 +0800
-tags: [CDH,hadoop,大数据,数据可视化,Superset,redash]
-categories: [大,数,据]
+date: '2019-07-08 12:30:00 +0800'
+tags:
+  - CDH
+  - hadoop
+  - 大数据
+  - 数据可视化
+  - Superset
+  - redash
+categories: 大数据
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 31 篇，定个小目标 999，每周最少 2 篇。

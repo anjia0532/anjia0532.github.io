@@ -1,9 +1,15 @@
 ---
 title: 015-Ansible批量安装Elastic Beats(支持Linux和Windows)
 urlname: ansible-beats
-date: 2019-04-13 20:41:00 +0800
-tags: [ansible,linux,运维,beats,es,elasticsearch]
-categories: [运,维,,,e,l,a,s,t,i,c,s,e,a,r,c,h]
+date: '2019-04-13 20:41:00 +0800'
+tags:
+  - ansible
+  - linux
+  - 运维
+  - beats
+  - es
+  - elasticsearch
+categories: '运维,elasticsearch'
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 15 篇，定个小目标 999，每周最少 2 篇。

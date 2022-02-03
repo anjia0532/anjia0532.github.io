@@ -1,9 +1,16 @@
 ---
 title: 034-解决streamsets订阅过期binlog导致无法启动问题
 urlname: fixed-sdc-mysql-binlog-master-purged
-date: 2019-07-22 20:00:52 +0800
-tags: [streamsets,sdc,mysql,binlog,etl,数据分析,数据处理]
-categories: [大,数,据]
+date: '2019-07-22 20:00:52 +0800'
+tags:
+  - streamsets
+  - sdc
+  - mysql
+  - binlog
+  - etl
+  - 数据分析
+  - 数据处理
+categories: 大数据
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 34 篇，定个小目标 999，每周最少 2 篇。

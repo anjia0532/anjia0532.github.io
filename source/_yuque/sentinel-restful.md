@@ -1,9 +1,15 @@
 ---
 title: 008-Sentinel清洗RESTful的@PathVariable
 urlname: sentinel-restful
-date: 2019-03-05 18:30:00 +0800
-tags: [spring boot,spring cloud,sentinel,hystrix,微服务,熔断]
-categories: [微,服,务]
+date: '2019-03-05 18:30:00 +0800'
+tags:
+  - spring boot
+  - spring cloud
+  - sentinel
+  - hystrix
+  - 微服务
+  - 熔断
+categories: 微服务
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 8 篇，定个小目标 999，每周最少 2 篇。

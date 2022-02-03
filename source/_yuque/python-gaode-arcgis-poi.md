@@ -1,9 +1,14 @@
 ---
 title: 055-手把手教你如何抓取高德全部POI-基于ArcGIS 渔网分割
 urlname: python-gaode-arcgis-poi
-date: 2021-01-19 22:35:21 +0800
-tags: [arcmap,arcgis,python,gis]
-categories: [python]
+date: '2021-01-19 22:35:21 +0800'
+tags:
+  - arcmap
+  - arcgis
+  - python
+  - gis
+categories:
+  - python
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 55 篇，定个小目标 999，每周最少 2 篇。

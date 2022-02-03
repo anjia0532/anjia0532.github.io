@@ -1,9 +1,15 @@
 ---
 title: Linux磁盘空间占满问题快速排雷
 urlname: linux-ncdu-no-space
-date: 2019-02-14 14:36:00 +0800
-tags: [linux,运维,devops,排雷,磁盘,ncdu]
-categories: [运,维]
+date: '2019-02-14 14:36:00 +0800'
+tags:
+  - linux
+  - 运维
+  - devops
+  - 排雷
+  - 磁盘
+  - ncdu
+categories: 运维
 ---
 
 情人节一大早就接到报警，一台测试服务器磁盘满了，这很程序员。
@@ -81,7 +87,7 @@ du: 无法访问'/proc/24390/fdinfo/3': 没有那个文件或目录
 # 慢的要死，Ctrl+C 终止
 ```
 
-如果被删除的文件 `df -h`  快满了，而 `du -ahd1`  却很小，往往是文件被删除，而文件句柄没释放导致的,祭出 `lsof | grep deleted` ，解决办法，要么 kill 掉 pid，释放句柄(治本)，要么就 `> /path/to/deleted/file`  把内容覆盖掉(治标)。当然还有别的玩法，比如，不小心 `rm -rf /`  了，先别着急跑路，万一 `lsof | grep deleted`  还存在的，都还有救，约等于 windows 下的回收站的作用。 参考[ lsof(8) - Linux man page](https://linux.die.net/man/8/lsof)
+如果被删除的文件 `df -h`  快满了，而 `du -ahd1`  却很小，往往是文件被删除，而文件句柄没释放导致的,祭出 `lsof | grep deleted ` ，解决办法，要么 kill 掉 pid，释放句柄(治本)，要么就 ` > /path/to/deleted/file`  把内容覆盖掉(治标)。当然还有别的玩法，比如，不小心 `rm -rf /`  了，先别着急跑路，万一 `lsof | grep deleted`  还存在的，都还有救，约等于 windows 下的回收站的作用。 参考[ lsof(8) - Linux man page](https://linux.die.net/man/8/lsof)
 
 ```bash
 $ lsof -i | grep deleted

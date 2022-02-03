@@ -1,9 +1,13 @@
 ---
-title: 024-VMWare VSphere 6.7(ESXI,VSCA) 下载
+title: '024-VMWare VSphere 6.7(ESXI,VSCA) 下载'
 urlname: vmware-vsphere-6-7
-date: 2019-05-20 21:30:00 +0800
-tags: [云计算,虚拟化,企业级虚拟化,私有云]
-categories: [云,计,算]
+date: '2019-05-20 21:30:00 +0800'
+tags:
+  - 云计算
+  - 虚拟化
+  - 企业级虚拟化
+  - 私有云
+categories: 云计算
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 24 篇，定个小目标 999，每周最少 2 篇。

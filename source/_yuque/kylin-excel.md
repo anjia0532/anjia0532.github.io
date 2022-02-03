@@ -1,9 +1,17 @@
 ---
 title: 022-会Excel就会数据分析(Kylin2.6.1+Excel+Power BI)
 urlname: kylin-excel
-date: 2019-05-04 19:30:00 +0800
-tags: [CDH,hadoop,大数据,KYLIN,OLAP,麒麟,Excel,PowerBI]
-categories: [大,数,据]
+date: '2019-05-04 19:30:00 +0800'
+tags:
+  - CDH
+  - hadoop
+  - 大数据
+  - KYLIN
+  - OLAP
+  - 麒麟
+  - Excel
+  - PowerBI
+categories: 大数据
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 22 篇，定个小目标 999，每周最少 2 篇。

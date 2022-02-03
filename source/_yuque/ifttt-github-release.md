@@ -1,9 +1,11 @@
 ---
 title: 订阅github release
 urlname: ifttt-github-release
-date: 2019-01-29 12:32:00 +0800
-tags: [github,ifttt]
-categories: [其,他]
+date: '2019-01-29 12:32:00 +0800'
+tags:
+  - github
+  - ifttt
+categories: 其他
 ---
 
 关注的 github repo 项目多了后，往往不能及时获取最新的 release 信息。本文整理了两种（官方自带+IFTTT）易于使用的订阅方式

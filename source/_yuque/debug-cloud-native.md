@@ -1,9 +1,16 @@
 ---
 title: 云原生时代如何方便的进行本地调试
 urlname: debug-cloud-native
-date: 2019-01-21 12:00:00 +0800
-tags: [k8s,云原生,devops,微服务,容器,jrebel,telepresence]
-categories: [k,8,s]
+date: '2019-01-21 12:00:00 +0800'
+tags:
+  - k8s
+  - 云原生
+  - devops
+  - 微服务
+  - 容器
+  - jrebel
+  - telepresence
+categories: k8s
 ---
 
 云原生的四要素：持续交付、DevOps、微服务、容器，虽然极大的解放了生产力，但是不可避免的也带来了诸多问题，本文不做延伸，感兴趣的，可以自行百度。

@@ -1,9 +1,13 @@
 ---
 title: 026-Kettle表输入表输出提升50倍的秘诀
 urlname: kettle-speed-on
-date: 2019-06-12 12:30:53 +0800
-tags: [Kettle,ETL,PDI,pentaho]
-categories: [大,数,据]
+date: '2019-06-12 12:30:53 +0800'
+tags:
+  - Kettle
+  - ETL
+  - PDI
+  - pentaho
+categories: 大数据
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 26 篇，定个小目标 999，每周最少 2 篇。

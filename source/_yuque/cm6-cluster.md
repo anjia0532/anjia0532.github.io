@@ -1,9 +1,12 @@
 ---
 title: 020-CM配置集群
 urlname: cm6-cluster
-date: 2019-04-29 18:10:00 +0800
-tags: [CDH,hadoop,大数据]
-categories: [大,数,据]
+date: '2019-04-29 18:10:00 +0800'
+tags:
+  - CDH
+  - hadoop
+  - 大数据
+categories: 大数据
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 20 篇，定个小目标 999，每周最少 2 篇。

@@ -1,9 +1,14 @@
 ---
 title: 052-听说你爬回来的都是乱码？以某团为例讲解四种方案解决CSS字体反爬
 urlname: python-web-font
-date: 2021-01-13 19:40:21 +0800
-tags: [meituan,css,python,反爬]
-categories: [python]
+date: '2021-01-13 19:40:21 +0800'
+tags:
+  - meituan
+  - css
+  - python
+  - 反爬
+categories:
+  - python
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 52 篇，定个小目标 999，每周最少 2 篇。

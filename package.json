@@ -11,7 +11,7 @@
         "mdNameFormat": "slug",
         "adapter": "hexo",
         "concurrency": 5,
-        "baseUrl": "https://www.yuque.com/api/v2/",
+        "baseUrl": "https://www.yuque.com/api/v2",
         "login": "zhaoanjia",
         "repo": "blog",
         "onlyPublished": true,
@@ -37,6 +37,6 @@
         "hexo-server": "^0.2.0"
     },
     "devDependencies": {
-        "yuque-hexo": "^1.7.0"
+        "yuque-hexo": "^1.8.0"
     }
 }

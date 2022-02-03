@@ -1,7 +1,7 @@
 ---
 title: 044-wget免登陆下载jdk 8u291
 urlname: wget-jdk-8u221
-date: 2019-09-18 16:42:06 +0800
+date: '2019-09-18 16:42:06 +0800'
 tags: []
 categories: []
 ---
@@ -43,6 +43,7 @@ $ mv $old $(echo $old | awk -F"?" '{print $1}')
 从其中提取必要信息，替换成 [https://javadl.oracle.com/webapps/download/GetFile/1.8.0\_[version]-[build_number]/[encrypted_path]/windows-i586/[file_name_exe]](https://javadl.oracle.com/webapps/download/GetFile/1.8.0_[xxx]-b[xx]/[encrypted_path]/windows-i586/[file_name_exe]) 格式
 
 > [version]: 291
+>
 > build_number: b10
 > encrypted_path: d7fc238d0cbf4b0dac67be84580cfb4b
 > file_name_exe: jdk-8u291-windows-x64.exe

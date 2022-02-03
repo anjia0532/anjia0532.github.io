@@ -1,9 +1,13 @@
 ---
 title: 064-真正解决scrapy自动将header请求头大写问题
 urlname: scrapy-capitalizes-request-headers
-date: 2021-08-05 19:35:21 +0800
-tags: [scrapy,python,爬虫]
-categories: [python]
+date: '2021-08-05 19:35:21 +0800'
+tags:
+  - scrapy
+  - python
+  - 爬虫
+categories:
+  - python
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 64 篇，定个小目标 999，每周最少 2 篇。

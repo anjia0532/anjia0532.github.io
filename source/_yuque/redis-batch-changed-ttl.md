@@ -1,9 +1,11 @@
 ---
 title: 019-批量修改redis TTL和批量删除key
 urlname: redis-batch-changed-ttl
-date: 2019-05-10 08:37:14 +0800
-tags: [redis,python]
-categories: [r,e,d,i,s]
+date: '2019-05-10 08:37:14 +0800'
+tags:
+  - redis
+  - python
+categories: redis
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 19 篇，定个小目标 999，每周最少 2 篇。

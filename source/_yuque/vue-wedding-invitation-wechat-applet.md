@@ -1,9 +1,16 @@
 ---
 title: 047-零基础零成本使用vue开发婚礼请柬小程序
 urlname: vue-wedding-invitation-wechat-applet
-date: 2019-09-25 20:13:43 +0800
-tags: [前端,js,vuejs,vue,请柬]
-categories: [前端,vuejs]
+date: '2019-09-25 20:13:43 +0800'
+tags:
+  - 前端
+  - js
+  - vuejs
+  - vue
+  - 请柬
+categories:
+  - 前端
+  - vuejs
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 47 篇，定个小目标 999，每周最少 2 篇。

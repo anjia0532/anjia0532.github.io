@@ -1,9 +1,15 @@
 ---
 title: 059-api网关之apache apisix初体验
 urlname: apisix
-date: 2021-03-10 20:35:21 +0800
-tags: [openresty,nginx,kong,apisix,docker]
-categories: [nginx]
+date: '2021-03-10 20:35:21 +0800'
+tags:
+  - openresty
+  - nginx
+  - kong
+  - apisix
+  - docker
+categories:
+  - nginx
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 59 篇，定个小目标 999，每周最少 2 篇。

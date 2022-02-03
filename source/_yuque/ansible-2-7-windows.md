@@ -1,9 +1,14 @@
 ---
 title: Ansible2.7批量管理Windows
 urlname: ansible-2-7-windows
-date: 2019-02-14 00:58:00 +0800
-tags: [ansible,运维,devops,windows,ansible-playbook]
-categories: [运,维]
+date: '2019-02-14 00:58:00 +0800'
+tags:
+  - ansible
+  - 运维
+  - devops
+  - windows
+  - ansible-playbook
+categories: 运维
 ---
 
 ## 简述

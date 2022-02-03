@@ -1,9 +1,15 @@
 ---
 title: 009-时间不同步导致Sentinel监控异常
 urlname: sentinel-timestamp
-date: 2019-03-07 19:10:00 +0800
-tags: [spring boot,spring cloud,sentinel,hystrix,微服务,熔断]
-categories: [微,服,务]
+date: '2019-03-07 19:10:00 +0800'
+tags:
+  - spring boot
+  - spring cloud
+  - sentinel
+  - hystrix
+  - 微服务
+  - 熔断
+categories: 微服务
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 9 篇，定个小目标 999，每周最少 2 篇。

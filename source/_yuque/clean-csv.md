@@ -1,9 +1,13 @@
 ---
 title: 032-csv文件容错处理
 urlname: clean-csv
-date: 2019-07-16 21:30:00 +0800
-tags: [python,csv,数据分析,数据处理]
-categories: [大,数,据]
+date: '2019-07-16 21:30:00 +0800'
+tags:
+  - python
+  - csv
+  - 数据分析
+  - 数据处理
+categories: 大数据
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 32 篇，定个小目标 999，每周最少 2 篇。

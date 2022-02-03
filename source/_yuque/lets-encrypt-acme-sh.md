@@ -1,9 +1,15 @@
 ---
 title: 004-零失败快速搞定通配符SSL证书
 urlname: lets-encrypt-acme-sh
-date: 2019-02-18 12:43:00 +0800
-tags: [ssl,https,http2,lets-encrypt,acme,acme-sh]
-categories: [运,维]
+date: '2019-02-18 12:43:00 +0800'
+tags:
+  - ssl
+  - https
+  - http2
+  - lets-encrypt
+  - acme
+  - acme-sh
+categories: 运维
 ---
 
 > 这是坚持技术写作计划（含翻译）的第四篇，定个小目标 999，每周最少 2 篇。

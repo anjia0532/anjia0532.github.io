@@ -1,9 +1,15 @@
 ---
 title: 021-cdh6.2+kylin2.6.2
 urlname: cm6-kylin
-date: 2019-05-03 20:00:01 +0800
-tags: [CDH,hadoop,大数据,KYLIN,OLAP,麒麟]
-categories: [大,数,据]
+date: '2019-05-03 20:00:01 +0800'
+tags:
+  - CDH
+  - hadoop
+  - 大数据
+  - KYLIN
+  - OLAP
+  - 麒麟
+categories: 大数据
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 21 篇，定个小目标 999，每周最少 2 篇。

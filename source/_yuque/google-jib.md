@@ -1,9 +1,18 @@
 ---
 title: 加速和简化构建Docker(基于Google jib)
 urlname: google-jib
-date: 2019-02-08 21:26:00 +0800
-tags: [k8s,容器,docker,微服务,容器,google-jib,jib,arthas,jvm]
-categories: [k,8,s]
+date: '2019-02-08 21:26:00 +0800'
+tags:
+  - k8s
+  - 容器
+  - docker
+  - 微服务
+  - 容器
+  - google-jib
+  - jib
+  - arthas
+  - jvm
+categories: k8s
 ---
 
 ## 介绍

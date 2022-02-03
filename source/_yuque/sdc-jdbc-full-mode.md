@@ -1,9 +1,16 @@
 ---
 title: 035-解决streamsets jdbc全量模式数据重复问题
 urlname: sdc-jdbc-full-mode
-date: 2019-07-22 21:00:00 +0800
-tags: [streamsets,sdc,mysql,binlog,etl,数据分析,数据处理]
-categories: [大,数,据]
+date: '2019-07-22 21:00:00 +0800'
+tags:
+  - streamsets
+  - sdc
+  - mysql
+  - binlog
+  - etl
+  - 数据分析
+  - 数据处理
+categories: 大数据
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 35 篇，定个小目标 999，每周最少 2 篇。
