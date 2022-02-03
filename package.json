@@ -15,7 +15,8 @@
         "login": "zhaoanjia",
         "repo": "blog",
         "onlyPublished": true,
-        "onlyPublic": true
+        "onlyPublic": true,
+        "lastGeneratePath": "lastGeneratePath.log"
     },
     "scripts": {
         "sync": "yuque-hexo sync",
