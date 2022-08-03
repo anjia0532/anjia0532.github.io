@@ -20,7 +20,7 @@ apisix 官方不支持自动更新 ssl 证书，但是开放了 api，本文主�
 
 ## 创建/更新 apisix ssl 脚本
 
-**NOTE:**​
+**NOTE:**
 需要安装 openssl , jq , acme.sh
 
 > 我的脚本，支持检索已有 ssl 列表是否存在该证书，如果存在则更新，不存在则创建，snis 使用 OpenSSL 读的 pem，有效起止时间也是用 OpenSSL 读的 pem
@@ -99,6 +99,10 @@ cert_content=$(curl --silent --location --request GET "${HOST}/apisix/admin/ssl/
 --header "X-API-KEY: ${API_KEY}" \
 --header 'Content-Type: application/json' | jq "first(.node.nodes[]| select(.value.snis[] | contains(\"$(openssl x509 -in $PEM -noout -text|grep -oP '(?<=DNS:|IP Address:)[^,]+'|sort|head -n1)\")))")
 
+
+validity_start=$(date --date="$(openssl x509 -startdate -noout -in $PEM|cut -d= -f 2)" +"%s")
+validity_end=$(date --date="$(openssl x509 -enddate -noout -in $PEM|cut -d= -f 2)" +"%s")
+
 # create a new ssl when it not exist
 if [ -z "$cert_content" ]
 then
@@ -109,9 +113,6 @@ then
   for sni in ${snis[@]} ; do
     cert_content=$(echo $cert_content | jq ".snis += [\"$sni\"]")
   done
-
-  validity_start=$(date --date="$(openssl x509 -startdate -noout -in $PEM|cut -d= -f 2)" +"%s")
-  validity_end=$(date --date="$(openssl x509 -enddate -noout -in $PEM|cut -d= -f 2)" +"%s")
 
   cert_content=$(echo $cert_content | jq ".|.cert = \"$(cat $PEM)\"|.key = \"$(cat $KEY)\"|.validity_start=${validity_start}|.validity_end=${validity_end}")
 
@@ -126,7 +127,7 @@ else
   URI=$(echo $cert_content | jq -r ".key")
   ID=$(echo ${URI##*/})
   # get exist  ssl certificate json , modify cert and key value
-  cert_content=$(echo $cert_content | jq ".value|.cert = \"$(cat $PEM)\"|.key = \"$(cat $KEY)\"|.id=\"${ID}\"|.update_time=$(date +'%s')")
+  cert_content=$(echo $cert_content | jq ".value|.cert = \"$(cat $PEM)\"|.key = \"$(cat $KEY)\"|.id=\"${ID}\"|.update_time=$(date +'%s')|.validity_start=${validity_start}|.validity_end=${validity_end}")
 
   # update apisix ssl
   cert_update_result=$(curl --silent --location --request PUT "${HOST}/apisix/admin/ssl/${ID}" \
@@ -160,7 +161,7 @@ $ acme.sh  --issue  --staging  -d demo.domain --renew-hook "/root/.acme.sh/renew
 $ acme.sh --renew --domain demo.domain
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1621846151113-3d51d00f-c962-4b1c-a0c1-5478ba9d7e38.png#clientId=u1b96d101-bfc0-4&from=paste&height=306&id=u32e1ee6b&margin=%5Bobject%20Object%5D&name=image.png&originHeight=306&originWidth=1889&originalType=binary&size=33444&status=done&style=none&taskId=uc13b01f7-d5c9-4bfa-9211-8df9a48bd67&width=1889)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1621846151113-3d51d00f-c962-4b1c-a0c1-5478ba9d7e38.png#clientId=u1b96d101-bfc0-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=306&id=u32e1ee6b&margin=%5Bobject%20Object%5D&name=image.png&originHeight=306&originWidth=1889&originalType=binary∶=1&rotation=0&showTitle=false&size=33444&status=done&style=none&taskId=uc13b01f7-d5c9-4bfa-9211-8df9a48bd67&title=&width=1889)
 
 题外话，如果用 ansible 的话，也可以用我的[ansible galaxy](https://galaxy.ansible.com/anjia0532/acme_sh) ,文档参考 [https://github.com/anjia0532/ansible-acme-sh/blob/master/README.md](https://github.com/anjia0532/ansible-acme-sh/blob/master/README.md)
 
@@ -170,7 +171,7 @@ ansible-galaxy install anjia0532.acme_sh
 
 ## 招聘小广告
 
-山东济南的小伙伴欢迎投简历啊 [加入我们](https://www.zhipin.com/job_detail/20db89ac1adece6d3nZ-2tu1E1Q~.html) , 一起搞事情。
+山东济南的小伙伴欢迎投简历啊 [加入我们](https://www.zhipin.com/gongsi/e78fa84f96fef4e733J60tq8EA~~.html) , 一起搞事情。
 长期招聘，Java 程序员，大数据工程师，运维工程师，前端工程师。
 
 ## 参考资料
