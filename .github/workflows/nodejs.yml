@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
       branches: [ blog-source ]
-  star:
+  issue_comment:
     types: [created, deleted]
 
 jobs:
