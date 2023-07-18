@@ -19,7 +19,6 @@ categories:
 ## 背景
 
 搞了个小爬虫，命名参数都正常，但是被模目标网站识别了，用 requests 又都正常，问题出在 scrapy 没跑了
-​
 
 ## 分析过程
 
@@ -29,11 +28,10 @@ categories:
 - beyondcompare 等比对工具
 
 分别用 request 和 scrapy 请求目标网站，url，参数，form 等都用一样的数据（排除类似随机数，时间戳，rsa 非对称加密等导致的数据不一致的问题）
-​
 
 以 fiddler 为例，点开抓包数据，选择 Raw 选项卡，复制到比对工具里,真实用的过程中，
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1628133543722-cbe3e3ff-c63c-4fb7-ab89-9c8ed70e8b7c.png#clientId=uedcf7eb9-2963-4&from=paste&height=664&id=u378f7054&margin=%5Bobject%20Object%5D&name=image.png&originHeight=664&originWidth=828&originalType=binary∶=1&size=635105&status=done&style=none&taskId=u70e9eb42-0fd1-4d36-9861-0c562a3a728&width=828)
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1628133733213-d4c1e4e9-383e-4445-9b86-f434d2a16517.png#clientId=uedcf7eb9-2963-4&from=paste&height=231&id=u7f0f17c8&margin=%5Bobject%20Object%5D&name=image.png&originHeight=231&originWidth=1179&originalType=binary∶=1&size=30344&status=done&style=none&taskId=u62227fbe-5c16-47be-b627-b37d3a2b56a&width=1179)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1628133543722-cbe3e3ff-c63c-4fb7-ab89-9c8ed70e8b7c.png#clientId=uedcf7eb9-2963-4&from=paste&height=664&id=u378f7054&originHeight=664&originWidth=828&originalType=binary∶=1&size=635105&status=done&style=none&taskId=u70e9eb42-0fd1-4d36-9861-0c562a3a728&width=828)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1628133733213-d4c1e4e9-383e-4445-9b86-f434d2a16517.png#clientId=uedcf7eb9-2963-4&from=paste&height=231&id=u7f0f17c8&originHeight=231&originWidth=1179&originalType=binary∶=1&size=30344&status=done&style=none&taskId=u62227fbe-5c16-47be-b627-b37d3a2b56a&width=1179)
 找到问题了，scrapy 自动将 header 转换成大写了,看了下 scrapy 的源码， 问题出在
 [https://github.com/scrapy/scrapy/blob/4d1ecc31c9bdb42638e8a1f85f7e7f83130f41f3/scrapy/http/headers.py#L15](https://github.com/scrapy/scrapy/blob/4d1ecc31c9bdb42638e8a1f85f7e7f83130f41f3/scrapy/http/headers.py#L15) 的 `key.title()`
 
@@ -44,7 +42,6 @@ categories:
 ```
 
 开始以为解决起来比较简单，用了网上的一些办法，还是不行。后来又研究了下源码，结合网上的方案，终于搞定了
-​
 
 新建`Headers.py`,复制自 [https://github.com/scrapy/scrapy/blob/4d1ecc31c9bdb42638e8a1f85f7e7f83130f41f3/scrapy/http/headers.py](https://github.com/scrapy/scrapy/blob/4d1ecc31c9bdb42638e8a1f85f7e7f83130f41f3/scrapy/http/headers.py) ,只改第 15 行将 `self._tobytes(key.title())`改成`self._tobytes(key)`
 
@@ -177,7 +174,7 @@ yield scrapy.FormRequest(url=url + "?" + parse.urlencode(params, quote_via=parse
              formdata=body, dont_filter=True, errback=self.error,headers=Headers(headers),
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1628138380238-5fd4d26d-298e-4a66-a1c5-ac070780e63c.png#clientId=uedcf7eb9-2963-4&from=paste&height=307&id=u71c57cbc&margin=%5Bobject%20Object%5D&name=image.png&originHeight=307&originWidth=651&originalType=binary∶=1&size=183535&status=done&style=none&taskId=u663f7a5c-58a6-4f21-b942-4c7ea3fa68f&width=651)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1628138380238-5fd4d26d-298e-4a66-a1c5-ac070780e63c.png#clientId=uedcf7eb9-2963-4&from=paste&height=307&id=u71c57cbc&originHeight=307&originWidth=651&originalType=binary∶=1&size=183535&status=done&style=none&taskId=u663f7a5c-58a6-4f21-b942-4c7ea3fa68f&width=651)
 
 ## 招聘小广告
 

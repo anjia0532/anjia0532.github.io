@@ -261,7 +261,7 @@ running shell triggers from /var/lib/cobbler/triggers/change/*
 ```
 
 再次打开 `https://${cobbler_ip}/cobbler_web` 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550854050621-8cd8b769-08c5-457e-9e1f-e85d64c10479.png#align=left&display=inline&height=519&name=image.png&originHeight=519&originWidth=543&size=42554&status=done&width=543)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550854050621-8cd8b769-08c5-457e-9e1f-e85d64c10479.png#align=left&display=inline&height=519&originHeight=519&originWidth=543&size=42554&status=done&width=543)
 
 ### 挂载镜像
 
@@ -278,7 +278,7 @@ running shell triggers from /var/lib/cobbler/triggers/change/*
 ### 测试 PXE 安装系统
 
 在 vmware 创建两个虚拟机(选择空白盘),内存 2G，CPU2 核，磁盘 20G，创建完后，记得打个快照，后边做实验失败后，直接恢复即可。
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550853771456-0e9b5af8-6bfe-44e0-83ed-22cf06deb895.png#align=left&display=inline&height=400&name=image.png&originHeight=400&originWidth=720&size=11329&status=done&width=720)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550853771456-0e9b5af8-6bfe-44e0-83ed-22cf06deb895.png#align=left&display=inline&height=400&originHeight=400&originWidth=720&size=11329&status=done&width=720)
 选择 CentOS，然后回车，系统将自动安装
 
 ## 优化配置

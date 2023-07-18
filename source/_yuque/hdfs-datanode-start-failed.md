@@ -17,7 +17,7 @@ categories: 大数据
 
 <!-- more -->
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560907215000-3fe2af8a-139e-4fc6-ae67-1abb7d5e19e7.png#align=left&display=inline&height=767&name=image.png&originHeight=767&originWidth=1596&size=260810&status=done&width=1596)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560907215000-3fe2af8a-139e-4fc6-ae67-1abb7d5e19e7.png#align=left&display=inline&height=767&originHeight=767&originWidth=1596&size=260810&status=done&width=1596)
 关键信息 `java.io.IOException: Incompatible clusterIDs in /dfs/dn: namenode clusterID = cluster74; datanode clusterID = cluster14` 
 关键信息，namenode 的 clusterID 和 datanode 的不一致。
 
@@ -26,6 +26,6 @@ categories: 大数据
 方案：
 
 1. 如果是新建的集群，则直接主机目录 `/dfs/dn` （cdh->hdfs->配置-> `dfs.datanode.data.dir` ）下的 current 目录下的文件删除 `rm -rf /dfs/dn/current/*`
-1. 如果集群内有数据，则只改 /dfs/dn/current/VERSION  中的 `clusterID=clusterXX`  XX 为正确的 namenode 的 clusterID
+2. 如果集群内有数据，则只改 /dfs/dn/current/VERSION  中的 `clusterID=clusterXX`  XX 为正确的 namenode 的 clusterID
 
 重启 datanode 即可

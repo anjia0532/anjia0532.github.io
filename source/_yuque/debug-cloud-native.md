@@ -16,7 +16,7 @@ categories: k8s
 云原生的四要素：持续交付、DevOps、微服务、容器，虽然极大的解放了生产力，但是不可避免的也带来了诸多问题，本文不做延伸，感兴趣的，可以自行百度。
 本文只为解决微服务(本文以 Spring Cloud 为例)+Kubernetes 开发调试低效问题。
 
-![07e15debbba7479aabef8f861f3ef5f4.jpg](https://cdn.nlark.com/yuque/0/2019/jpeg/226273/1548032278508-325e41b8-29f1-46de-b1a0-5a97e3de41e8.jpeg#align=left&display=inline&height=486&name=07e15debbba7479aabef8f861f3ef5f4.jpg&originHeight=704&originWidth=1080&size=72220&width=746)
+![07e15debbba7479aabef8f861f3ef5f4.jpg](https://cdn.nlark.com/yuque/0/2019/jpeg/226273/1548032278508-325e41b8-29f1-46de-b1a0-5a97e3de41e8.jpeg#align=left&display=inline&height=486&originHeight=704&originWidth=1080&size=72220&width=746)
 
 <!-- more -->
 

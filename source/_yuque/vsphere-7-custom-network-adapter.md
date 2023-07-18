@@ -18,7 +18,7 @@ categories:
 趁着 618 攒了台 NAS,配置 AMD 2200G(带核显 Vega8)+华擎 A320M-HDV R4.0+8G 酷兽 DDR4 2666MHz\*2+七彩虹 CN600 128G nvme +家里闲置垃圾盘 这配置高不成低不就的，既没有成品 NAS 的低功耗，又没有垃圾佬心头肉(蜗牛星际，玩客云，暴风酷云二期等）便宜，做家用机又略显不足。
 
 本文主要记录如何华擎自带螃蟹卡 RealTek 8168 网卡驱动添加到 vSphere7 里，如果你觉得你头铁直接安装的话，100%会是
-![](https://cdn.nlark.com/yuque/0/2020/png/226273/1592623396796-df8ad897-f6ea-48e7-bc15-bbf1c8053ff9.png#align=left&display=inline&height=292&margin=%5Bobject%20Object%5D&originHeight=292&originWidth=661&size=0&status=done&style=none&width=661)
+![](https://cdn.nlark.com/yuque/0/2020/png/226273/1592623396796-df8ad897-f6ea-48e7-bc15-bbf1c8053ff9.png#align=left&display=inline&height=292&originHeight=292&originWidth=661&size=0&status=done&style=none&width=661)
 
 <!-- more -->
 
@@ -30,26 +30,26 @@ categories:
 如果找到了，直接点击超链接，最后面，从 `Direct Download links` 下载驱动
 
 `.vib.gz`  或者 `.zip`  二选一就行
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/226273/1592623916316-f0041989-e8bf-4820-808a-9365abb563d6.png#align=left&display=inline&height=605&margin=%5Bobject%20Object%5D&name=image.png&originHeight=605&originWidth=690&size=76654&status=done&style=none&width=690)
+![image.png](https://cdn.nlark.com/yuque/0/2020/png/226273/1592623916316-f0041989-e8bf-4820-808a-9365abb563d6.png#align=left&display=inline&height=605&originHeight=605&originWidth=690&size=76654&status=done&style=none&width=690)
 
 ## 使用 ESXi-Customizer-PS 添加驱动
 
 同样还是 v-front 站 [ESXi-Customizer-PS](https://www.v-front.de/p/esxi-customizer-ps.html) 但是官方的注意事项说了，该页面已过期，不再维护，转战[gayhub](https://raw.githubusercontent.com/VFrontDe/ESXi-Customizer-PS/master/ESXi-Customizer-PS.ps1)了，而且支持最新的 7.0(网上常见的 ESXi-Customizer-PS 2.6.0 只到 6.7)，实际上对于螃蟹卡，并没有卵用，底层不支持。Intel 网卡可以。
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/226273/1592624163515-cc440bcb-5288-44d5-ad9f-08bd8f12e531.png#align=left&display=inline&height=390&margin=%5Bobject%20Object%5D&name=image.png&originHeight=390&originWidth=719&size=67632&status=done&style=none&width=719)
+![image.png](https://cdn.nlark.com/yuque/0/2020/png/226273/1592624163515-cc440bcb-5288-44d5-ad9f-08bd8f12e531.png#align=left&display=inline&height=390&originHeight=390&originWidth=719&size=67632&status=done&style=none&width=719)
 但是用这个脚本有两点限制
 
 1. VMWare PowerCLI5.1+ `Install-Module -Name VMware.PowerCLI [-AllowClobber] [-Proxy http://ip:port]` （毕竟从国外下载，PowerCLI 一共 320Mb+,如果有代理的话，可选的用 -Proxy 来加速下载， `-AllowClobber`  忽略警告，针对于，网络不稳定断开后，不加会提示本地已存在）
-1. 修改 PS 的安全策略 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
+2. 修改 PS 的安全策略 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/226273/1592624767275-3d1c6fe3-dc71-44ff-bc0e-086fe620b1cf.png#align=left&display=inline&height=516&margin=%5Bobject%20Object%5D&name=image.png&originHeight=516&originWidth=839&size=56037&status=done&style=none&width=839)
+![image.png](https://cdn.nlark.com/yuque/0/2020/png/226273/1592624767275-3d1c6fe3-dc71-44ff-bc0e-086fe620b1cf.png#align=left&display=inline&height=516&originHeight=516&originWidth=839&size=56037&status=done&style=none&width=839)
 
 众所周知的原因，访问国外的网络一向不太稳定， 所以，本次构建直接没有基于 vft,而是自己下驱动和 VMware vSphere Hypervisor (ESXi 6.7) Offline Bundle 包
 从官网 [https://my.vmware.com/zh/group/vmware/patch#search](https://my.vmware.com/zh/group/vmware/patch#search) 下载
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/226273/1592747655477-14e4f6c7-e7c3-4bab-8690-403c722e3c24.png#align=left&display=inline&height=513&margin=%5Bobject%20Object%5D&name=image.png&originHeight=513&originWidth=441&size=25575&status=done&style=none&width=441)
+![image.png](https://cdn.nlark.com/yuque/0/2020/png/226273/1592747655477-14e4f6c7-e7c3-4bab-8690-403c722e3c24.png#align=left&display=inline&height=513&originHeight=513&originWidth=441&size=25575&status=done&style=none&width=441)
 
 下载自己所需的版本，因为是家用，所以就下载 6.7 最新版（为嘛不用 7.0 我也想用 7.0，无奈华擎的螃蟹卡不支持 7.0，衰）
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/226273/1592747721446-32749d08-8340-430d-9eb0-f9ff38517de8.png#align=left&display=inline&height=447&margin=%5Bobject%20Object%5D&name=image.png&originHeight=447&originWidth=1242&size=55266&status=done&style=none&width=1242)
+![image.png](https://cdn.nlark.com/yuque/0/2020/png/226273/1592747721446-32749d08-8340-430d-9eb0-f9ff38517de8.png#align=left&display=inline&height=447&originHeight=447&originWidth=1242&size=55266&status=done&style=none&width=1242)
 
 `.\ESXi-Customizer-PS.ps1 -izip .\ESXi670-202006001.zip -dpt .\net55-r8168-8.045a-napi-offline_bundle.zip -load net55-r8168`
 
@@ -94,7 +94,7 @@ All done.
 
 使用 Rufus (用软碟通 UltraISO） 经常会不识别
 下载 [Rufus](http://rufus.ie/) 并且将 [https://rufus.ie/files/syslinux-4.07/menu.c32](https://rufus.ie/files/syslinux-4.07/menu.c32) 下载并保存到跟 Rufus 同目录下，
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/226273/1592751167364-1a61f4c6-3196-4aee-b5a7-b89ec209bae7.png#align=left&display=inline&height=580&margin=%5Bobject%20Object%5D&name=image.png&originHeight=580&originWidth=418&size=31951&status=done&style=none&width=418)
+![image.png](https://cdn.nlark.com/yuque/0/2020/png/226273/1592751167364-1a61f4c6-3196-4aee-b5a7-b89ec209bae7.png#align=left&display=inline&height=580&originHeight=580&originWidth=418&size=31951&status=done&style=none&width=418)
 
 ## 招聘小广告
 

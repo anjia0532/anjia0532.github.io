@@ -22,7 +22,7 @@ categories:
 在以前，前端工程师只能使用浏览器主机已经安装的字体，要实现一些比较风骚的字体效果，只能用 flash 或者图片，从 css3 以后，可以使用 [@font-face](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@font-face) 属性 实现，基本现代浏览器都支持，具体参考 [https://www.caniuse.com/?search=font-face](https://www.caniuse.com/?search=font-face) ，但是在人均爬虫时代，被玩出了新花样，包括但不限于 金额，数量，地址，名称等信息用 webfont 替代文本来抵挡一部分低级爬虫而又不影响用户阅读和查看。
 
 访问 [https://fontdrop.info/](https://fontdrop.info/) ，下载 [http://s3plus.meituan.net/v1/mss_73a511b8f91f43d0bdae92584ea6330b/font/6cf535d2.woff](http://s3plus.meituan.net/v1/mss_73a511b8f91f43d0bdae92584ea6330b/font/6cf535d2.woff) ，并上传就能看到了
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1610536112771-3889a592-8c07-4043-9894-40b8673a85ac.png#align=left&display=inline&height=761&margin=%5Bobject%20Object%5D&name=image.png&originHeight=761&originWidth=800&size=61768&status=done&style=none&width=800)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1610536112771-3889a592-8c07-4043-9894-40b8673a85ac.png#align=left&display=inline&height=761&originHeight=761&originWidth=800&size=61768&status=done&style=none&width=800)
 
 ## 方案一 OCR
 

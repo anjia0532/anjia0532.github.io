@@ -22,15 +22,15 @@ categories: 大数据
 在之前一篇《[033-史上最全-mysql 迁移到 clickhouse 的 5 种办法](https://anjia0532.github.io/2019/07/17/mysql-to-clickhouse/#streamsets)》中，有介绍如何使用 JDBC Query Consumer 全量导出，但是有人反馈因为 streamsets 的管道(pipeline)一直在重复运行，导致最后数据是重复的。
 
 实际上在官方文档有讲  [Full and Incremental Mode](https://streamsets.com/documentation/datacollector/latest/help/datacollector/UserGuide/Origins/JDBCConsumer.html#ariaid-title6)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563874566018-7fd172c4-91aa-4c76-a6af-cf7211443aca.png#align=left&display=inline&height=476&name=image.png&originHeight=476&originWidth=1187&size=73254&status=done&width=1187)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563874566018-7fd172c4-91aa-4c76-a6af-cf7211443aca.png#align=left&display=inline&height=476&originHeight=476&originWidth=1187&size=73254&status=done&width=1187)
 
 主要看提示(Tip)部分，如果只想执行一次查询后就停止 pipeline，应该配置 origin 的 generate events 并且使用 Pipeline Finisher 来自动停止 pipeline，更多信息参见 Event Generation.
 
 在 jdbc origin 勾选 Produce Events
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563875657778-70e75154-a57b-444d-bf73-4315d05e9fc4.png#align=left&display=inline&height=692&name=image.png&originHeight=692&originWidth=821&size=56065&status=done&width=821)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563875657778-70e75154-a57b-444d-bf73-4315d05e9fc4.png#align=left&display=inline&height=692&originHeight=692&originWidth=821&size=56065&status=done&width=821)
 从组件选则 Pipeline Finisher，并且配置 Preconditions 为 `${record:eventType() == 'no-more-data'}`  即可
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563875726527-ed22dd7a-cff4-4b10-ac57-2e29ce2f0075.png#align=left&display=inline&height=618&name=image.png&originHeight=618&originWidth=1351&size=70288&status=done&width=1351)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563875726527-ed22dd7a-cff4-4b10-ac57-2e29ce2f0075.png#align=left&display=inline&height=618&originHeight=618&originWidth=1351&size=70288&status=done&width=1351)
 
 ## 参考资料
 

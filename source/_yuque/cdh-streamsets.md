@@ -31,7 +31,7 @@ StreamSets 是一个大数据采集和数据处理工具。可以通过拖拽式
 ### 下载 parcel 安装包
 
 从  [https://archives.streamsets.com/index.html](https://archives.streamsets.com/index.html)  下载 3.9 的
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560930235577-b347118a-9af6-4e1e-b3c8-d76d7d388e95.png#align=left&display=inline&height=681&name=image.png&originHeight=681&originWidth=549&size=51810&status=done&width=549)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560930235577-b347118a-9af6-4e1e-b3c8-d76d7d388e95.png#align=left&display=inline&height=681&originHeight=681&originWidth=549&size=51810&status=done&width=549)
 并上传到 http 服务器的 www 目录下，本文以 centos7.6 为例
 
 ```bash
@@ -40,12 +40,12 @@ wget -P /var/www/html/streamsets3.9.0/ https://archives.streamsets.com/datacolle
 wget -P /var/www/html/streamsets3.9.0/ https://archives.streamsets.com/datacollector/3.9.0/parcel/STREAMSETS_DATACOLLECTOR-3.9.0-el7.parcel
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560930516379-4f6922d6-76ed-44cd-b5c7-1b8579743cdf.png#align=left&display=inline&height=269&name=image.png&originHeight=269&originWidth=553&size=25017&status=done&width=553)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560930516379-4f6922d6-76ed-44cd-b5c7-1b8579743cdf.png#align=left&display=inline&height=269&originHeight=269&originWidth=553&size=25017&status=done&width=553)
 
 ### 配置 csd
 
 从  [https://streamsets.com/opensource](https://streamsets.com/opensource)  下载
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560930592344-14e9b2ee-6153-4c2b-8e6e-eafa305b11ca.png#align=left&display=inline&height=628&name=image.png&originHeight=628&originWidth=520&size=49861&status=done&width=520)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560930592344-14e9b2ee-6153-4c2b-8e6e-eafa305b11ca.png#align=left&display=inline&height=628&originHeight=628&originWidth=520&size=49861&status=done&width=520)
 
 ```bash
 wget -P /opt/cloudera/csd/ https://archives.streamsets.com/datacollector/3.9.0/csd/STREAMSETS-3.9.0.jar
@@ -56,29 +56,29 @@ systemctl restart cloudera-scm-server
 
 ### 下载分发 Parcel 包
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560931069258-56f0a704-4b7a-4765-8e19-6600d46f7f6f.png#align=left&display=inline&height=158&name=image.png&originHeight=158&originWidth=770&size=15171&status=done&width=770)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560931088736-68ef0972-74b2-4043-984c-b2b1630adca0.png#align=left&display=inline&height=98&name=image.png&originHeight=98&originWidth=394&size=5113&status=done&width=394)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560931127791-d2b173ce-ed55-4b65-99a7-2cd658468dc5.png#align=left&display=inline&height=346&name=image.png&originHeight=346&originWidth=1023&size=42564&status=done&width=1023)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560931177761-a0d04a4d-a502-4b7f-a84e-fb6323c0299e.png#align=left&display=inline&height=118&name=image.png&originHeight=118&originWidth=1029&size=14553&status=done&width=1029)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560931069258-56f0a704-4b7a-4765-8e19-6600d46f7f6f.png#align=left&display=inline&height=158&originHeight=158&originWidth=770&size=15171&status=done&width=770)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560931088736-68ef0972-74b2-4043-984c-b2b1630adca0.png#align=left&display=inline&height=98&originHeight=98&originWidth=394&size=5113&status=done&width=394)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560931127791-d2b173ce-ed55-4b65-99a7-2cd658468dc5.png#align=left&display=inline&height=346&originHeight=346&originWidth=1023&size=42564&status=done&width=1023)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560931177761-a0d04a4d-a502-4b7f-a84e-fb6323c0299e.png#align=left&display=inline&height=118&originHeight=118&originWidth=1029&size=14553&status=done&width=1029)
 下载并激活，但是，我实际测试时，总大小，4.6G，实际下载后，5.2G，导致 sha1sum 校验失败，报
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560931888700-b4afecab-a671-463b-9610-701e2a58b761.png#align=left&display=inline&height=227&name=image.png&originHeight=227&originWidth=628&size=18002&status=done&width=628)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560931888700-b4afecab-a671-463b-9610-701e2a58b761.png#align=left&display=inline&height=227&originHeight=227&originWidth=628&size=18002&status=done&width=628)
 
 在 cm 所在主机， `ls -lah /opt/cloudera/parcel-repo`  
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560932061185-d64adfe2-5884-4967-b98b-c76a999c3024.png#align=left&display=inline&height=159&name=image.png&originHeight=159&originWidth=777&size=25904&status=done&width=777)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560932061185-d64adfe2-5884-4967-b98b-c76a999c3024.png#align=left&display=inline&height=159&originHeight=159&originWidth=777&size=25904&status=done&width=777)
 
 把下载的  [https://archives.streamsets.com/datacollector/3.9.0/parcel/STREAMSETS_DATACOLLECTOR-3.9.0-el7.parcel](https://archives.streamsets.com/datacollector/3.9.0/parcel/STREAMSETS_DATACOLLECTOR-3.9.0-el7.parcel)  复制到  /opt/cloudera/parcel-repo 下
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560932517429-eb7b8ece-4135-4a81-a751-8e8c0d267ef9.png#align=left&display=inline&height=105&name=image.png&originHeight=105&originWidth=1039&size=12588&status=done&width=1039)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560932517429-eb7b8ece-4135-4a81-a751-8e8c0d267ef9.png#align=left&display=inline&height=105&originHeight=105&originWidth=1039&size=12588&status=done&width=1039)
 如果已经不信邪，试过下载，并报 hash 错误后，直接替换后，这个页面还是提示 hash，此时再次点击下载，就会变成分配。
 激活后如下所示
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560936491543-f6e5539b-2396-4eb4-a616-ae2bafd02155.png#align=left&display=inline&height=156&name=image.png&originHeight=156&originWidth=1589&size=17337&status=done&width=1589)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560936642593-d20866d4-46d1-490e-9bff-8cf7c72587d5.png#align=left&display=inline&height=701&name=image.png&originHeight=701&originWidth=903&size=171790&status=done&width=903)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560936658975-a85eae7a-341d-4c68-8967-a670c23cb622.png#align=left&display=inline&height=378&name=image.png&originHeight=378&originWidth=1146&size=38226&status=done&width=1146)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560936491543-f6e5539b-2396-4eb4-a616-ae2bafd02155.png#align=left&display=inline&height=156&originHeight=156&originWidth=1589&size=17337&status=done&width=1589)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560936642593-d20866d4-46d1-490e-9bff-8cf7c72587d5.png#align=left&display=inline&height=701&originHeight=701&originWidth=903&size=171790&status=done&width=903)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560936658975-a85eae7a-341d-4c68-8967-a670c23cb622.png#align=left&display=inline&height=378&originHeight=378&originWidth=1146&size=38226&status=done&width=1146)
 创建完毕
 
 ### streamsets 简单使用
 
 打开 streamsets，默认用户名密码 admin/admin
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560945744410-72401676-7384-4312-8859-c7b652c1caca.png#align=left&display=inline&height=516&name=image.png&originHeight=516&originWidth=1374&size=63461&status=done&width=1374)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1560945744410-72401676-7384-4312-8859-c7b652c1caca.png#align=left&display=inline&height=516&originHeight=516&originWidth=1374&size=63461&status=done&width=1374)
 
         ![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561003595012-472339dd-c7c0-49be-9be3-855d9fe21016.png "image.png")
 
@@ -121,21 +121,21 @@ wget -P /opt/cloudera/parcels/STREAMSETS_DATACOLLECTOR/streamsets-libs/streamset
 
 ### 创建 pipeline
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561022971274-512e79c5-11a2-4910-85e2-aabeba28edb2.png#align=left&display=inline&height=483&name=image.png&originHeight=483&originWidth=1245&size=57203&status=done&width=1245)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561022971274-512e79c5-11a2-4910-85e2-aabeba28edb2.png#align=left&display=inline&height=483&originHeight=483&originWidth=1245&size=57203&status=done&width=1245)
 
 ### 配置 mysql binlog 解析及处理
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561023067141-a97a2e75-8272-472e-8d31-812be2123206.png#align=left&display=inline&height=703&name=image.png&originHeight=703&originWidth=831&size=64114&status=done&width=831)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561023232872-f63802b3-7be6-4968-9fb9-2f7c368e7c3b.png#align=left&display=inline&height=649&name=image.png&originHeight=649&originWidth=781&size=44770&status=done&width=781)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561023290961-315616ad-faed-405c-af47-f1bed5816b07.png#align=left&display=inline&height=345&name=image.png&originHeight=345&originWidth=776&size=40429&status=done&width=776)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561023323874-819a18b1-42f9-404b-9eac-17d7b7190b3c.png#align=left&display=inline&height=211&name=image.png&originHeight=211&originWidth=658&size=15146&status=done&width=658)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561023405577-345c7f5d-e682-45ba-b684-450707e4d26d.png#align=left&display=inline&height=482&name=image.png&originHeight=482&originWidth=880&size=57665&status=done&width=880)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561023067141-a97a2e75-8272-472e-8d31-812be2123206.png#align=left&display=inline&height=703&originHeight=703&originWidth=831&size=64114&status=done&width=831)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561023232872-f63802b3-7be6-4968-9fb9-2f7c368e7c3b.png#align=left&display=inline&height=649&originHeight=649&originWidth=781&size=44770&status=done&width=781)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561023290961-315616ad-faed-405c-af47-f1bed5816b07.png#align=left&display=inline&height=345&originHeight=345&originWidth=776&size=40429&status=done&width=776)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561023323874-819a18b1-42f9-404b-9eac-17d7b7190b3c.png#align=left&display=inline&height=211&originHeight=211&originWidth=658&size=15146&status=done&width=658)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561023405577-345c7f5d-e682-45ba-b684-450707e4d26d.png#align=left&display=inline&height=482&originHeight=482&originWidth=880&size=57665&status=done&width=880)
 配置目标端
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561023517902-fcf0a0d8-7360-4ca9-aed4-2b2f88b07ce7.png#align=left&display=inline&height=428&name=image.png&originHeight=428&originWidth=303&size=22581&status=done&width=303)![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561023530221-53bf1e14-b792-40bf-9fcf-234b3c1ca097.png#align=left&display=inline&height=583&name=image.png&originHeight=583&originWidth=773&size=28852&status=done&width=773)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561023517902-fcf0a0d8-7360-4ca9-aed4-2b2f88b07ce7.png#align=left&display=inline&height=428&originHeight=428&originWidth=303&size=22581&status=done&width=303)![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561023530221-53bf1e14-b792-40bf-9fcf-234b3c1ca097.png#align=left&display=inline&height=583&originHeight=583&originWidth=773&size=28852&status=done&width=773)
 
 ### 运行
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561023620269-fd10f7a4-f48d-44d7-a61f-d03a5fc8dead.png#align=left&display=inline&height=458&name=image.png&originHeight=458&originWidth=1808&size=69037&status=done&width=1808)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561023620269-fd10f7a4-f48d-44d7-a61f-d03a5fc8dead.png#align=left&display=inline&height=458&originHeight=458&originWidth=1808&size=69037&status=done&width=1808)
 
 ### 测试
 
@@ -171,7 +171,7 @@ bin/mysqlslap --user=root --password=xxxxxx --concurrency=50 --number-int-cols=5
 同步不一致导致的错误，手动从
 ![](https://cdn.nlark.com/yuque/0/2019/png/226273/1561023290961-315616ad-faed-405c-af47-f1bed5816b07.png#align=left&display=inline&height=332&originHeight=345&originWidth=776&status=done&width=746)
 设置偏移量
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561022441978-aefea073-d2eb-41b6-863c-733229e35252.png#align=left&display=inline&height=709&name=image.png&originHeight=709&originWidth=900&size=124020&status=done&width=900)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561022441978-aefea073-d2eb-41b6-863c-733229e35252.png#align=left&display=inline&height=709&originHeight=709&originWidth=900&size=124020&status=done&width=900)
 
 如果报错 `Pipeline Status: RUNNING_ERROR: For input string: ""xxxx"`   ，把 my.cnf 改成
 

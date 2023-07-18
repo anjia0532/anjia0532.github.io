@@ -22,31 +22,21 @@ categories:
 
 这里指系统的存储设备：硬盘，如：/dev/hda、/dev/sda 等等，是存储系统最低层的存储单元。
 
->
-
 > 物理卷（physicalvolume）
 
 物理卷就是指硬盘分区或从逻辑上与磁盘分区具有同样功能的设备(如 RAID)，是 LVM 的基本存储逻辑块，但和基本的物理存储介质（如分区、磁盘等）比较，却包含有与 LVM 相关的管理参数。
-
->
 
 > 卷组（Volume Group）
 
 LVM 卷组类似于非 LVM 系统中的物理硬盘，其由物理卷组成。可以在卷组上创建一个或多个“LVM 分区”（逻辑卷），LVM 卷组由一个或多个物理卷组成。
 
->
-
 > 逻辑卷（logicalvolume）
 
 LVM 的逻辑卷类似于非 LVM 系统中的硬盘分区，在逻辑卷之上可以建立文件系统(比如/home 或者/usr 等)。
 
->
-
 > PE（physical extent）
 
 每一个物理卷被划分为称为 PE(Physical Extents)的基本单元，具有唯一编号的 PE 是可以被 LVM 寻址的最小单元。PE 的大小是可配置的，默认为 4MB。
-
->
 
 > LE（logical extent）
 

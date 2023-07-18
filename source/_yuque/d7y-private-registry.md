@@ -34,7 +34,7 @@ categories: 运维
 ### 文档之坑
 
 官方文档比较简单,甚至带有误导性，下意识的以为应该在 dfdaemon 节点上配置 auth 信息，并且配的是真实的私有 registry，如果真这么搞了，肯定被坑。（但是也能解释通，比较绕，dfdaemon 本身就是一个伪装成 registry，用来加速私有 registry，那么登陆信息就应该换成 dfdaemon ip，只是示例不太恰当而已，对初学者相当不友好倒是真的）
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1553913213390-3865b763-e270-4d25-8043-d140efc5faeb.png#align=left&display=inline&height=546&name=image.png&originHeight=546&originWidth=922&size=67579&status=done&width=922)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1553913213390-3865b763-e270-4d25-8043-d140efc5faeb.png#align=left&display=inline&height=546&originHeight=546&originWidth=922&size=67579&status=done&width=922)
 
 ## supernode 步骤
 
@@ -198,7 +198,7 @@ cat /etc/docker/daemon.json
 
 非常感谢钉钉群内的 d7y 的 contributor [太云-lowzj](https://github.com/lowzj)  耐心解答，从开始研究 d7y 开始，遇到的很多坑都是在    [太云-lowzj](https://github.com/lowzj)  帮助下蹚过去的。但是还是觉得，如果文档足够友好，肯定会减少群内被打扰的次数，进而节省自己时间的。
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1553916020142-2062e206-a3e6-4df0-bb28-1b20632751a7.png#align=left&display=inline&height=153&name=image.png&originHeight=153&originWidth=436&size=12860&status=done&width=436)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1553916020142-2062e206-a3e6-4df0-bb28-1b20632751a7.png#align=left&display=inline&height=153&originHeight=153&originWidth=436&size=12860&status=done&width=436)
 
 ## 招聘小广告
 

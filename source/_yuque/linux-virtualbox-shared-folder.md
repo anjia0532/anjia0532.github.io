@@ -88,9 +88,9 @@ sudo rmdir /media/VBoxGuestAdditions
 end
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1565955156510-abc85d92-1f70-4e0e-b8c1-f4eabf080a76.png#align=left&display=inline&height=519&name=image.png&originHeight=519&originWidth=850&size=64745&status=done&width=850)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1565955156510-abc85d92-1f70-4e0e-b8c1-f4eabf080a76.png#align=left&display=inline&height=519&originHeight=519&originWidth=850&size=64745&status=done&width=850)
 控制台输出如下所示，即为挂载成功。
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1565955232571-19356d03-5e24-47f2-99a9-d861b94c05a9.png#align=left&display=inline&height=44&name=image.png&originHeight=44&originWidth=875&size=11098&status=done&width=875)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1565955232571-19356d03-5e24-47f2-99a9-d861b94c05a9.png#align=left&display=inline&height=44&originHeight=44&originWidth=875&size=11098&status=done&width=875)
 
 ## 招聘小广告
 

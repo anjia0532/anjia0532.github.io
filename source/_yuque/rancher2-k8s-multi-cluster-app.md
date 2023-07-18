@@ -12,7 +12,7 @@ tags:
 categories: k8s
 ---
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550147773034-220bf087-600f-47dd-9d24-65ac37f79d65.png#align=left&display=inline&height=371&name=image.png&originHeight=371&originWidth=746&size=38965&width=746)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550147773034-220bf087-600f-47dd-9d24-65ac37f79d65.png#align=left&display=inline&height=371&originHeight=371&originWidth=746&size=38965&width=746)
 
 ## 引言
 

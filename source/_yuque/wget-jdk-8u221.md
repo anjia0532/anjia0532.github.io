@@ -1,15 +1,15 @@
 ---
 title: 044-wget免登陆下载jdk 8u291
 urlname: wget-jdk-8u221
-date: '2019-09-18 16:42:06 +0800'
-tags: []
-categories: []
----
-
-date: 2019-09-18 19:35:21
-tags: [linux,java,jdk,jdk8,wget]
-categories: [java]
-
+date: '2019-09-18 19:35:21 +0800'
+tags:
+  - linux
+  - java
+  - jdk
+  - jdk8
+  - wget
+categories:
+  - java
 ---
 
 > 这是坚持技术写作计划（含翻译）的第 44 篇，定个小目标 999，每周最少 2 篇。
@@ -33,11 +33,10 @@ $ mv $old $(echo $old | awk -F"?" '{print $1}')
 
 参考 gist 上大佬 [rathaROG](https://gist.github.com/rathaROG)的办法
 [https://gist.github.com/wavezhang/ba8425f24a968ec9b2a8619d7c2d86a6#gistcomment-3737227](https://gist.github.com/wavezhang/ba8425f24a968ec9b2a8619d7c2d86a6#gistcomment-3737227)
-​
 
 先打开 [https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) 找到需要的二进制文件，
 右键 F12，找到该选项的 data-file 属性，复制出来
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1620957590189-63faa23f-4056-407d-9872-993c61c0c40e.png#clientId=u5f71187a-f466-4&from=paste&height=384&id=u79d20584&margin=%5Bobject%20Object%5D&name=image.png&originHeight=384&originWidth=1416&originalType=binary&size=76196&status=done&style=none&taskId=uec040641-b83b-4d9e-9164-4800d3bf9e9&width=1416)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1620957590189-63faa23f-4056-407d-9872-993c61c0c40e.png#clientId=u5f71187a-f466-4&from=paste&height=384&id=u79d20584&originHeight=384&originWidth=1416&originalType=binary&size=76196&status=done&style=none&taskId=uec040641-b83b-4d9e-9164-4800d3bf9e9&width=1416)
 例如 jdk 8u291 版本
 [https://download.oracle.com/otn/java/jdk/8u291-b10/d7fc238d0cbf4b0dac67be84580cfb4b/jdk-8u291-windows-x64.exe](https://download.oracle.com/otn/java/jdk/8u291-b10/d7fc238d0cbf4b0dac67be84580cfb4b/jdk-8u291-windows-x64.exe)
 从其中提取必要信息，替换成 [https://javadl.oracle.com/webapps/download/GetFile/1.8.0\_[version]-[build_number]/[encrypted_path]/windows-i586/[file_name_exe]](https://javadl.oracle.com/webapps/download/GetFile/1.8.0_[xxx]-b[xx]/[encrypted_path]/windows-i586/[file_name_exe]) 格式
@@ -48,10 +47,7 @@ $ mv $old $(echo $old | awk -F"?" '{print $1}')
 > encrypted_path: d7fc238d0cbf4b0dac67be84580cfb4b
 > file_name_exe: jdk-8u291-windows-x64.exe
 
-​
-
 替换完后差不多是 [https://javadl.oracle.com/webapps/download/GetFile/1.8.0_291-b10/d7fc238d0cbf4b0dac67be84580cfb4b/windows-i586/jdk-8u291-windows-x64.exe](https://javadl.oracle.com/webapps/download/GetFile/1.8.0_291-b10/d7fc238d0cbf4b0dac67be84580cfb4b/windows-i586/jdk-8u291-windows-x64.exe)
-​
 
 ### 下载 jdk8u221
 
@@ -77,8 +73,6 @@ https://javadl.oracle.com/webapps/download/AutoDL?BundleId=239842_230deb18db3e40
 $ wget -O jdk-8u131-linux-x64.tar.gz --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
 ```
 
-​
-
 ### 下载第三方 jdk
 
 自行判断校验码，不保证有效性和安全性
@@ -103,11 +97,11 @@ $ wget -O bellsoft-jdk8u222-linux-amd64.tar.gz "https://download.bell-sw.com/jav
 方法长期有效，但是 AuthParam 有时效性,无法写成脚本，也可以安装 openjdk
 
 1. 注册并登陆 oracle 账号
-1. 打开  [https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-1. ![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1568853475035-279da7c9-a353-4be0-8515-e640e3cdb248.png#height=423&id=W0T6L&name=image.png&originHeight=423&originWidth=703&originalType=binary&size=75666&status=done&style=none&width=703)
-1. ![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1568853516316-68e23846-09d1-47fc-83b5-bd0d8d55ffe5.png#height=227&id=TlZIf&name=image.png&originHeight=227&originWidth=902&originalType=binary&size=32289&status=done&style=none&width=902)
-1. 复制的地址类似  [https://download.oracle.com/otn/java/jdk/8u221-b11/230deb18db3e4014bb8e3e8324f81b43/jdk-8u221-linux-x64.tar.gz?AuthParam=xxxxx_xxxxxxxxxxxxxxxxxx](https://download.oracle.com/otn/java/jdk/8u221-b11/230deb18db3e4014bb8e3e8324f81b43/jdk-8u221-linux-x64.tar.gz?AuthParam=xxxxx_xxxxxxxxxxxxxxxxxx)  其中 AuthParam 参数是有时效性的
-1. ` wget -O ``jdk-8u221-linux-x64.tar.gz`` --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" "``https://download.oracle.com/otn/java/jdk/8u221-b11/230deb18db3e4014bb8e3e8324f81b43/jdk-8u221-linux-x64.tar.gz?AuthParam=xxxxx_xxxxxxxxxxxxxxxxxx" `
+2. 打开  [https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+3. ![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1568853475035-279da7c9-a353-4be0-8515-e640e3cdb248.png#height=423&id=W0T6L&originHeight=423&originWidth=703&originalType=binary&size=75666&status=done&style=none&width=703)
+4. ![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1568853516316-68e23846-09d1-47fc-83b5-bd0d8d55ffe5.png#height=227&id=TlZIf&originHeight=227&originWidth=902&originalType=binary&size=32289&status=done&style=none&width=902)
+5. 复制的地址类似  [https://download.oracle.com/otn/java/jdk/8u221-b11/230deb18db3e4014bb8e3e8324f81b43/jdk-8u221-linux-x64.tar.gz?AuthParam=xxxxx_xxxxxxxxxxxxxxxxxx](https://download.oracle.com/otn/java/jdk/8u221-b11/230deb18db3e4014bb8e3e8324f81b43/jdk-8u221-linux-x64.tar.gz?AuthParam=xxxxx_xxxxxxxxxxxxxxxxxx)  其中 AuthParam 参数是有时效性的
+6. ` wget -O ``jdk-8u221-linux-x64.tar.gz`` --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" "``https://download.oracle.com/otn/java/jdk/8u221-b11/230deb18db3e4014bb8e3e8324f81b43/jdk-8u221-linux-x64.tar.gz?AuthParam=xxxxx_xxxxxxxxxxxxxxxxxx" `
 
 ### 题外话
 

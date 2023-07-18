@@ -18,18 +18,15 @@ categories:
 ## 简单介绍
 
 其实关于 k8s 调度方面的资料很多
-​
 
 比如 k8s 的 [Node Allocatable](https://kubernetes.io/zh/docs/tasks/administer-cluster/reserve-compute-resources/)，对我来说，有点硬了，可能导致短暂的高峰把 pod 给驱逐了
-​
 
 比如大佬 智博老师 提到的 [https://github.com/kubernetes-sigs/descheduler](https://github.com/kubernetes-sigs/descheduler) 和 [https://github.com/kubernetes-sigs/scheduler-plugins/blob/master/pkg/trimaran/README.md](https://github.com/kubernetes-sigs/scheduler-plugins/blob/master/pkg/trimaran/README.md) 管用是管用，但是有点复杂了。
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/226273/1643367626412-2c80474b-7edc-4196-874d-a904745991e7.png#clientId=u20a1d64f-3005-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=614&id=uc084f177&margin=%5Bobject%20Object%5D&name=image.png&originHeight=614&originWidth=1001&originalType=binary∶=1&rotation=0&showTitle=false&size=108337&status=done&style=none&taskId=uad603d68-f773-4101-b3f4-5466c99e2cc&title=&width=1001)
+![image.png](https://cdn.nlark.com/yuque/0/2022/png/226273/1643367626412-2c80474b-7edc-4196-874d-a904745991e7.png#clientId=u20a1d64f-3005-4&from=paste&height=614&id=uc084f177&originHeight=614&originWidth=1001&originalType=binary∶=1&rotation=0&showTitle=false&size=108337&status=done&style=none&taskId=uad603d68-f773-4101-b3f4-5466c99e2cc&title=&width=1001)
 
 ## 可用脚本
 
 花了几分钟，写了个 bash 脚本，脚本放到了[我的 gist](https://gist.github.com/anjia0532/71e5a706ea01b79f98d8b1e27e9459a7) 上，防止过国内没法访问，下面也粘贴一份
-​
 
 ```bash
 #!/usr/bin/env bash
@@ -110,8 +107,6 @@ error: taint "mem:NoSchedule" not found
 error: taint "mem:NoSchedule" not found
 
 ```
-
-​
 
 ## 招聘小广告
 

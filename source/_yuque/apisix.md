@@ -71,31 +71,31 @@ example_web2_1               /docker-entrypoint.sh ngin ...   Up      0.0.0.0:90
 [http://localhost:9000](http://localhost:9000) 是 apisix-dashboard
 
 用户名，密码都是 admin
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615280952922-96c06b75-8e35-4937-b94a-ee764fd831c6.png#align=left&display=inline&height=485&margin=%5Bobject%20Object%5D&name=image.png&originHeight=485&originWidth=621&size=25282&status=done&style=none&width=621)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615280952922-96c06b75-8e35-4937-b94a-ee764fd831c6.png#align=left&display=inline&height=485&originHeight=485&originWidth=621&size=25282&status=done&style=none&width=621)
 
 通过 api 创建路由服务启停插件，可以参考 [官方文档-快速入门指南](https://apisix.apache.org/zh/docs/apisix/getting-started)
 
 ### 小试牛刀
 
 此处简单示范一下，反代 [http://httpbin.org/](http://httpbin.org/)
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615283010407-429f6e13-5408-46e4-8a07-5bcced8bad8d.png#align=left&display=inline&height=961&margin=%5Bobject%20Object%5D&name=image.png&originHeight=961&originWidth=1652&size=153448&status=done&style=none&width=1652)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615283010407-429f6e13-5408-46e4-8a07-5bcced8bad8d.png#align=left&display=inline&height=961&originHeight=961&originWidth=1652&size=153448&status=done&style=none&width=1652)
 
 ### 创建消费者并启用插件
 
 消费者，可以用于提供给下游的的 appid,比如用于限流，鉴权，开 zipkin 等操作，粒度到账号（注意这个账号是在 apisix 层面的，不涉及到后边应用）
 开启 key-auth 插件
 [官方文档-key-auth](https://apisix.apache.org/zh/docs/apisix/plugins/key-auth)
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615286022584-156c65b2-792a-4c5d-a9ee-8746d98bc4e0.png#align=left&display=inline&height=529&margin=%5Bobject%20Object%5D&name=image.png&originHeight=529&originWidth=1473&size=70303&status=done&style=none&width=1473)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615286022584-156c65b2-792a-4c5d-a9ee-8746d98bc4e0.png#align=left&display=inline&height=529&originHeight=529&originWidth=1473&size=70303&status=done&style=none&width=1473)
 开启限流 limit-count
 [官方文档-limit-count](https://apisix.apache.org/zh/docs/apisix/plugins/limit-count)
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615286339189-b83b139e-30d1-44d7-b847-8bf313eb70ab.png#align=left&display=inline&height=891&margin=%5Bobject%20Object%5D&name=image.png&originHeight=891&originWidth=1345&size=89504&status=done&style=none&width=1345)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615286339189-b83b139e-30d1-44d7-b847-8bf313eb70ab.png#align=left&display=inline&height=891&originHeight=891&originWidth=1345&size=89504&status=done&style=none&width=1345)
 修改 httpbin_test 路由，启用 key-auth 插件
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615286554228-a0d0383b-b49f-48a6-a8d6-a04fa865f9a1.png#align=left&display=inline&height=564&margin=%5Bobject%20Object%5D&name=image.png&originHeight=564&originWidth=934&size=38600&status=done&style=none&width=934)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615286554228-a0d0383b-b49f-48a6-a8d6-a04fa865f9a1.png#align=left&display=inline&height=564&originHeight=564&originWidth=934&size=38600&status=done&style=none&width=934)
 访问试一下 key-auth
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615286730648-41eb7ac1-278d-43ac-af0c-a1ed2b512c7d.png#align=left&display=inline&height=807&margin=%5Bobject%20Object%5D&name=image.png&originHeight=807&originWidth=1482&size=83760&status=done&style=none&width=1482)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615286730648-41eb7ac1-278d-43ac-af0c-a1ed2b512c7d.png#align=left&display=inline&height=807&originHeight=807&originWidth=1482&size=83760&status=done&style=none&width=1482)
 
 试一下 limit-count,多刷新几次就会被拦截
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615286774576-259d57bc-1fdc-415c-a831-689f011ecbd0.png#align=left&display=inline&height=659&margin=%5Bobject%20Object%5D&name=image.png&originHeight=659&originWidth=1157&size=41849&status=done&style=none&width=1157)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615286774576-259d57bc-1fdc-415c-a831-689f011ecbd0.png#align=left&display=inline&height=659&originHeight=659&originWidth=1157&size=41849&status=done&style=none&width=1157)
 启用 serverless 插件
 [官方文档-serverless](https://apisix.apache.org/zh/docs/apisix/plugins/serverless)
 
@@ -107,7 +107,7 @@ example_web2_1               /docker-entrypoint.sh ngin ...   Up      0.0.0.0:90
 
 serverless-pre 有两个参数，分别讲解下
 phase: 是执行阶段，枚举值  ["rewrite", "access", "header_filter", "body_filter", "log", "balancer"]，借助 官方流程图会更好理解一点
-![](https://raw.githubusercontent.com/apache/apisix/master/docs/assets/images/flow-plugin-internal.png#align=left&display=inline&height=683&margin=%5Bobject%20Object%5D&originHeight=683&originWidth=481&status=done&style=none&width=481)
+![](https://raw.githubusercontent.com/apache/apisix/master/docs/assets/images/flow-plugin-internal.png#align=left&display=inline&height=683&originHeight=683&originWidth=481&status=done&style=none&width=481)
 functions：是自己写的匿名函数
 
 示例
@@ -121,12 +121,12 @@ functions：是自己写的匿名函数
 }
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615340302173-d7a1f140-eb4e-40b5-b0b7-c14e725ce233.png#align=left&display=inline&height=947&margin=%5Bobject%20Object%5D&name=image.png&originHeight=947&originWidth=1054&size=65961&status=done&style=none&width=1054)
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615340942040-b3e555c1-09f4-4b3c-bd43-f5fc061639d8.png#align=left&display=inline&height=307&margin=%5Bobject%20Object%5D&name=image.png&originHeight=307&originWidth=674&size=15946&status=done&style=none&width=674)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615340302173-d7a1f140-eb4e-40b5-b0b7-c14e725ce233.png#align=left&display=inline&height=947&originHeight=947&originWidth=1054&size=65961&status=done&style=none&width=1054)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615340942040-b3e555c1-09f4-4b3c-bd43-f5fc061639d8.png#align=left&display=inline&height=307&originHeight=307&originWidth=674&size=15946&status=done&style=none&width=674)
 
 ## 批量创建路由/基于 openapi 导入
 
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615341054078-59d81f12-dafe-4274-b3f9-f7dd8e10848c.png#align=left&display=inline&height=539&margin=%5Bobject%20Object%5D&name=image.png&originHeight=539&originWidth=1435&size=76955&status=done&style=none&width=1435)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1615341054078-59d81f12-dafe-4274-b3f9-f7dd8e10848c.png#align=left&display=inline&height=539&originHeight=539&originWidth=1435&size=76955&status=done&style=none&width=1435)
 [官方文档-Import OpenAPI Guide](https://apisix.apache.org/zh/docs/dashboard/IMPORT_OPENAPI_USER_GUIDE)
 
 ## 自定义插件

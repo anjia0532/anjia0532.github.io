@@ -77,15 +77,15 @@ helm install --create-namespace --namespace dragonfly-system dragonfly . -f valu
 ### 注意点
 
 1. dragonfly 的 helm 支持 docker 和 containerd 两种引擎，官方推荐使用 containerd(因为支持 fallback，docker 不支持)，如果是加速多镜像库官方推荐使用 [containerd1.5.x+](https://github.com/dragonflyoss/Dragonfly2/blob/main/docs/zh-CN/runtime-integration/containerd/mirror.md#%E9%80%89%E9%A1%B9-2-%E5%A4%9A%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93),因为 `/etc/containerd/config.toml` 是 version2 版本，支持多个注册中心的加速，否则只支持一个，当然也有办法解决，后边再说。
-1. rke2 是通过 `/etc/rancher/rke2/registries.yaml` 来生成 `/var/lib/rancher/rke2/agent/etc/containerd/config.toml`的，而目前版本的 helm 不支持自定义`/etc/containerd/config.toml`就会导致 daemon 启动失败，提了个 pr 还没过 [https://github.com/dragonflyoss/helm-charts/pull/51](https://github.com/dragonflyoss/helm-charts/pull/51) ，可以先手动修改
-1. 通过 d7y 的 helm 修改的 config.toml 一重启 rke2-server/agent 就会被覆盖，所以，最终要修改 `/etc/rancher/rke2/registries.yaml` ，而这个改动需要重启 rke2-server/agent 才生效，所以注意测试是否对业务有影响，尽量一次改完
-1. 注意污点(taints)对于 d7y daemon 的影响，如果确定要不走 d7y 的，注意别改 `/etc/rancher/rke2/registries.yaml`,虽然 containerd 有 fallback，但是多少影响点时间不是么，如果有污点也有用 d7y 记得在 values 里加上对应的容忍(tolerations)
-1. 注意 d7y 的磁盘规划，以及缓存时间的设置
-1. 可以通过 多次运行 `time sudo /var/lib/rancher/rke2/bin/crictl --config=/var/lib/rancher/rke2/agent/etc/crictl.yaml pull xxx:latest`镜像来评估 d7y 对于镜像的加速作用(如果是在一台执行，记得执行 `sudo /var/lib/rancher/rke2/bin/crictl --config=/var/lib/rancher/rke2/agent/etc/crictl.yaml rmi --prune`来清理无用镜像)
-1. containerd1.4.x 支持多注册中心的办法：1. 等 d7y 官方支持，参见 PR[chore: enable range feature gate in e2e](https://github.com/dragonflyoss/Dragonfly2/pull/1059)，2，等 rancher 官方支持 containerd1.5.9 且你的集群升得动，3，改 hosts 劫持(但是不支持 fallback),4,只加速最常用的一个注册中心,5,将其他不常用的注册中心的镜像 pull&push 到加速的注册中心里（注意别有镜像冲突）6,起两套 daemon 分别监听 65001 65002
-1. d7y 支持预热功能，但是 consoleui 版本的，暂时没测通，api 版本可以，参见文档 [https://github.com/dragonflyoss/Dragonfly2/blob/main/docs/zh-CN/preheat/api.md](https://github.com/dragonflyoss/Dragonfly2/blob/main/docs/zh-CN/preheat/api.md)
-1. [Harbor](https://goharbor.io/docs/main/administration/p2p-preheat/manage-preheat-providers/) p2p 预热支持 d7y
-1. containerd 如果要配置私有镜像库加速，需要配置`127.0.0.1:65001`的 auth，详见 [issues dragonflyoss/Dragonfly2/#1065](https://github.com/dragonflyoss/Dragonfly2/issues/1065#issuecomment-1041049794)
+2. rke2 是通过 `/etc/rancher/rke2/registries.yaml` 来生成 `/var/lib/rancher/rke2/agent/etc/containerd/config.toml`的，而目前版本的 helm 不支持自定义`/etc/containerd/config.toml`就会导致 daemon 启动失败，提了个 pr 还没过 [https://github.com/dragonflyoss/helm-charts/pull/51](https://github.com/dragonflyoss/helm-charts/pull/51) ，可以先手动修改
+3. 通过 d7y 的 helm 修改的 config.toml 一重启 rke2-server/agent 就会被覆盖，所以，最终要修改 `/etc/rancher/rke2/registries.yaml` ，而这个改动需要重启 rke2-server/agent 才生效，所以注意测试是否对业务有影响，尽量一次改完
+4. 注意污点(taints)对于 d7y daemon 的影响，如果确定要不走 d7y 的，注意别改 `/etc/rancher/rke2/registries.yaml`,虽然 containerd 有 fallback，但是多少影响点时间不是么，如果有污点也有用 d7y 记得在 values 里加上对应的容忍(tolerations)
+5. 注意 d7y 的磁盘规划，以及缓存时间的设置
+6. 可以通过 多次运行 `time sudo /var/lib/rancher/rke2/bin/crictl --config=/var/lib/rancher/rke2/agent/etc/crictl.yaml pull xxx:latest`镜像来评估 d7y 对于镜像的加速作用(如果是在一台执行，记得执行 `sudo /var/lib/rancher/rke2/bin/crictl --config=/var/lib/rancher/rke2/agent/etc/crictl.yaml rmi --prune`来清理无用镜像)
+7. containerd1.4.x 支持多注册中心的办法：1. 等 d7y 官方支持，参见 PR[chore: enable range feature gate in e2e](https://github.com/dragonflyoss/Dragonfly2/pull/1059)，2，等 rancher 官方支持 containerd1.5.9 且你的集群升得动，3，改 hosts 劫持(但是不支持 fallback),4,只加速最常用的一个注册中心,5,将其他不常用的注册中心的镜像 pull&push 到加速的注册中心里（注意别有镜像冲突）6,起两套 daemon 分别监听 65001 65002
+8. d7y 支持预热功能，但是 consoleui 版本的，暂时没测通，api 版本可以，参见文档 [https://github.com/dragonflyoss/Dragonfly2/blob/main/docs/zh-CN/preheat/api.md](https://github.com/dragonflyoss/Dragonfly2/blob/main/docs/zh-CN/preheat/api.md)
+9. [Harbor](https://goharbor.io/docs/main/administration/p2p-preheat/manage-preheat-providers/) p2p 预热支持 d7y
+10. containerd 如果要配置私有镜像库加速，需要配置`127.0.0.1:65001`的 auth，详见 [issues dragonflyoss/Dragonfly2/#1065](https://github.com/dragonflyoss/Dragonfly2/issues/1065#issuecomment-1041049794)
 
 ### 附赠：docker hub 转移镜像到阿里私服 bash 脚本
 

@@ -120,10 +120,10 @@ $ sudo chmod -R ugo+rX /var/www/html/cloudera-repos/sqoop-connectors
 1. 两种方法二选一，配置 parcel
    1. Navigation bar - 导航条
       1. 点击 navigation bar 的 parcel 图标或者点击 `Hosts`  然后点击 `Parcels`  标签
-      1. 点击 `Configuration`  按钮
+      2. 点击 `Configuration`  按钮
    2. Menu - 菜单
       1. 选择 `Administration` (管理) -> `Settings` (设置)
-      1. 选择 `Category`  > `Parcels`
+      2. 选择 `Category`  > `Parcels`
 2. 在 `Remote Pacel Respository URLs`  点击添加按钮，并添加。
 3. 填上 parcel 地址，比如   `http://<web_server>/cloudera-parcels/cdh6/6.2.0/`
 4. 填写 `Reason for change`  变更原因,点击 `Save Changes`  提交保存。

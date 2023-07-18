@@ -15,7 +15,7 @@
         "login": "zhaoanjia",
         "repo": "blog",
         "onlyPublished": true,
-        "onlyPublic": true,
+        "onlyPublic": false,
         "lastGeneratePath": "lastGeneratePath.log"
     },
     "scripts": {

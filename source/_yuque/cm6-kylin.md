@@ -130,8 +130,8 @@ Web UI is at http://<hostname>:7070/kylin
 ```
 
 浏览器打开  http://IP:7070/kylin ，用户名密码是 `ADMIN/KYLIN` 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557482549401-ccd81caf-6b9f-4dad-8899-1262307ef09a.png#align=left&display=inline&height=445&name=image.png&originHeight=445&originWidth=822&size=19890&status=done&width=822)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557482608635-8a90d635-862f-4695-b3b7-93c634267a5c.png#align=left&display=inline&height=738&name=image.png&originHeight=738&originWidth=979&size=46329&status=done&width=979)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557482549401-ccd81caf-6b9f-4dad-8899-1262307ef09a.png#align=left&display=inline&height=445&originHeight=445&originWidth=822&size=19890&status=done&width=822)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557482608635-8a90d635-862f-4695-b3b7-93c634267a5c.png#align=left&display=inline&height=738&originHeight=738&originWidth=979&size=46329&status=done&width=979)
 
 ## 使用 kylin(以官方 demo 演示)
 
@@ -162,19 +162,19 @@ Sample cube is created successfully in project 'learn_kylin'.
 
 ### 重新加载元数据
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557483583704-c21d7c5b-00b8-4d77-a50f-dc8fd534fe86.png#align=left&display=inline&height=581&name=image.png&originHeight=581&originWidth=1641&size=124786&status=done&width=1641)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557483583704-c21d7c5b-00b8-4d77-a50f-dc8fd534fe86.png#align=left&display=inline&height=581&originHeight=581&originWidth=1641&size=124786&status=done&width=1641)
 选择 learn_kylin
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557483605102-3911751e-a861-4754-9dca-3b0311657f55.png#align=left&display=inline&height=149&name=image.png&originHeight=149&originWidth=222&size=7898&status=done&width=222)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557483605102-3911751e-a861-4754-9dca-3b0311657f55.png#align=left&display=inline&height=149&originHeight=149&originWidth=222&size=7898&status=done&width=222)
 
 ### 构建 Cube
 
 选择 Model，选择 kylin_sales_model,选择 build
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557483714167-c3f0370c-7a1a-4f46-a532-8123b4d4b9f6.png#align=left&display=inline&height=642&name=image.png&originHeight=642&originWidth=1901&size=80161&status=done&width=1901)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557483714167-c3f0370c-7a1a-4f46-a532-8123b4d4b9f6.png#align=left&display=inline&height=642&originHeight=642&originWidth=1901&size=80161&status=done&width=1901)
 此处选择起止日期。
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557483733469-dae19d83-b08a-4d72-9a05-1de253703e9f.png#align=left&display=inline&height=365&name=image.png&originHeight=365&originWidth=1512&size=26543&status=done&width=1512)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557483733469-dae19d83-b08a-4d72-9a05-1de253703e9f.png#align=left&display=inline&height=365&originHeight=365&originWidth=1512&size=26543&status=done&width=1512)
 如果没关闭 hdfs 权限校验，此处肯定会 build 失败。可以通过右侧 `>`  图标点击查看进度。
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557486437790-8e1c97a3-aebb-4866-857a-8ef3f0848d0c.png#align=left&display=inline&height=427&name=image.png&originHeight=427&originWidth=1871&size=53965&status=done&width=1871)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557486437790-8e1c97a3-aebb-4866-857a-8ef3f0848d0c.png#align=left&display=inline&height=427&originHeight=427&originWidth=1871&size=53965&status=done&width=1871)
 build 成功后，回到 Insight 界面，此时已经成功构建出 5 张表了。
 
 ### 讲解 demo 表
@@ -187,12 +187,12 @@ Kylin 的示例是销售业务分析
 - KYLIN_CAL_DT 维度表，存有时间扩展信息(日期所在年始，月始，周始，年份，月份等)
 - KYLIN_ACCOUNT 维度表，存有账户信息(账户 id，卖家等级，买家等级，国家等)
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557486460421-1d88684e-825c-420d-9fdd-9e9717c28cb6.png#align=left&display=inline&height=576&name=image.png&originHeight=576&originWidth=1102&size=47232&status=done&width=1102)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557486460421-1d88684e-825c-420d-9fdd-9e9717c28cb6.png#align=left&display=inline&height=576&originHeight=576&originWidth=1102&size=47232&status=done&width=1102)
 
 ### 运行查询语句
 
 执行 `select count(1) from kylin_sales`  点击 submit，下方会显示执行结果，以及执行耗时(此处是 1.8 秒)。kylin 会缓存执行结果，再次执行发现变成了 0.18 秒
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557486561989-c58f3430-7336-49dc-9b47-14c68fb8c6d6.png#align=left&display=inline&height=771&name=image.png&originHeight=771&originWidth=1870&size=80062&status=done&width=1870)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557486561989-c58f3430-7336-49dc-9b47-14c68fb8c6d6.png#align=left&display=inline&height=771&originHeight=771&originWidth=1870&size=80062&status=done&width=1870)
 执行稍微复杂的 SQL 语句
 
 ```sql
@@ -205,8 +205,8 @@ group by KYLIN_CATEGORY_GROUPINGS.META_CATEG_NAME,KYLIN_CATEGORY_GROUPINGS.CATEG
 order by KYLIN_CATEGORY_GROUPINGS.META_CATEG_NAME asc,KYLIN_CATEGORY_GROUPINGS.CATEG_LVL2_NAME desc
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1558172952282-191a44d2-d434-4aad-8eff-da8cb6f8fc76.png#align=left&display=inline&height=586&name=image.png&originHeight=586&originWidth=1456&size=63114&status=done&width=1456)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1558172990808-29ba9fd6-dfab-4835-84df-c98c6fa80fb7.png#align=left&display=inline&height=638&name=image.png&originHeight=638&originWidth=1536&size=68562&status=done&width=1536)自带简单的可视化。
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1558172952282-191a44d2-d434-4aad-8eff-da8cb6f8fc76.png#align=left&display=inline&height=586&originHeight=586&originWidth=1456&size=63114&status=done&width=1456)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1558172990808-29ba9fd6-dfab-4835-84df-c98c6fa80fb7.png#align=left&display=inline&height=638&originHeight=638&originWidth=1536&size=68562&status=done&width=1536)自带简单的可视化。
 
 ## 参考资料
 

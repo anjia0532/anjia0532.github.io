@@ -25,18 +25,18 @@ categories:
 ## Dashboard 导出数据
 
 算是官方提供的备份方案，但是只能导出路由，其余的上游(Upstream)，插件，证书等，没有。意味着，如果导入到新集群的话，可能会失败(比如路由里有别的插件，消费者等配置)。
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/226273/1650363466522-265f1c8c-4dd8-44ac-81e1-e5415a8b8b51.png#clientId=u6a56cfc8-1b59-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=854&id=u5642d489&margin=%5Bobject%20Object%5D&name=image.png&originHeight=854&originWidth=816&originalType=binary∶=1&rotation=0&showTitle=false&size=43908&status=done&style=none&taskId=u82b7c03a-48e9-4a50-9a57-722b98d6493&title=&width=816)
+![image.png](https://cdn.nlark.com/yuque/0/2022/png/226273/1650363466522-265f1c8c-4dd8-44ac-81e1-e5415a8b8b51.png#clientId=u6a56cfc8-1b59-4&from=paste&height=854&id=u5642d489&originHeight=854&originWidth=816&originalType=binary∶=1&rotation=0&showTitle=false&size=43908&status=done&style=none&taskId=u82b7c03a-48e9-4a50-9a57-722b98d6493&title=&width=816)
 
 ## 导出 stand-alone yaml
 
 根据官方文档 [Stand-alone mode](https://apisix.apache.org/zh/docs/apisix/stand-alone/) 写了个小工具 [https://github.com/anjia0532/discovery-syncer/](https://github.com/anjia0532/discovery-syncer/#api%E6%8E%A5%E5%8F%A3)。
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/226273/1650363752599-74107140-f56d-4571-933e-684447e82292.png#clientId=u6a56cfc8-1b59-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=80&id=u7c4b3e52&margin=%5Bobject%20Object%5D&name=image.png&originHeight=80&originWidth=872&originalType=binary∶=1&rotation=0&showTitle=false&size=9131&status=done&style=none&taskId=u4c4286d0-6fa1-4f1a-904e-9769a221c3e&title=&width=872)
+![image.png](https://cdn.nlark.com/yuque/0/2022/png/226273/1650363752599-74107140-f56d-4571-933e-684447e82292.png#clientId=u6a56cfc8-1b59-4&from=paste&height=80&id=u7c4b3e52&originHeight=80&originWidth=872&originalType=binary∶=1&rotation=0&showTitle=false&size=9131&status=done&style=none&taskId=u4c4286d0-6fa1-4f1a-904e-9769a221c3e&title=&width=872)
 吐槽下 apisix 的数据结构稍微有点乱，同一个 key，可能是 数组 []，可能是 对象 {}，虽然是历史债务吧，但是还是显得不严谨。参考我之前提的 issues [Some Admin APIs' data structure are not unified #6105](https://github.com/apache/apisix/issues/6105)
 
 目前支持 Admin 暴露的所有资源。
 
 1. 可以作为数据备份用。
-1. 可以结合 Git/SVN 等版本控制工具，用于审计等操作。
+2. 可以结合 Git/SVN 等版本控制工具，用于审计等操作。
 
 同时这个工具也支持同步 nacos/eureka 数据到 apisix 并自动创建 upstream ，以及主持主动上下线 nacos/eureka 服务，可以参考我提的 issues [usercase: golang toolkit-sync eureka/nacos instance info to apisix #5957](https://github.com/apache/apisix/issues/5957)
 

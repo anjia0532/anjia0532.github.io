@@ -17,7 +17,7 @@ Sentry 是一款错误日志采集、聚合框架。有 Saas 版，也可以本�
 
 添加和自行注册 qq 邮箱都报无效邮箱。
 ![](https://cdn.nlark.com/yuque/0/2019/png/226273/1561966878110-16806fe5-58ff-4d1d-8287-933328fd8819.png#align=left&display=inline&height=240&originHeight=456&originWidth=1418&size=0&status=done&width=746)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561967139251-c939294d-9ed6-4301-8c4b-c51719989847.png#align=left&display=inline&height=382&name=image.png&originHeight=382&originWidth=633&size=27110&status=done&width=633)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561967139251-c939294d-9ed6-4301-8c4b-c51719989847.png#align=left&display=inline&height=382&originHeight=382&originWidth=633&size=27110&status=done&width=633)
 
 但是 QQ 邮箱，烂归烂，在国内存量还是挺大的。
 
@@ -26,14 +26,14 @@ Sentry 是一款错误日志采集、聚合框架。有 Saas 版，也可以本�
 ## 排查思路
 
 F12 大法，看到错误信息是从服务端返回的。
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561967659211-59f1fb29-96aa-4625-bead-5d07788aa142.png#align=left&display=inline&height=525&name=image.png&originHeight=525&originWidth=1144&size=76127&status=done&width=1144)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561967659211-59f1fb29-96aa-4625-bead-5d07788aa142.png#align=left&display=inline&height=525&originHeight=525&originWidth=1144&size=76127&status=done&width=1144)
 
 拿到 错误提示 `Enter a valid email address.`  去 github 搜，
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561968321654-bdbf1381-1e9c-43aa-b7f8-0c612ce52933.png#align=left&display=inline&height=806&name=image.png&originHeight=806&originWidth=822&size=89255&status=done&width=822)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561968360680-7a687c4f-93d4-4ea6-97c9-ecad24a46ed8.png#align=left&display=inline&height=159&name=image.png&originHeight=159&originWidth=426&size=16407&status=done&width=426)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561968410999-fdcfeef4-7f04-461e-b3a6-a697a83ae7e2.png#align=left&display=inline&height=109&name=image.png&originHeight=109&originWidth=596&size=8716&status=done&width=596)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561968321654-bdbf1381-1e9c-43aa-b7f8-0c612ce52933.png#align=left&display=inline&height=806&originHeight=806&originWidth=822&size=89255&status=done&width=822)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561968360680-7a687c4f-93d4-4ea6-97c9-ecad24a46ed8.png#align=left&display=inline&height=159&originHeight=159&originWidth=426&size=16407&status=done&width=426)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561968410999-fdcfeef4-7f04-461e-b3a6-a697a83ae7e2.png#align=left&display=inline&height=109&originHeight=109&originWidth=596&size=8716&status=done&width=596)
 拿到 `INVALID_EMAIL_ADDRESS_PATTERN`  再次搜索
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561968483952-2f2b929e-e20a-4cff-999c-8a8f877f1f5a.png#align=left&display=inline&height=514&name=image.png&originHeight=514&originWidth=1080&size=60182&status=done&width=1080)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1561968483952-2f2b929e-e20a-4cff-999c-8a8f877f1f5a.png#align=left&display=inline&height=514&originHeight=514&originWidth=1080&size=60182&status=done&width=1080)
 居然是硬编码到代码里的。发现有两个相关的 issues.
 
 通过  [getsentry/sentry How to custom INVALID_EMAIL_ADDRESS_PATTERN? #13541](https://github.com/getsentry/sentry/issues/13541)  了解到，官方发现，qq.com 是有很多滥用行为，所以直接硬编码拉黑 [捂脸] .

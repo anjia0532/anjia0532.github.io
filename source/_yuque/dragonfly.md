@@ -70,7 +70,7 @@ $ docker run --name dragonfly-supernode --restart=always -d -p 8001:8001 -p 8002
 - -v /data/dragonfly/supernode:/home/admin/supernode 将 supernode 的 data dir 挂载到宿主机上
 - -Dsupernode.advertiseIp=192.168.0.44 设置 clinet 可以访问的 supernode ip,这是一个大坑。如果不设置，有可能会导致 client 无法连接 supernode，届时，docker pull 会走 clinet 的网络，从真实的 registry 直接下载镜像
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1553506862485-080cc522-2d28-47b9-8d6b-3db34db173f3.png#align=left&display=inline&height=624&name=image.png&originHeight=624&originWidth=725&size=90024&status=done&width=725)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1553506862485-080cc522-2d28-47b9-8d6b-3db34db173f3.png#align=left&display=inline&height=624&originHeight=624&originWidth=725&size=90024&status=done&width=725)
 
 ### dfdaemon 
 
@@ -106,7 +106,7 @@ $ docker pull anjia0532/kubeflow-images-public.tensorflow-1.6.0-notebook-gpu:v20
 ```
 
 可以通过 `iftop`  等软件，查看带宽使用情况判断是否生效，也可以通过查看日志来判断。
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1553508378817-cde03b19-e0e2-4d03-a233-b9090cc0db2f.png#align=left&display=inline&height=821&name=image.png&originHeight=821&originWidth=1911&size=46951&status=done&width=1911)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1553508378817-cde03b19-e0e2-4d03-a233-b9090cc0db2f.png#align=left&display=inline&height=821&originHeight=821&originWidth=1911&size=46951&status=done&width=1911)
 但是会经常性的出现 `error pulling image configuration: received unexpected HTTP status: 502 Bad Gateway`
 
 ## 最后

@@ -41,7 +41,7 @@ pip install frida frida-tools
 
 本文假设使用虚拟机，比如 [夜神](https://www.yeshen.com/)
 打开虚拟机，开启`开发者模式`，启用`usb调试`
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1612424480863-e2240f1c-6652-43cc-aa9a-1c832039bcbf.png#align=left&display=inline&height=899&margin=%5Bobject%20Object%5D&name=image.png&originHeight=899&originWidth=988&size=294765&status=done&style=none&width=988)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1612424480863-e2240f1c-6652-43cc-aa9a-1c832039bcbf.png#align=left&display=inline&height=899&originHeight=899&originWidth=988&size=294765&status=done&style=none&width=988)
 打开 cmd，进入夜神安装目录\bin
 
 ```bash
@@ -59,7 +59,7 @@ x86
 ## 安装 frida 手机端
 
 [https://github.com/frida/frida/releases](https://github.com/frida/frida/releases) (国内如果慢，可以用[https://hub.fastgit.org/frida/frida/releases](https://hub.fastgit.org/frida/frida/releases) 加速下载)
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1612424901964-1983f34f-70fb-4166-9c2d-913335e62aca.png#align=left&display=inline&height=57&margin=%5Bobject%20Object%5D&name=image.png&originHeight=57&originWidth=1046&size=8061&status=done&style=none&width=1046)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1612424901964-1983f34f-70fb-4166-9c2d-913335e62aca.png#align=left&display=inline&height=57&originHeight=57&originWidth=1046&size=8061&status=done&style=none&width=1046)
 解压下载下来的 firda-server-${version}-android-x86.xz，并将 frida-server 移动到虚拟机里，有些 app 会监测 frida 的进程，所以将文件随便命名
 
 ```bash
@@ -150,7 +150,7 @@ def connect_device(timeout=15):
 ## 反编译
 
 下载 jad-gui [https://github.com/skylot/jadx/releases](https://github.com/skylot/jadx/releases)
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1612431111573-32a26128-7ab5-40cd-a089-508ddca70057.png#align=left&display=inline&height=747&margin=%5Bobject%20Object%5D&name=image.png&originHeight=747&originWidth=819&size=110038&status=done&style=none&width=819)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1612431111573-32a26128-7ab5-40cd-a089-508ddca70057.png#align=left&display=inline&height=747&originHeight=747&originWidth=819&size=110038&status=done&style=none&width=819)
 
 ## 招聘小广告
 

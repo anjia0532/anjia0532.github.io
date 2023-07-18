@@ -161,7 +161,7 @@ $ acme.sh  --issue  --staging  -d demo.domain --renew-hook "/root/.acme.sh/renew
 $ acme.sh --renew --domain demo.domain
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1621846151113-3d51d00f-c962-4b1c-a0c1-5478ba9d7e38.png#clientId=u1b96d101-bfc0-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=306&id=u32e1ee6b&margin=%5Bobject%20Object%5D&name=image.png&originHeight=306&originWidth=1889&originalType=binary∶=1&rotation=0&showTitle=false&size=33444&status=done&style=none&taskId=uc13b01f7-d5c9-4bfa-9211-8df9a48bd67&title=&width=1889)
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/226273/1621846151113-3d51d00f-c962-4b1c-a0c1-5478ba9d7e38.png#clientId=u1b96d101-bfc0-4&from=paste&height=306&id=u32e1ee6b&originHeight=306&originWidth=1889&originalType=binary∶=1&rotation=0&showTitle=false&size=33444&status=done&style=none&taskId=uc13b01f7-d5c9-4bfa-9211-8df9a48bd67&title=&width=1889)
 
 题外话，如果用 ansible 的话，也可以用我的[ansible galaxy](https://galaxy.ansible.com/anjia0532/acme_sh) ,文档参考 [https://github.com/anjia0532/ansible-acme-sh/blob/master/README.md](https://github.com/anjia0532/ansible-acme-sh/blob/master/README.md)
 

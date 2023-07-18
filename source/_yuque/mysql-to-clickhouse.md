@@ -122,9 +122,9 @@ clean_csv.py 参考我另外一篇  [032-csv 文件容错处理](https://anjia0
 streamsets 支持从 mysql 或者读 csv 全量导入，也支持订阅 binlog 增量插入，参考我另外一篇 [025-大数据 ETL 工具之 StreamSets 安装及订阅 mysql binlog](https://anjia0532.github.io/2019/06/10/cdh-streamsets/)。
 本文只展示从 mysql 全量导入 clickhouse
 本文假设你已经搭建起 streamsets 服务
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563437517163-af02c2db-f03b-4884-8f16-4850918ddc0d.png#align=left&display=inline&height=850&name=image.png&originHeight=850&originWidth=1911&size=97265&status=done&width=1911)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563437517163-af02c2db-f03b-4884-8f16-4850918ddc0d.png#align=left&display=inline&height=850&originHeight=850&originWidth=1911&size=97265&status=done&width=1911)
 启用并重启服务
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563437777046-970dff85-960f-48f3-a3e9-0a10002f34b4.png#align=left&display=inline&height=860&name=image.png&originHeight=860&originWidth=1843&size=89828&status=done&width=1843)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563437777046-970dff85-960f-48f3-a3e9-0a10002f34b4.png#align=left&display=inline&height=860&originHeight=860&originWidth=1843&size=89828&status=done&width=1843)
 上传 mysql 和 clickhouse 的 jdbc jar 和依赖包
 便捷方式，创建 pom.xml，使用 maven 统一下载
 
@@ -156,15 +156,15 @@ streamsets 支持从 mysql 或者读 csv 全量导入，也支持订阅 binlog �
 如果本地装有 maven，执行如下命令
 `mvn dependency:copy-dependencies -DoutputDirectory=lib -DincludeScope=compile` 
 所有需要的 jar 会下载并复制到 lib 目录下
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563438052063-1f073ee5-1c50-4842-8f9e-5f9974867895.png#align=left&display=inline&height=298&name=image.png&originHeight=298&originWidth=391&size=34034&status=done&width=391)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563438052063-1f073ee5-1c50-4842-8f9e-5f9974867895.png#align=left&display=inline&height=298&originHeight=298&originWidth=391&size=34034&status=done&width=391)
 然后拷贝到 streamsets `/opt/streamsets-datacollector-3.9.1/streamsets-libs-extras/streamsets-datacollector-jdbc-lib/lib/`  目录下
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563442430751-7889c386-014a-417e-bc0c-069414f08b89.png#align=left&display=inline&height=740&name=image.png&originHeight=740&originWidth=751&size=59852&status=done&width=751)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563442430751-7889c386-014a-417e-bc0c-069414f08b89.png#align=left&display=inline&height=740&originHeight=740&originWidth=751&size=59852&status=done&width=751)
 重启 streamsets 服务
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563443529858-b23e198f-a097-4359-ad0b-85768a5c68ec.png#align=left&display=inline&height=320&name=image.png&originHeight=320&originWidth=194&size=13854&status=done&width=194)![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563443568159-590b99dc-af61-45d2-8724-b33d08ba7df2.png#align=left&display=inline&height=235&name=image.png&originHeight=235&originWidth=189&size=9943&status=done&width=189)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563444143877-060e4c52-53af-42f3-99e2-38cfc2add983.png#align=left&display=inline&height=726&name=image.png&originHeight=726&originWidth=1253&size=83069&status=done&width=1253)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563444315768-4295a91d-b610-4df8-8796-196358662c68.png#align=left&display=inline&height=776&name=image.png&originHeight=776&originWidth=1378&size=80345&status=done&width=1378)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563444358478-d8bd7c56-c0c0-49a6-903e-1d284d812e5d.png#align=left&display=inline&height=773&name=image.png&originHeight=773&originWidth=1344&size=81650&status=done&width=1344)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563444395375-690becdc-1f48-4cfb-b6bd-13d03554cbc1.png#align=left&display=inline&height=785&name=image.png&originHeight=785&originWidth=1629&size=69971&status=done&width=1629)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563443529858-b23e198f-a097-4359-ad0b-85768a5c68ec.png#align=left&display=inline&height=320&originHeight=320&originWidth=194&size=13854&status=done&width=194)![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563443568159-590b99dc-af61-45d2-8724-b33d08ba7df2.png#align=left&display=inline&height=235&originHeight=235&originWidth=189&size=9943&status=done&width=189)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563444143877-060e4c52-53af-42f3-99e2-38cfc2add983.png#align=left&display=inline&height=726&originHeight=726&originWidth=1253&size=83069&status=done&width=1253)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563444315768-4295a91d-b610-4df8-8796-196358662c68.png#align=left&display=inline&height=776&originHeight=776&originWidth=1378&size=80345&status=done&width=1378)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563444358478-d8bd7c56-c0c0-49a6-903e-1d284d812e5d.png#align=left&display=inline&height=773&originHeight=773&originWidth=1344&size=81650&status=done&width=1344)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563444395375-690becdc-1f48-4cfb-b6bd-13d03554cbc1.png#align=left&display=inline&height=785&originHeight=785&originWidth=1629&size=69971&status=done&width=1629)
 
 ## 参考资料
 

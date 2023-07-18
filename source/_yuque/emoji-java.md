@@ -18,7 +18,7 @@ categories:
 ## 什么是 emoji
 
 emoji 是表情符号/颜文字/绘文字，与表情包堪称现代人社交离不开的两个功能，区别是，表情包一般是用于非正式场合甚至带点恶搞的意思，而 emoji 稍微正式些（比如拍领导马屁专用，赞:👍，拍手:👏）,
-而发给领导![](https://cdn.nlark.com/yuque/0/2021/jpeg/226273/1614756451123-08486131-0e0b-4673-8281-0a994e0f8fc2.jpeg#align=left&display=inline&height=240&margin=%5Bobject%20Object%5D&originHeight=240&originWidth=437&size=0&status=done&style=none&width=437)，则会有失业风险
+而发给领导![](https://cdn.nlark.com/yuque/0/2021/jpeg/226273/1614756451123-08486131-0e0b-4673-8281-0a994e0f8fc2.jpeg#align=left&display=inline&height=240&originHeight=240&originWidth=437&size=0&status=done&style=none&width=437)，则会有失业风险
 
 在一些国际网络交流中，emoji 能够比较方便的增加双方交流，比如不存在的幽灵网站，某推，某书，某 ins，emoji 非常流行
 
@@ -37,7 +37,7 @@ emoji 是表情符号/颜文字/绘文字，与表情包堪称现代人社交离
 ```java
 String alias = EmojiUtil.toAlias("😄");//:smile:
 String emoji = EmojiUtil.toUnicode(":smile:");//😄
-String alias = EmojiUtil.toHtml("😄");//👦
+String alias = EmojiUtil.toHtml("😄");//&#128102;
 ```
 
 此处，hutool 就是基于 [vdurmont/emoji-java](https://github.com/vdurmont/emoji-java) 库来做的

@@ -29,16 +29,16 @@ categories: 运维
 
 注意，adk 的两个都要下载，这俩都是引导包，真正的安装程序会由这俩软件进行下载。其中 WinPE 需要用到 5G 左右的磁盘空间，简直不能忍受。。。
 msdn i tell u 堪称良心站，是 windows 装机神站啊，不过，没有直达页面挺不爽。为了防止下错，特意截图。
-![Snipaste_2019-02-25_22-18-07.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1551104465714-66f42f29-fbcf-476f-b2e7-b1f3a6fb319b.png#align=left&display=inline&height=365&name=Snipaste_2019-02-25_22-18-07.png&originHeight=573&originWidth=1171&size=143092&status=done&width=746)
+![Snipaste_2019-02-25_22-18-07.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1551104465714-66f42f29-fbcf-476f-b2e7-b1f3a6fb319b.png#align=left&display=inline&height=365&originHeight=573&originWidth=1171&size=143092&status=done&width=746)
 
 ## 安装 ADK 和 WinPE
 
 我已经装过，且忘记截图了，这是事后补图，只需要勾选必须的就行
-![Snipaste_2019-02-25_22-32-48.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1551105181245-e9b47d7d-e1b3-48f8-918e-42cdff955406.png#align=left&display=inline&height=548&name=Snipaste_2019-02-25_22-32-48.png&originHeight=548&originWidth=746&size=36472&status=done&width=746)![Snipaste_2019-02-25_22-32-20.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1551105181277-4477f2fc-1cfe-414c-9178-c30ae74e725c.png#align=left&display=inline&height=548&name=Snipaste_2019-02-25_22-32-20.png&originHeight=548&originWidth=746&size=52141&status=done&width=746)
+![Snipaste_2019-02-25_22-32-48.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1551105181245-e9b47d7d-e1b3-48f8-918e-42cdff955406.png#align=left&display=inline&height=548&originHeight=548&originWidth=746&size=36472&status=done&width=746)![Snipaste_2019-02-25_22-32-20.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1551105181277-4477f2fc-1cfe-414c-9178-c30ae74e725c.png#align=left&display=inline&height=548&originHeight=548&originWidth=746&size=52141&status=done&width=746)
 
 安装完后，以管理员身份打开部署和映像工具环境
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1551105055491-d302cb36-bb44-4359-8fb5-c7342e9854fa.png#align=left&display=inline&height=425&name=image.png&originHeight=425&originWidth=613&size=193121&status=done&width=613)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1551105055491-d302cb36-bb44-4359-8fb5-c7342e9854fa.png#align=left&display=inline&height=425&originHeight=425&originWidth=613&size=193121&status=done&width=613)
 
 定制 Win 10 PE
 
@@ -55,11 +55,11 @@ MakeWinPEMedia /ISO C:\winpe C:\winpe\winpe_win10_amd64.iso
 ```
 
 1. 本地生成 winpe 文件目录
-1. dism 挂载 winpe 的启动文件到 winpe 的 mount 目录
-1. 将启动命令硬编码写死到 winpe 的 startnet.cmd 文件里
-1. 无人值守安装
-1. 卸载 winpe 的挂载（一定要执行，否则直接强制删除文件夹会出一些稀奇古怪的问题）
-1. 制作 win10 镜像，名为 winpe_win10_amd64.iso
+2. dism 挂载 winpe 的启动文件到 winpe 的 mount 目录
+3. 将启动命令硬编码写死到 winpe 的 startnet.cmd 文件里
+4. 无人值守安装
+5. 卸载 winpe 的挂载（一定要执行，否则直接强制删除文件夹会出一些稀奇古怪的问题）
+6. 制作 win10 镜像，名为 winpe_win10_amd64.iso
 
 第三步的硬编码是无奈之举，因为要想挂载共享文件夹，必须要知道 smb 主机，但是这个参数又很难传递进来。
 如果是 U 盘启动，可以写死 U 盘路径，大不了插上 U 盘后，手动改卷标(当然因为 U 盘挂载顺序不一致，可以通过 for 循环 A-Z 盘，挨个盘访问某个文件名，如果存在，即认为此盘是自己 U 盘，设置环境变量)。而网上说的，startnet.cmd 调用另外一个 bat，多是基于这个原理。
@@ -517,10 +517,10 @@ writable=yes
 ### 自动化安装 Windows10
 
 从 vmware 创建一台内存 4G，cpu2 核，磁盘 60G 的空盘，win10 虚拟机，然后开机。记得选 BIOS，别选 UEFI。
-![Snipaste_2019-02-26_00-05-00.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1551110723753-c7785e92-60be-4a90-a606-96bc92306aaa.png#align=left&display=inline&height=400&name=Snipaste_2019-02-26_00-05-00.png&originHeight=400&originWidth=720&size=5025&status=done&width=720)
+![Snipaste_2019-02-26_00-05-00.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1551110723753-c7785e92-60be-4a90-a606-96bc92306aaa.png#align=left&display=inline&height=400&originHeight=400&originWidth=720&size=5025&status=done&width=720)
 
-![Snipaste_2019-02-25_23-44-27.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1551110627345-af185562-5a0f-4b4c-98ef-68974880a6a3.png#align=left&display=inline&height=560&name=Snipaste_2019-02-25_23-44-27.png&originHeight=768&originWidth=1024&size=19684&status=done&width=746)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1551112320786-fc312bb1-ce6c-4771-864f-e8900a1aed58.png#align=left&display=inline&height=768&name=image.png&originHeight=768&originWidth=1024&size=233953&status=done&width=1024)
+![Snipaste_2019-02-25_23-44-27.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1551110627345-af185562-5a0f-4b4c-98ef-68974880a6a3.png#align=left&display=inline&height=560&originHeight=768&originWidth=1024&size=19684&status=done&width=746)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1551112320786-fc312bb1-ce6c-4771-864f-e8900a1aed58.png#align=left&display=inline&height=768&originHeight=768&originWidth=1024&size=233953&status=done&width=1024)
 
 至于如何激活，参考   [vlmcsd 搭建 KMS 服务器，成功激活 Server 2019 数据中心版本，全网应是我首发](http://bbs.pcbeta.com/viewthread-1796113-1-1.html)
 

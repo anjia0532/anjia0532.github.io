@@ -19,7 +19,7 @@ categories: 运维
 > 引用自 [chrome 68 发布说明](https://support.google.com/chrome/a/answer/7679408)
 
 得益于 Google 等大厂的消灭 HTTP 运动和[Let's Encrypt](https://letsencrypt.org)  非盈利组织的努力，越来越多的站点开始迁移到 HTTPS，下图是[Let's Encrypt 的统计数据](https://letsencrypt.org/stats/)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550317966768-d4587466-a6d0-4868-b9ca-4e65bc45b101.png#align=left&display=inline&height=450&name=image.png&originHeight=450&originWidth=940&size=41971&width=940)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550317966768-d4587466-a6d0-4868-b9ca-4e65bc45b101.png#align=left&display=inline&height=450&originHeight=450&originWidth=940&size=41971&width=940)
 
 <!-- more -->
 
@@ -64,7 +64,7 @@ acme.sh 功能很强大，此处只介绍使用 Dns Api 自动化颁发通配符
 
 假设您的域名在 DNSPod 托管，登陆 DNSPod 后台，依次打开 用户中心->安全设置-> API Token->查看->创建 API Token-> 输入任意 token 名称->确定-> 保存 ID 和 Token 值（图中打码部分）
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550463481824-01a645a7-5a95-4320-80ab-753ff7664bff.png#align=left&display=inline&height=558&name=image.png&originHeight=558&originWidth=1241&size=59891&width=1241)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550463481824-01a645a7-5a95-4320-80ab-753ff7664bff.png#align=left&display=inline&height=558&originHeight=558&originWidth=1241&size=59891&width=1241)
 
 ```bash
 $ export DP_Id="你的ID"

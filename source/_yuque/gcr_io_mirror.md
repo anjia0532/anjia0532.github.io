@@ -15,17 +15,14 @@ categories:
 > 这是坚持技术写作计划（含翻译）的第 67 篇，定个小目标 999，每周最少 2 篇。
 
 17 年在 github 上搞了个项目，用来同步 gcr.io 的镜像 ,详见 [https://anjia0532.github.io/2017/11/15/gcr-io-image-mirror/](https://anjia0532.github.io/2017/11/15/gcr-io-image-mirror/) ,后来因为被 travis 检测到流量异常，认为滥用结果 travis 账号被禁。
-​
 
 被禁后，考虑到当时中科大和`*.azk8s.cn` 都提供了加速业务，gcr.io_mirror 已经完成了历史使命，所以一边申请解封 travis 账号，一边将原项目归档，不再提供同步 gcr.io 的任务。
-​
 
 前两天接到小伙伴私信，说是中科大和`*.azk8s.cn` 都不再提供服务了，所以就花了点时间，重新搞了下 gcr.io_mirror
 
 <!-- more -->
 
 之前老版本是根据命名空间全量同步，但是实际上在用的过程中，大多是不会有 N 年前的老版本的，所以转换下思路，改成按需拉取，基于这个思路配合 github action 搞了一版新的。
-​
 
 ## 镜像对应关系
 

@@ -30,15 +30,15 @@ apache 官网已经停止提供 odbc 驱动了，只能从 csdn 等下载别人�
 
 需要填写邮箱进行下载
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557487637088-183279e0-8761-48b5-81d2-8fd69bce8e36.png#align=left&display=inline&height=381&name=image.png&originHeight=381&originWidth=500&size=30999&status=done&width=500)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557487684886-c42c67f8-5dee-4af2-a47d-2bdce29db157.png#align=left&display=inline&height=381&name=image.png&originHeight=381&originWidth=500&size=47222&status=done&width=500)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557487637088-183279e0-8761-48b5-81d2-8fd69bce8e36.png#align=left&display=inline&height=381&originHeight=381&originWidth=500&size=30999&status=done&width=500)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557487684886-c42c67f8-5dee-4af2-a47d-2bdce29db157.png#align=left&display=inline&height=381&originHeight=381&originWidth=500&size=47222&status=done&width=500)
 
 ### 配置 odbc 数据源
 
 Win+R-> Control -> 管理工具 -> ODBC 数据源(64 位)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557487993106-7a08b90d-f53d-40f0-a3c9-8fdbff8611c8.png#align=left&display=inline&height=635&name=image.png&originHeight=635&originWidth=694&size=79547&status=done&width=694)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488108032-bddd3f2f-fbfc-4e1d-a803-5c3f7a56f8f4.png#align=left&display=inline&height=425&name=image.png&originHeight=425&originWidth=400&size=17622&status=done&width=400)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488114771-0324f0b0-c3a7-46fa-beea-170dff5e4b2d.png#align=left&display=inline&height=537&name=image.png&originHeight=537&originWidth=691&size=37086&status=done&width=691)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557487993106-7a08b90d-f53d-40f0-a3c9-8fdbff8611c8.png#align=left&display=inline&height=635&originHeight=635&originWidth=694&size=79547&status=done&width=694)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488108032-bddd3f2f-fbfc-4e1d-a803-5c3f7a56f8f4.png#align=left&display=inline&height=425&originHeight=425&originWidth=400&size=17622&status=done&width=400)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488114771-0324f0b0-c3a7-46fa-beea-170dff5e4b2d.png#align=left&display=inline&height=537&originHeight=537&originWidth=691&size=37086&status=done&width=691)
 
 ### 下载 powerQuery
 
@@ -46,26 +46,26 @@ Excel 2016 及以后版本，自带 PowerQuery
 ![](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488219530-ad5c7194-e6ea-4601-b243-fe8cc45a99ab.png#align=left&display=inline&height=169&originHeight=169&originWidth=368&status=done&width=368)
 
 之前版本需要自行下载 PowerQuery [https://www.microsoft.com/zh-CN/download/details.aspx?id=39379](https://www.microsoft.com/zh-CN/download/details.aspx?id=39379)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488170637-adb0b9c1-ee8f-4be4-a9b3-ad31bda9b8db.png#align=left&display=inline&height=530&name=image.png&originHeight=530&originWidth=841&size=43855&status=done&width=841)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488185981-9b81bcfa-3ddc-4695-9b3f-7d899748c779.png#align=left&display=inline&height=584&name=image.png&originHeight=584&originWidth=1268&size=44789&status=done&width=1268)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488170637-adb0b9c1-ee8f-4be4-a9b3-ad31bda9b8db.png#align=left&display=inline&height=530&originHeight=530&originWidth=841&size=43855&status=done&width=841)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488185981-9b81bcfa-3ddc-4695-9b3f-7d899748c779.png#align=left&display=inline&height=584&originHeight=584&originWidth=1268&size=44789&status=done&width=1268)
 
 ## Excel 连接 Kylin
 
 ### Excel 配置 Kylin ODBC 数据源
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488301678-c1039340-d621-4384-a12e-a0b2ba8fab3f.png#align=left&display=inline&height=804&name=image.png&originHeight=804&originWidth=531&size=81563&status=done&width=531)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488301678-c1039340-d621-4384-a12e-a0b2ba8fab3f.png#align=left&display=inline&height=804&originHeight=804&originWidth=531&size=81563&status=done&width=531)
 
 选择刚刚配置的 KylinDSN
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488319201-dbb80bdd-e95e-4d10-8bd0-5d13ffd14837.png#align=left&display=inline&height=215&name=image.png&originHeight=215&originWidth=698&size=13399&status=done&width=698)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488319201-dbb80bdd-e95e-4d10-8bd0-5d13ffd14837.png#align=left&display=inline&height=215&originHeight=215&originWidth=698&size=13399&status=done&width=698)
 填入用户名密码
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488426650-7fd3f229-c5d3-4daa-a495-787e6c946a08.png#align=left&display=inline&height=323&name=image.png&originHeight=323&originWidth=698&size=23403&status=done&width=698)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488426650-7fd3f229-c5d3-4daa-a495-787e6c946a08.png#align=left&display=inline&height=323&originHeight=323&originWidth=698&size=23403&status=done&width=698)
 
 可以选择表进行预览
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488441858-b8aabe15-7ac5-43c9-a7d1-154fbe70eafb.png#align=left&display=inline&height=698&name=image.png&originHeight=698&originWidth=878&size=76847&status=done&width=878)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488441858-b8aabe15-7ac5-43c9-a7d1-154fbe70eafb.png#align=left&display=inline&height=698&originHeight=698&originWidth=878&size=76847&status=done&width=878)
 点击加载按钮进行加载
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488523780-b064229f-f003-4e0f-b125-08c8779b9eef.png#align=left&display=inline&height=640&name=image.png&originHeight=640&originWidth=1889&size=150632&status=done&width=1889)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1557488523780-b064229f-f003-4e0f-b125-08c8779b9eef.png#align=left&display=inline&height=640&originHeight=640&originWidth=1889&size=150632&status=done&width=1889)
 
 ## PowerBI 连接 Kylin
 
@@ -73,11 +73,11 @@ Excel 2016 及以后版本，自带 PowerQuery
 
 下载地址  [https://www.microsoft.com/zh-CN/download/details.aspx?id=45331](https://www.microsoft.com/zh-CN/download/details.aspx?id=45331)
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1558174065280-896bf454-a7cf-4ef0-af43-3053909c9b2e.png#align=left&display=inline&height=578&name=image.png&originHeight=578&originWidth=1098&size=82713&status=done&width=1098)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1558174108812-155f3b80-e2ad-4e9d-90b6-07ebe2a55c43.png#align=left&display=inline&height=663&name=image.png&originHeight=663&originWidth=610&size=47135&status=done&width=610)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1558174120855-4ec58da8-296b-446d-a2aa-45845dd377d9.png#align=left&display=inline&height=221&name=image.png&originHeight=221&originWidth=700&size=11194&status=done&width=700)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1558174179132-030a7763-fc1a-48fa-bb1a-8de1b5ff060e.png#align=left&display=inline&height=699&name=image.png&originHeight=699&originWidth=879&size=53708&status=done&width=879)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1558175521076-b79af7e2-3efb-48b5-9768-36d6d38102ca.png#align=left&display=inline&height=729&name=image.png&originHeight=729&originWidth=1850&size=101592&status=done&width=1850)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1558174065280-896bf454-a7cf-4ef0-af43-3053909c9b2e.png#align=left&display=inline&height=578&originHeight=578&originWidth=1098&size=82713&status=done&width=1098)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1558174108812-155f3b80-e2ad-4e9d-90b6-07ebe2a55c43.png#align=left&display=inline&height=663&originHeight=663&originWidth=610&size=47135&status=done&width=610)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1558174120855-4ec58da8-296b-446d-a2aa-45845dd377d9.png#align=left&display=inline&height=221&originHeight=221&originWidth=700&size=11194&status=done&width=700)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1558174179132-030a7763-fc1a-48fa-bb1a-8de1b5ff060e.png#align=left&display=inline&height=699&originHeight=699&originWidth=879&size=53708&status=done&width=879)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1558175521076-b79af7e2-3efb-48b5-9768-36d6d38102ca.png#align=left&display=inline&height=729&originHeight=729&originWidth=1850&size=101592&status=done&width=1850)
 
 ## 参考资料
 

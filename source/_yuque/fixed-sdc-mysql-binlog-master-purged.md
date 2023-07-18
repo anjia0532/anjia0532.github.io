@@ -64,17 +64,17 @@ Caused by: com.github.shyiko.mysql.binlog.network.ServerException: The slave is 
 ```
 
 尝试了手动设置偏移量无果。(参考资料  [MySQL Binary Log#Initial Offset](https://streamsets.com/documentation/datacollector/3.9.x/help/datacollector/UserGuide/Origins/MySQLBinaryLog.html#ariaid-title5) ）
-通过查看运行日志，![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563761388749-2ef53ec1-40d5-479b-852e-7dfb7261cd67.png#align=left&display=inline&height=101&name=image.png&originHeight=101&originWidth=304&size=5193&status=done&width=304) 
+通过查看运行日志，![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563761388749-2ef53ec1-40d5-479b-852e-7dfb7261cd67.png#align=left&display=inline&height=101&originHeight=101&originWidth=304&size=5193&status=done&width=304) 
 发现后台还有在运行之前的 offset，突然想起在官方文档.
 
 > **Note:** If you change the GTID mode on the database server after you have run a pipeline with the MySQL Binary Log origin, you must reset the origin and change the format of the initial offset value. Otherwise, the origin cannot correctly read the offset.
 > When the pipeline stops, the MySQL Binary Log origin notes the offset where it stops reading. When the pipeline starts again, the origin continues processing from the last saved offset. You can reset the origin to process all requested objects.
 
 以及
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563761746217-5afefc26-937d-44b7-b4c1-ba114e64a154.png#align=left&display=inline&height=139&name=image.png&originHeight=139&originWidth=397&size=14704&status=done&width=397)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563761793852-caf1a2f7-1c81-4b3c-b046-19d2d1dda76e.png#align=left&display=inline&height=240&name=image.png&originHeight=240&originWidth=387&size=24451&status=done&width=387)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563761746217-5afefc26-937d-44b7-b4c1-ba114e64a154.png#align=left&display=inline&height=139&originHeight=139&originWidth=397&size=14704&status=done&width=397)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563761793852-caf1a2f7-1c81-4b3c-b046-19d2d1dda76e.png#align=left&display=inline&height=240&originHeight=240&originWidth=387&size=24451&status=done&width=387)
 解决办法就简单了，直接在启动时，Reset Origin 即可。会从 server 的当前 binlog 进行订阅。
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563761663744-640cf864-f48f-4ffa-9a7a-811ce396caa3.png#align=left&display=inline&height=152&name=image.png&originHeight=152&originWidth=349&size=11373&status=done&width=349)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1563761663744-640cf864-f48f-4ffa-9a7a-811ce396caa3.png#align=left&display=inline&height=152&originHeight=152&originWidth=349&size=11373&status=done&width=349)
 
 **总结:** 
 多看官方文档，仔细看，另外，尽量别用翻译工具，否则类似该案例中的 origin 会被翻译成原点，起源等，会无法联想到 sdc 的一些概念用词。

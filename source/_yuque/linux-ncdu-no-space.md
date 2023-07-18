@@ -112,7 +112,7 @@ $ ./configure --prefix=/usr
 $ make && make install
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550123205304-ae5bfcbc-8c91-4f91-ab15-843953ed6701.png#align=left&display=inline&height=397&name=image.png&originHeight=397&originWidth=779&size=37521&width=779)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1550123205304-ae5bfcbc-8c91-4f91-ab15-843953ed6701.png#align=left&display=inline&height=397&originHeight=397&originWidth=779&size=37521&width=779)
 
 参考官方文档 [Ncdu Manual](https://dev.yorhel.nl/ncdu/man)
 

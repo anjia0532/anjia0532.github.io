@@ -171,12 +171,12 @@ pip3 install -r /vagrant/requirements/requirements.txt
 
 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd>打开设置
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564102215460-c6a602ed-86e6-49fc-b2b1-d43689243daa.png#align=left&display=inline&height=706&name=image.png&originHeight=706&originWidth=1009&size=70204&status=done&width=1009)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564102389714-c0a5c982-1597-4007-8719-c4f316457bf8.png#align=left&display=inline&height=678&name=image.png&originHeight=678&originWidth=841&size=65908&status=done&width=841)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564102215460-c6a602ed-86e6-49fc-b2b1-d43689243daa.png#align=left&display=inline&height=706&originHeight=706&originWidth=1009&size=70204&status=done&width=1009)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564102389714-c0a5c982-1597-4007-8719-c4f316457bf8.png#align=left&display=inline&height=678&originHeight=678&originWidth=841&size=65908&status=done&width=841)
 如果正常，会显示已经安装的 pip 包，如果是空，或者只有两个，那意味着 python 的 env 设置的不对。
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564102637247-a8c69ed0-d6a2-4d00-ad3b-feebe98a0589.png#align=left&display=inline&height=674&name=image.png&originHeight=674&originWidth=1007&size=68920&status=done&width=1007)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564102989073-8062df66-c4cc-45dd-b574-db6e6a39cb6d.png#align=left&display=inline&height=739&name=image.png&originHeight=739&originWidth=1068&size=108292&status=done&width=1068)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564110989520-3f8ac63d-5b58-46b7-89bc-d24f6352785c.png#align=left&display=inline&height=706&name=image.png&originHeight=706&originWidth=1009&size=63412&status=done&width=1009)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564102637247-a8c69ed0-d6a2-4d00-ad3b-feebe98a0589.png#align=left&display=inline&height=674&originHeight=674&originWidth=1007&size=68920&status=done&width=1007)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564102989073-8062df66-c4cc-45dd-b574-db6e6a39cb6d.png#align=left&display=inline&height=739&originHeight=739&originWidth=1068&size=108292&status=done&width=1068)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564110989520-3f8ac63d-5b58-46b7-89bc-d24f6352785c.png#align=left&display=inline&height=706&originHeight=706&originWidth=1009&size=63412&status=done&width=1009)
 
 [使用 PyCharm 专业版和 vagrant 进行同步开发](https://blog.csdn.net/weixin_42393089/article/details/83211456)
 
@@ -194,12 +194,12 @@ cd /vagrant/
 
 ### 启动项目
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564103536157-efbb24a4-c29d-45b4-991f-b314544ed548.png#align=left&display=inline&height=79&name=image.png&originHeight=79&originWidth=353&size=5532&status=done&width=353)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564103574288-28ffdb6f-25f2-4a67-b8ba-936cca59ccf3.png#align=left&display=inline&height=273&name=image.png&originHeight=273&originWidth=407&size=25404&status=done&width=407)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564103536157-efbb24a4-c29d-45b4-991f-b314544ed548.png#align=left&display=inline&height=79&originHeight=79&originWidth=353&size=5532&status=done&width=353)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564103574288-28ffdb6f-25f2-4a67-b8ba-936cca59ccf3.png#align=left&display=inline&height=273&originHeight=273&originWidth=407&size=25404&status=done&width=407)
 浏览器打开  [http://172.17.8.101:8080/auth/login/?next=/](http://172.17.8.101:8080/auth/login/?next=/)
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564103612991-53990854-279f-41c9-8250-6647b7889279.png#align=left&display=inline&height=368&name=image.png&originHeight=368&originWidth=889&size=55638&status=done&width=889)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564103694901-b41968af-0830-4fc3-beab-4a2393a76279.png#align=left&display=inline&height=240&name=image.png&originHeight=240&originWidth=596&size=56566&status=done&width=596)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564103612991-53990854-279f-41c9-8250-6647b7889279.png#align=left&display=inline&height=368&originHeight=368&originWidth=889&size=55638&status=done&width=889)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1564103694901-b41968af-0830-4fc3-beab-4a2393a76279.png#align=left&display=inline&height=240&originHeight=240&originWidth=596&size=56566&status=done&width=596)
 
 ## 其他
 

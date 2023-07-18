@@ -26,24 +26,24 @@ categories:
 
 - tidb 集群最低配置要求
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566446890363-012769a1-301d-4504-b265-426b5aa564c3.png#align=left&display=inline&height=456&name=image.png&originHeight=456&originWidth=980&size=49012&status=done&width=980)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566446890363-012769a1-301d-4504-b265-426b5aa564c3.png#align=left&display=inline&height=456&originHeight=456&originWidth=980&size=49012&status=done&width=980)
 
 - dm 实例配置
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566446936450-c3a1f644-7f96-4d3f-acff-4e7bb705fa51.png#align=left&display=inline&height=225&name=image.png&originHeight=225&originWidth=376&size=12816&status=done&width=376)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566446936450-c3a1f644-7f96-4d3f-acff-4e7bb705fa51.png#align=left&display=inline&height=225&originHeight=225&originWidth=376&size=12816&status=done&width=376)
 
 - tidb-lighting 配置要求(超过 200G 以上的迁移，建议用 tidb-lighting)
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566446971353-736f2b20-bbfe-47ef-9c7f-d2077c3efb4c.png#align=left&display=inline&height=664&name=image.png&originHeight=664&originWidth=1035&size=88797&status=done&width=1035)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566446971353-736f2b20-bbfe-47ef-9c7f-d2077c3efb4c.png#align=left&display=inline&height=664&originHeight=664&originWidth=1035&size=88797&status=done&width=1035)
 
 - tidb binlog 的配置
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566447000079-99ece3b7-2ce8-4e50-a373-05d90a3551e2.png#align=left&display=inline&height=283&name=image.png&originHeight=283&originWidth=1226&size=48745&status=done&width=1226)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566447000079-99ece3b7-2ce8-4e50-a373-05d90a3551e2.png#align=left&display=inline&height=283&originHeight=283&originWidth=1226&size=48745&status=done&width=1226)
 
 所以，几乎每一个用 tidb 的人，第一件事，都是，如何修改 ansible 的参数，绕过检测 [手动滑稽]，人嘛，都是，一边吐槽 XX 周边工具太少，又会吐槽 XX 太多，学不动，像是初恋的少女，等远方的男友，怕他乱来，又怕他不来，哈哈
 
 对比一下友商的
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566457220555-8735c5a8-62a8-46c3-95c6-22e611cd623d.png#align=left&display=inline&height=434&name=image.png&originHeight=434&originWidth=837&size=72883&status=done&width=837)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566457220555-8735c5a8-62a8-46c3-95c6-22e611cd623d.png#align=left&display=inline&height=434&originHeight=434&originWidth=837&size=72883&status=done&width=837)
 
 其实 tidb 的官方文档，写的还挺详细的，就是不太像是给入门的人看的 [手动捂脸]，本文主要是结合我在使用 DM 过程中，写一下遇到的问题，以及群内大牛的解答
 
@@ -54,7 +54,7 @@ categories:
 DM  简化了单独使用 mysqldumper，loader，syncer 的工作量，从易用性，健壮性和可观测等方面来看，建议使用 DM。
 
 注意一下[官方文档](https://pingcap.com/docs-cn/v3.0/reference/tools/data-migration/overview/)写的限制条件。
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566447862468-9a9f37ab-cd91-4560-9532-81bc0c250c6b.png#align=left&display=inline&height=814&name=image.png&originHeight=814&originWidth=1011&size=106197&status=done&width=1011)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566447862468-9a9f37ab-cd91-4560-9532-81bc0c250c6b.png#align=left&display=inline&height=814&originHeight=814&originWidth=1011&size=106197&status=done&width=1011)
 
 ## 部署 DM
 
@@ -78,7 +78,7 @@ username = tidb
 执行  `ansible-playbook -i hosts.ini create_users.yml -u root -k`  时，如果是使用  ssh key 的话，可以
 `ansible-playbook -i hosts.ini create_users.yml -u root -k --private-key /path/to/your/keyfile`
 
-第 7 步配置 worker 时，需要注意，如果要增量或者全量，并且上游服务的 binlog 被删过，并且是 gtid 格式的，需要执行  `show VARIABLES like 'gtid_purged'`  如果有值，则需要指定   `relay_binlog_gtid`  ,否则会报 `close sync with err: ERROR 1236 (HY000): The slave is connecting using CHANGE MASTER TO MASTER_AUTO_POSITION = 1, but the master has purged binary logs containing GTIDs that the slave requires.`  此时停掉 worker 后，修改 `relay_binlog_gtid`  重启无效，是需要修改 meta 文件的 `/tidb/deploy/dm_worker_/relay_log/f5df-11e7-a1dd.000001/relay.meta`  感谢   军军![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566451401212-2b73ea3f-809f-40b4-b572-798152bb4dec.png#align=left&display=inline&height=807&name=image.png&originHeight=807&originWidth=520&size=82610&status=done&width=520)
+第 7 步配置 worker 时，需要注意，如果要增量或者全量，并且上游服务的 binlog 被删过，并且是 gtid 格式的，需要执行  `show VARIABLES like 'gtid_purged'`  如果有值，则需要指定   `relay_binlog_gtid`  ,否则会报 `close sync with err: ERROR 1236 (HY000): The slave is connecting using CHANGE MASTER TO MASTER_AUTO_POSITION = 1, but the master has purged binary logs containing GTIDs that the slave requires.`  此时停掉 worker 后，修改 `relay_binlog_gtid`  重启无效，是需要修改 meta 文件的 `/tidb/deploy/dm_worker_/relay_log/f5df-11e7-a1dd.000001/relay.meta`  感谢   军军![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566451401212-2b73ea3f-809f-40b4-b572-798152bb4dec.png#align=left&display=inline&height=807&originHeight=807&originWidth=520&size=82610&status=done&width=520)
 另外需要配置   `enable_gtid=true` 
 如果不是 gtid 格式的，则需要修改这个  `relay_binlog_name` （在 mysql 执行 `show BINARY logs` ）
 `mysql_password`  需要使用 `dmctl -encrypt 你的密码`  如果找不到 dmctl，确保执行了 `ansible-playbook local_prepare.yml`  后在 `/path/to/dm-ansible/resources/bin/dmctl`
@@ -106,7 +106,7 @@ dm_worker2_2 ansible_host=172.16.10.73 server_id=104 deploy_dir=/data2/dm_worker
 ### 如何看文档
 
 配置 dm-worker 的 tasks，三段文档结合着看
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566452687610-157bf15c-8438-4e56-a2e0-a5e503b9f5e6.png#align=left&display=inline&height=183&name=image.png&originHeight=183&originWidth=193&size=5688&status=done&width=193)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566452687610-157bf15c-8438-4e56-a2e0-a5e503b9f5e6.png#align=left&display=inline&height=183&originHeight=183&originWidth=193&size=5688&status=done&width=193)
 一般场景，使用  [Data Migration 简单使用场景](https://pingcap.com/docs-cn/v3.0/reference/tools/data-migration/usage-scenarios/simple-synchronization/)  即可满足。
 
 ### 库重命名
@@ -158,8 +158,8 @@ filters:
 
 使用 DM Portal 生成配置文件，但是 Portal 生成的是不支持 gtid 的，详见    军军   的解释，详细使用，参见  [DM Portal 简介](https://pingcap.com/docs-cn/v3.0/reference/tools/data-migration/dm-portal/)
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566451855483-cd157a57-8a54-430f-a416-3fb610ee930e.png#align=left&display=inline&height=691&name=image.png&originHeight=691&originWidth=1243&size=105929&status=done&width=1243)
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566451876609-53fd8a8a-bd6e-4ebc-8597-66dd754fbe75.png#align=left&display=inline&height=766&name=image.png&originHeight=766&originWidth=506&size=76630&status=done&width=506)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566451855483-cd157a57-8a54-430f-a416-3fb610ee930e.png#align=left&display=inline&height=691&originHeight=691&originWidth=1243&size=105929&status=done&width=1243)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566451876609-53fd8a8a-bd6e-4ebc-8597-66dd754fbe75.png#align=left&display=inline&height=766&originHeight=766&originWidth=506&size=76630&status=done&width=506)
 
 ## 启动 DM
 
@@ -179,26 +179,26 @@ filters:
 
 1. check 通过，start 时报错，或者 start 也正常，query 时报错，这种错，有跟没有区别不大，只能 ssh 到 worker 节点，看日志 `/path/to/deploy/log/`
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566454565615-d005ec59-0f1d-4bc8-99e3-8c9dc7696c2a.png#align=left&display=inline&height=374&name=image.png&originHeight=374&originWidth=988&size=23249&status=done&width=988)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566454565615-d005ec59-0f1d-4bc8-99e3-8c9dc7696c2a.png#align=left&display=inline&height=374&originHeight=374&originWidth=988&size=23249&status=done&width=988)
 
 2. `Couldn't acquire LOCK BINLOG FOR BACKUP, snapshots will not be consistent:Access denied; you need (at least one of) the SUPER privilege(s) for this operation`
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566454666623-50b2ef14-1093-4c93-b02d-3785ed9bca54.png#align=left&display=inline&height=145&name=image.png&originHeight=145&originWidth=1530&size=40218&status=done&width=1530)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566454666623-50b2ef14-1093-4c93-b02d-3785ed9bca54.png#align=left&display=inline&height=145&originHeight=145&originWidth=1530&size=40218&status=done&width=1530)
 如果没有 reload 权限，会报错，但是不会终止操作，可以忽略
 注意，如果是阿里云的 rds 的话，默认是把 reload 权限给去掉的。
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566454840223-ba2f3f4b-8943-4c1c-a421-ff14cc7d6716.png#align=left&display=inline&height=440&name=image.png&originHeight=440&originWidth=915&size=52226&status=done&width=915)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566454840223-ba2f3f4b-8943-4c1c-a421-ff14cc7d6716.png#align=left&display=inline&height=440&originHeight=440&originWidth=915&size=52226&status=done&width=915)
 
 3. sql-mode  不一致引起的问题，mysql 默认的 sql-mode 是空字符串,参考  [SQL 模式](https://pingcap.com/docs-cn/v3.0/reference/sql/sql-mode) ，排查方式 `SELECT @@sql_mode` ,如果是 tidb 是新库，可以 `set global sql_mode='';`  如果要改 mysql 的话，需要写到 `my.ini`  里，防止重启失效。
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566455511112-5409abd2-560a-4d8c-8a44-56d47fea9faa.png#align=left&display=inline&height=755&name=image.png&originHeight=755&originWidth=516&size=77674&status=done&width=516)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566455511112-5409abd2-560a-4d8c-8a44-56d47fea9faa.png#align=left&display=inline&height=755&originHeight=755&originWidth=516&size=77674&status=done&width=516)
 
 4. all 模式同步数据，如果 task 状态已经是 sync，此时这个 task 白名单新增库或者表会导致报错，表不存在，然后 task 被 pause。要么使用 full-task+incremental-task 两个文件，每次白名单新增时，先更新 full-task，再更新 incremental-task，要么直接新启一个 task，用于 full 更新白名单库，然后改 all 的 task，重启即可。
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566455585953-ef546b3c-d3b2-4fde-aade-27e6a4dcab6c.png#align=left&display=inline&height=550&name=image.png&originHeight=550&originWidth=535&size=60166&status=done&width=535)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566455585953-ef546b3c-d3b2-4fde-aade-27e6a4dcab6c.png#align=left&display=inline&height=550&originHeight=550&originWidth=535&size=60166&status=done&width=535)
 
 5. 处于 dump 的任务，一旦 pause 了，再次 resume，会删除已 dump 的数据文件，重新拉取
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566455624234-f4832af6-0363-4df5-b204-2beab0e9f3f9.png#align=left&display=inline&height=855&name=image.png&originHeight=855&originWidth=528&size=103391&status=done&width=528)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1566455624234-f4832af6-0363-4df5-b204-2beab0e9f3f9.png#align=left&display=inline&height=855&originHeight=855&originWidth=528&size=103391&status=done&width=528)
 
 ## 招聘小广告
 

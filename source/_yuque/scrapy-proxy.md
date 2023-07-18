@@ -22,7 +22,7 @@ categories: 爬虫
 
 其中部分数据截图
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1554210833561-38730012-a2d6-4d00-aed7-5576b112e7c5.png#align=left&display=inline&height=740&name=image.png&originHeight=740&originWidth=1868&size=451298&status=done&width=1868)
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/226273/1554210833561-38730012-a2d6-4d00-aed7-5576b112e7c5.png#align=left&display=inline&height=740&originHeight=740&originWidth=1868&size=451298&status=done&width=1868)
 
 本文只介绍 Scrapy 的 ip 代理中间件，不多讲如何爬取租房网站数据以及数据分析，后边可能会写。
 
