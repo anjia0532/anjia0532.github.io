@@ -39,9 +39,6 @@ jobs:
           npm run sync
           cp source/_yuque/* source/_posts/
           npm run deploy
-
-      - name: Continuous Integration
-        run: npm run ci
         env:
           YUQUE_TOKEN: ${{secrets.YUQUE_TOKEN}}
 

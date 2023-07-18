@@ -57,7 +57,7 @@ metadata:
 spec:
   # 官方镜像少 jar ,我自己打的镜像，只用于演示本文，实际生产请自行构建镜像
   # Flink CDC 目前只支持 flink 1.14.* ,暂不支持 1.15.*
-  image: flink:1.14.5-scala_2.12-java8-5
+  image: anjia0532/flink:1.14.5-scala_2.12-java8-5
   # Flink 版本改成 1.14.*
   flinkVersion: v1_14
   flinkConfiguration:
@@ -83,7 +83,7 @@ kubectl -n flink apply -f flink-session-only.yaml
 ```
 
 会自动创建 Flink Session Deployment（部署） 和 对应的 Service (服务发现 )
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/226273/1659495131146-0275be85-3b41-40ec-b558-ca51ed4cf7a9.png#clientId=uac603524-b4d3-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=476&id=u8f07ab33&margin=%5Bobject%20Object%5D&name=image.png&originHeight=476&originWidth=1674&originalType=binary∶=1&rotation=0&showTitle=false&size=64468&status=done&style=none&taskId=u0d814ac9-9744-4802-99a8-5ff9d5294e0&title=&width=1674)
+![image.png](https://cdn.nlark.com/yuque/0/2022/png/226273/1659495131146-0275be85-3b41-40ec-b558-ca51ed4cf7a9.png#clientId=uac603524-b4d3-4&from=paste&height=476&id=u8f07ab33&originHeight=476&originWidth=1674&originalType=binary∶=1&rotation=0&showTitle=false&size=64468&status=done&style=none&taskId=u0d814ac9-9744-4802-99a8-5ff9d5294e0&title=&width=1674)
 
 参考 [flink-kubernetes-operator examples](https://github.com/apache/flink-kubernetes-operator/tree/main/examples)
 [
@@ -251,9 +251,9 @@ EXECUTE CDCSOURCE cdc_mysql1 WITH (
 ```
 
 打开 Dlink Web 添加 K8S Session 集群，添加 作业，复制 CDCSource SQL 保存，并执行、或者异步提交。
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/226273/1659497355190-ae8dd3c5-a68b-4edd-a86e-e0671acfb27a.png#clientId=uac603524-b4d3-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=885&id=u998e7d68&margin=%5Bobject%20Object%5D&name=image.png&originHeight=885&originWidth=1896&originalType=binary∶=1&rotation=0&showTitle=false&size=155309&status=done&style=none&taskId=uac191e3e-166c-47f5-8bb2-239f6096365&title=&width=1896)
+![image.png](https://cdn.nlark.com/yuque/0/2022/png/226273/1659497355190-ae8dd3c5-a68b-4edd-a86e-e0671acfb27a.png#clientId=uac603524-b4d3-4&from=paste&height=885&id=u998e7d68&originHeight=885&originWidth=1896&originalType=binary∶=1&rotation=0&showTitle=false&size=155309&status=done&style=none&taskId=uac191e3e-166c-47f5-8bb2-239f6096365&title=&width=1896)
 打开 Flink UI 看看执行情况。
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/226273/1659498243983-5d07126a-471d-4d6e-8f50-fdba428f82d5.png#clientId=uac603524-b4d3-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=750&id=u71881d28&margin=%5Bobject%20Object%5D&name=image.png&originHeight=750&originWidth=1565&originalType=binary∶=1&rotation=0&showTitle=false&size=102377&status=done&style=none&taskId=u65703133-9d57-4c4c-8867-32e51080649&title=&width=1565)
+![image.png](https://cdn.nlark.com/yuque/0/2022/png/226273/1659498243983-5d07126a-471d-4d6e-8f50-fdba428f82d5.png#clientId=uac603524-b4d3-4&from=paste&height=750&id=u71881d28&originHeight=750&originWidth=1565&originalType=binary∶=1&rotation=0&showTitle=false&size=102377&status=done&style=none&taskId=u65703133-9d57-4c4c-8867-32e51080649&title=&width=1565)
 
 ## 附录
 
