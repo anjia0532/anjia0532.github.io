@@ -93,5 +93,5 @@ if (sentinelEnabled) {
 
 ## 参考资料
 
-- 我的博客
-- 我的掘金
+- [我的博客](https://anjia0532.github.io/2023/07/18/hutool-sentinel-seata/)
+- [我的掘金](https://juejin.cn/post/7257119213890699323)
