@@ -1,7 +1,7 @@
 ---
 title: '082-天文摄影软件(PPIP,AS3,RS6)汉化教程'
 urlname: localization
-date: '2023-08-01 19:35:21 +0800'
+date: '2023-08-04 19:35:21 +0800'
 tags:
   - 汉化
 categories:
