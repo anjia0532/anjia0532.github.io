@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/03/07/sentinel-timestamp/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/07/07/sentry-and-matomo-install/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/07/01/sentry-qq-mail/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/08/22/tidb-dm-sync-data/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/08/01/tidb-tikv-bad-regions/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2021/04/27/ubuntu-lvm/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/08/16/ubuntu-preseed-base-installer-kernel/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2021/11/01/unidbg-boot-server/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2021/01/14/vagrant-hang-when-use-ununtu-focal64/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/07/29/vagrant-startup-run-rsync/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/05/20/vmware-vsphere-6-7/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2020/06/19/vsphere-7-custom-network-adapter/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/09/25/vue-wedding-invitation-wechat-applet/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2021/01/24/wechat-mini-program-capture/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/09/18/wget-jdk-8u221/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/08/26/win-10-virtualbox-verr-nem-vm-create/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/09/22/win-packetbeat-silent-pcap/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2021/03/10/apisix/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2022/08/18/build-helm-charts/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/04/25/cdh-6-2-x/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/04/28/cdh-local-parcel-repo/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/06/10/cdh-streamsets/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/07/16/clean-csv/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/03/10/cloudboot-ros/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/04/29/cm6-cluster/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/05/03/cm6-kylin/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/02/22/cobbler-win10-win-server-2019/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/02/22/cobbler/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2021/04/09/codegen-by-openapi/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2021/09/09/convert-pdf-to-png/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2022/05/13/curator-es-8-x/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2022/02/14/d7-jib/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/03/30/d7y-private-registry/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/01/21/debug-cloud-native/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2021/12/30/discovery-syncer/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2022/08/02/dlink-flink-flink-cdc-on-k8s/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/03/25/dragonfly/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2021/03/03/emoji-java/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2022/03/01/es-flattend/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/02/19/es-forbidden-12/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/06/12/failed-to-install-oozie-share-lib/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2021/01/12/ffmpeg-note/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/07/22/fixed-sdc-mysql-binlog-master-purged/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2021/02/04/frida-android-decompile/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2021/12/30/gcr_io_mirror/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/09/22/google-jib-alpine-tini/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/02/08/google-jib/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/06/10/hdfs-datanode-start-failed/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2023/07/18/hutool-sentinel-seata/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/01/29/ifttt-github-release/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/04/18/java-decompiler/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2022/04/17/jetbrains-starting-failed-address-already-in-use/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/07/24/jumpserver-vagrant-virtualbox/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2022/08/19/k8s-nocalhost/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2022/01/28/k8s-node-flexible-memory-scheduling/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/06/12/kettle-speed-on/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/11/15/kong-plugin-sync-eureka/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/11/17/kong-vs-sc-gateway-vs-zuul/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/05/04/kylin-excel/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/02/18/lets-encrypt-acme-sh/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/02/14/linux-ncdu-no-space/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/08/16/linux-virtualbox-shared-folder/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2023/08/04/localization/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2022/08/29/lua-debug/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2021/01/18/micro-elegant-shutdown/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/07/17/mysql-to-clickhouse/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/03/14/openresty-maxminddb/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/08/27/permission-denied-accessing-vbox/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2021/01/19/python-gaode-arcgis-poi/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2021/01/13/python-web-font/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/02/15/rancher2-k8s-multi-cluster-app/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2010/08/01/rbfk67/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/07/08/redash/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/05/10/redis-batch-changed-ttl/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2021/05/24/renew-hook-update-apisix/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2022/09/27/rke2-containerd-config-v2/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2023/01/09/rke2-renew-certs/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2021/08/05/scrapy-capitalizes-request-headers/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/04/02/scrapy-proxy/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/07/22/sdc-jdbc-full-mode/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2021/04/07/seafile-client-curl/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/03/05/sentinel-restful/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/02/14/ansible-2-7-windows/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.474Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/04/13/ansible-beats/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.474Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2022/04/19/apisix-data-backup/</loc>
+    
+    <lastmod>2023-08-09T06:38:51.474Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/08/16/openresty-redis-common-utils/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.577Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/07/19/openresty/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.577Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/04/05/owncloud/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.577Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/11/13/rancher-k8s-china/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.577Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/11/10/rancher-k8s/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.577Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/12/26/rancher-wechat-18-01-10/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.577Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2018/01/05/rke/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.577Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/07/03/windows-install-tensorflow-keras/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.577Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/11/21/xrebel-introducing-microservices-profiling/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.577Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2018/09/14/xshell5/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.577Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/09/10/zsh-home-end-keypad-not-work/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.577Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/09/12/stap/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.577Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/02/28/springmvc-log4j-to-logback/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.577Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/02/08/share-mouse-and-keyboard-with-your-windows-linux-machines-md/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.577Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/08/23/alpine-mirror-server/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/07/02/anaconda-install-and-configurating-jupyter/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2018/04/28/ansible/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2019/08/01/blog-template/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/09/01/docker-dns/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/02/16/elastalert-wechat-plugin/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/04/06/elasticsearch-delete-indices-by-date/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/02/14/elasticsearch-elastalert/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/03/02/elk-stack-beats/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2018/07/30/es-oss-hot-warm-backup/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/11/15/gcr-io-image-mirror/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2018/10/11/git-maven-howto/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/11/07/gitlab-upgrade/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/03/03/heartbeat/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/02/03/hexo-github-pages-blog/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2018/09/26/hystrixcommand-dynamic-key/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2018/09/26/hystrixcommand_dynamic_key/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/05/17/jdk-zip/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/06/21/nginx-logging-request-body-as-hexidecimal/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/06/29/nginx-regex-test-way/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://anjia0532.github.io/2017/07/16/opencv-on-jupyter/</loc>
+    
+    <lastmod>2023-08-09T06:38:22.573Z</lastmod>
+    
+  </url>
+  
+</urlset>
